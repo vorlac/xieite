@@ -1,10 +1,12 @@
+module;
+
+#include <string>
+
 export module xieite:system.Result;
 
-import std;
-
 export namespace xieite::system {
-	struct Result {
-		std::string output;
-		int status = 0;
-	};
+    struct Result {
+        std::string output;
+        int status = 0;
+    };
 }

@@ -1,8 +1,10 @@
+module;
+
+#include <type_traits>
+
 export module xieite:concepts.CopyAssignable;
 
-import std;
-
 export namespace xieite::concepts {
-	template<typename Type>
-	concept CopyAssignable = std::is_copy_assignable_v<Type>;
+    template <typename Type>
+    concept CopyAssignable = std::is_copy_assignable_v<Type>;
 }
