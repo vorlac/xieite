@@ -16,9 +16,6 @@ file(GLOB_RECURSE xieite_sources
 
 add_library(xieite)
 
-#set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD "0e5b6991-d74f-4b3d-a41c-cf096e0b2508")
-set(CMAKE_CXX_MODULE_STD ON)
-
 target_compile_features(xieite
   PRIVATE
     cxx_std_23
@@ -44,17 +41,12 @@ target_compile_options(xieite
         /c
         /std:c++latest
         /utf-8
-
-        #"/reference std=src/std.ifc"
-        #/headerUnit
-        #/ifcMap
     >
 
     $<${compiler_is_clang}:
         -march=native
         -fmodules
-        -fbuiltin-module-map
-        #--precompile
+        #-fbuiltin-module-map
 
         -Wno-deprecated-declarations
     >
@@ -68,9 +60,7 @@ target_compile_options(xieite
 target_link_options(xieite
   INTERFACE
     $<${compiler_is_clang}:
-        #-stdlib=libc++
-        #-static-libgcc
-        #-static-libc++
+        -stdlib=libc++
     >
 
     $<${compiler_is_gnu}:
