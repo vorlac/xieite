@@ -261,9 +261,9 @@ include/xieite/pp/check.hpp,pp,check.hpp,Documented,Probe detection utility,at,M
 include/xieite/pp/cm.hpp,pp,cm.hpp,Documented,Comma manipulation utility,None,Low,Verified,Advanced comma handling in macro expansions
 include/xieite/pp/comma.hpp,pp,comma.hpp,Documented,Comma token generator,None,Low,Verified,Simple utility to generate comma tokens in macro expansions
 include/xieite/pp/compiler.hpp,pp,compiler.hpp,Completed,Compiler detection and version extraction (100+ compilers),None,High,Verified,Detects compiler type and version
-include/xieite/pp/compl.hpp,pp,compl.hpp,Documented,Boolean complement macro,cat,Low,Verified,Bit flip operation using lookup table (0→1, 1→0)
+include/xieite/pp/compl.hpp,pp,compl.hpp,Documented,Boolean complement macro,cat,Low,Verified,Bit flip operation using lookup table (0→1 | 1→0) 
 include/xieite/pp/count.hpp,pp,count.hpp,Documented,Variadic argument counter,None,High,Verified,Count up to 256 arguments using argument shifting with __VA_OPT__ support
-include/xieite/pp/debug.hpp,pp,debug.hpp,Documented,Debug mode detection,None,Low,Verified,Multi-framework debug detection (DEBUG, NDEBUG, _DEBUG, QT_DEBUG)
+include/xieite/pp/debug.hpp,pp,debug.hpp,Documented,Debug mode detection,None,Low,Verified,Multi-framework debug detection (DEBUG|NDEBUG|_DEBUG)
 include/xieite/pp/defer.hpp,pp,defer.hpp,Documented,Deferred expansion utility,None,Medium,Verified,Delay macro expansion for complex metaprogramming patterns
 include/xieite/pp/del.hpp,pp,del.hpp,Documented,Deletion/consume utility,None,Low,Verified,Consume and discard macro arguments
 include/xieite/pp/diagnostic.hpp,pp,diagnostic.hpp,Documented,Compiler diagnostic control,None,High,Verified,Cross-compiler diagnostic push/pop/disable system
@@ -272,7 +272,7 @@ include/xieite/pp/eat.hpp,pp,eat.hpp,Documented,Argument consumption utility,Non
 include/xieite/pp/encoding.hpp,pp,encoding.hpp,Documented,Text encoding detection,None,Medium,Verified,Detect and handle character encoding at compile time
 include/xieite/pp/endian.hpp,pp,endian.hpp,Completed,Endianness detection,None,Low,Verified,"Little, Big, PDP endian detection"
 include/xieite/pp/eval.hpp,pp,eval.hpp,Documented,,,,,
-include/xieite/pp/feat.hpp,pp,feat.hpp,Documented,Feature detection system,compiler;diagnostic,Very High,Verified,Comprehensive compiler/platform feature detection (trigraphs, int types, floats)
+include/xieite/pp/feat.hpp,pp,feat.hpp,Documented,Feature detection system,compiler;diagnostic,Very High,Verified,Comprehensive compiler/platform feature detection (trigraphs|int types|floats)
 include/xieite/pp/fn.hpp,pp,fn.hpp,Documented,Function name utility,None,Low,Verified,Extract or manipulate function names in macros
 include/xieite/pp/for.hpp,pp,for.hpp,Documented,Advanced loop construct,diagnostic,Very High,Verified,Sophisticated macro-based loop with break detection and diagnostic control
 include/xieite/pp/from.hpp,pp,from.hpp,Documented,Source extraction utility,None,Medium,Verified,Extract elements from macro argument lists
@@ -282,7 +282,7 @@ include/xieite/pp/has_declspec.hpp,pp,has_declspec.hpp,Documented,Declspec avail
 include/xieite/pp/has_incl.hpp,pp,has_incl.hpp,Documented,Include availability check,lang,Medium,Verified,Cross-standard __has_include detection (C++17/C23 compatible)
 include/xieite/pp/if.hpp,pp,if.hpp,Documented,,,,,
 include/xieite/pp/is_cxpr.hpp,pp,is_cxpr.hpp,Documented,Constexpr detection utility,None,Medium,Verified,Detect if expression can be evaluated in constexpr context
-include/xieite/pp/keywords.hpp,pp,keywords.hpp,Documented,Extended operator keywords,arrow;fwd,Very High,Verified,Comprehensive logical/bitwise operator extensions (nand, nor, xnor, imply, etc)
+include/xieite/pp/keywords.hpp,pp,keywords.hpp,Documented,Extended operator keywords,arrow;fwd,Very High,Verified,Comprehensive logical/bitwise operator extensions (nand|nor|xnor|imply|etc)
 include/xieite/pp/lang.hpp,pp,lang.hpp,Documented,Language version detection,None,Very High,Verified,Multi-language version detection (C/C++/CUDA/GLSL/HLSL/Metal/Obj-C/PSSL)
 include/xieite/pp/lift.hpp,pp,lift.hpp,Documented,Function lifting utility,None,Medium,Verified,Lift functions into higher-order contexts
 include/xieite/pp/no_unix.hpp,pp,no_unix.hpp,Documented,Unix exclusion guard,None,Low,Verified,Exclude code compilation on Unix-like systems
@@ -297,7 +297,7 @@ include/xieite/pp/out.hpp,pp,out.hpp,Documented,Output parameter utility,None,Me
 include/xieite/pp/paren.hpp,pp,paren.hpp,Documented,,,,,
 include/xieite/pp/platform.hpp,pp,platform.hpp,Completed,Comprehensive platform detection (200+ platforms),None,High,Verified,Detects platform type and version
 include/xieite/pp/pragma.hpp,pp,pragma.hpp,Documented,Pragma directive utility,None,Medium,Verified,Cross-compiler pragma directive generation
-include/xieite/pp/probe.hpp,pp,probe.hpp,Documented,Probe pattern utility,None,Low,Verified,Create probe pattern '_x, 1,' for detection-based boolean logic
+include/xieite/pp/probe.hpp,pp,probe.hpp,Documented,Probe pattern utility,None,Low,Verified,Create probe pattern '_x 1` for detection-based boolean logic
 include/xieite/pp/repeat.hpp,pp,repeat.hpp,Documented,Repetition utility,None,High,Verified,Repeat macro expansions specified number of times
 include/xieite/pp/restrict.hpp,pp,restrict.hpp,Documented,Restrict keyword utility,None,Low,Verified,Cross-compiler restrict keyword support
 include/xieite/pp/ret_struct.hpp,pp,ret_struct.hpp,Documented,Return structure utility,None,Medium,Verified,Generate return structures for multiple values
@@ -370,33 +370,33 @@ include/xieite/trait/as_not_v.hpp,trait,as_not_v.hpp,Documented,Remove volatile 
 include/xieite/trait/as_v.hpp,trait,as_v.hpp,Documented,Cast to volatile using const_cast,add_v.hpp,Low,Verified,Functional volatile casting utility
 include/xieite/trait/collapse_ref.hpp,trait,collapse_ref.hpp,Documented,Reference collapsing utility for perfect forwarding,"cp_cvlref.hpp, add_rref.hpp",Medium,Verified,Perfect forwarding reference collapse
 include/xieite/trait/cp_c.hpp,trait,cp_c.hpp,Documented,Copy const qualifier from source type to target,"set_c.hpp, is_c.hpp",Low,Verified,Conditional const qualification
-include/xieite/trait/cp_c_referent.hpp,trait,cp_c_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_c_referent.hpp,trait,cp_c_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*|set_*|std::conditional_t patterns),Medium,Verified,Documented in modification.md - Advanced Copy Operations section
 include/xieite/trait/cp_clref.hpp,trait,cp_clref.hpp,Documented,Copy const + lvalue reference from source to target,"cp_c.hpp, cp_lref.hpp",Low,Verified,Composite copy operation
-include/xieite/trait/cp_cp_assign.hpp,trait,cp_cp_assign.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
-include/xieite/trait/cp_cp_ctor.hpp,trait,cp_cp_ctor.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_cp_assign.hpp,trait,cp_cp_assign.hpp,Completed,Copy type properties from source to target type,Uses is_*|set_*|std::conditional_t patterns),Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_cp_ctor.hpp,trait,cp_cp_ctor.hpp,Completed,Copy type properties from source to target type,Uses is_*|set_*|std::conditional_t patterns),Medium,Verified,Documented in modification.md - Advanced Copy Operations section
 include/xieite/trait/cp_cref.hpp,trait,cp_cref.hpp,Documented,Copy const + generic reference from source to target,"cp_c.hpp, cp_ref.hpp",Medium,Verified,Generic reference copy with const
-include/xieite/trait/cp_crref.hpp,trait,cp_crref.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_crref.hpp,trait,cp_crref.hpp,Completed,Copy type properties from source to target type,Uses is_*|set_*|std::conditional_t patterns),Medium,Verified,Documented in modification.md - Advanced Copy Operations section
 include/xieite/trait/cp_cv.hpp,trait,cp_cv.hpp,Documented,Copy const and volatile qualifiers from source to target,"cp_c.hpp, cp_v.hpp",Low,Verified,Composite CV qualifier copying
 include/xieite/trait/cp_cvlref.hpp,trait,cp_cvlref.hpp,Documented,Copy const volatile + lvalue reference from source to target,"cp_cv.hpp, cp_lref.hpp",Low,Verified,Composite copy operation
 include/xieite/trait/cp_cvref.hpp,trait,cp_cvref.hpp,Documented,Copy const volatile + generic reference from source to target,"cp_cv.hpp, cp_ref.hpp",Medium,Verified,Generic reference copy with CV
 include/xieite/trait/cp_cvrref.hpp,trait,cp_cvrref.hpp,Documented,Copy const volatile + rvalue reference from source to target,"cp_cv.hpp, cp_rref.hpp",Low,Verified,Composite copy operation
-include/xieite/trait/cp_default_ctor.hpp,trait,cp_default_ctor.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_default_ctor.hpp,trait,cp_default_ctor.hpp,Completed,Copy type properties from source to target type,Uses is_*|set_*|std::conditional_t patterns),Medium,Verified,Documented in modification.md - Advanced Copy Operations section
 include/xieite/trait/cp_lref.hpp,trait,cp_lref.hpp,Documented,Copy lvalue reference qualifier from source to target,"is_lref.hpp, set_lref.hpp",Low,Verified,Conditional lvalue reference qualification
-include/xieite/trait/cp_lref_referent.hpp,trait,cp_lref_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
-include/xieite/trait/cp_mv_assign.hpp,trait,cp_mv_assign.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
-include/xieite/trait/cp_mv_ctor.hpp,trait,cp_mv_ctor.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
-include/xieite/trait/cp_noex_referent.hpp,trait,cp_noex_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
-include/xieite/trait/cp_ptr.hpp,trait,cp_ptr.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
-include/xieite/trait/cp_ref.hpp,trait,cp_ref.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
-include/xieite/trait/cp_ref_referent.hpp,trait,cp_ref_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_lref_referent.hpp,trait,cp_lref_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*|set_*|std::conditional_t patterns),Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_mv_assign.hpp,trait,cp_mv_assign.hpp,Completed,Copy type properties from source to target type,Uses is_*|set_*|std::conditional_t patterns),Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_mv_ctor.hpp,trait,cp_mv_ctor.hpp,Completed,Copy type properties from source to target type,Uses is_*|set_*|std::conditional_t patterns),Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_noex_referent.hpp,trait,cp_noex_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*|set_*|std::conditional_t patterns),Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_ptr.hpp,trait,cp_ptr.hpp,Completed,Copy type properties from source to target type,Uses is_*|set_*|std::conditional_t patterns),Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_ref.hpp,trait,cp_ref.hpp,Completed,Copy type properties from source to target type,Uses is_*|set_*|std::conditional_t patterns),Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_ref_referent.hpp,trait,cp_ref_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*|set_*|std::conditional_t patterns),Medium,Verified,Documented in modification.md - Advanced Copy Operations section
 include/xieite/trait/cp_rref.hpp,trait,cp_rref.hpp,Documented,Copy rvalue reference qualifier from source to target,"is_rref.hpp, set_rref.hpp",Low,Verified,Conditional rvalue reference qualification
-include/xieite/trait/cp_rref_referent.hpp,trait,cp_rref_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_rref_referent.hpp,trait,cp_rref_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*|set_*|std::conditional_t patterns),Medium,Verified,Documented in modification.md - Advanced Copy Operations section
 include/xieite/trait/cp_v.hpp,trait,cp_v.hpp,Documented,Copy volatile qualifier from source to target,"add_v.hpp, is_v.hpp, rm_v.hpp",Low,Verified,Conditional volatile qualification using std::conditional_t
-include/xieite/trait/cp_v_referent.hpp,trait,cp_v_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
-include/xieite/trait/cp_variadic_referent.hpp,trait,cp_variadic_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
-include/xieite/trait/cp_vlref.hpp,trait,cp_vlref.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
-include/xieite/trait/cp_vref.hpp,trait,cp_vref.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
-include/xieite/trait/cp_vrref.hpp,trait,cp_vrref.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_v_referent.hpp,trait,cp_v_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*|set_*|std::conditional_t patterns),Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_variadic_referent.hpp,trait,cp_variadic_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*|set_*|std::conditional_t patterns),Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_vlref.hpp,trait,cp_vlref.hpp,Completed,Copy type properties from source to target type,Uses is_*|set_*|std::conditional_t patterns),Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_vref.hpp,trait,cp_vref.hpp,Completed,Copy type properties from source to target type,Uses is_*|set_*|std::conditional_t patterns),Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_vrref.hpp,trait,cp_vrref.hpp,Completed,Copy type properties from source to target type,Uses is_*|set_*|std::conditional_t patterns),Medium,Verified,Documented in modification.md - Advanced Copy Operations section
 include/xieite/trait/get_fn_args.hpp,trait,get_fn_args.hpp,Completed,Type introspection and property extraction utility,"type_id.hpp, rm_cvref.hpp, template specialization patterns",High,Verified,Documented in concepts.md - Type Introspection Utilities section
 include/xieite/trait/get_fn_ret.hpp,trait,get_fn_ret.hpp,Completed,Type introspection and property extraction utility,"type_id.hpp, rm_cvref.hpp, template specialization patterns",High,Verified,Documented in concepts.md - Type Introspection Utilities section
 include/xieite/trait/get_member_ptr_class.hpp,trait,get_member_ptr_class.hpp,Completed,Type introspection and property extraction utility,"type_id.hpp, rm_cvref.hpp, template specialization patterns",High,Verified,Documented in concepts.md - Type Introspection Utilities section
@@ -438,11 +438,11 @@ include/xieite/trait/is_base.hpp,trait,is_base.hpp,Completed,Base class relation
 include/xieite/trait/is_base_any.hpp,trait,is_base_any.hpp,Completed,Base class relationship with any type,is_base,Low,Verified,Variadic fold expression using is_base
 include/xieite/trait/is_bidirect_range.hpp,trait,is_bidirect_range.hpp,Completed,Bidirectional range with value type constraint,ranges is_satisfied,Medium,Verified,Extends std::bidirectional_range with lambda predicate
 include/xieite/trait/is_bitset_ref.hpp,trait,is_bitset_ref.hpp,Completed,Bitset reference proxy detection,requires expressions,Medium,Verified,Complex requires clause for std::bitset<>::reference
-include/xieite/trait/is_bool_testable.hpp,trait,is_bool_testable.hpp,Documented,Concept for boolean testable types (C++20 requirement),"pp/fwd.hpp",Medium,Verified,Advanced requires expression for boolean conversion and negation
+include/xieite/trait/is_bool_testable.hpp,trait,is_bool_testable.hpp,Documented,Concept for boolean testable types (C++20 requirement),pp/fwd.hpp,Medium,Verified,Advanced requires expression for boolean conversion and negation
 include/xieite/trait/is_borrowed_range.hpp,trait,is_borrowed_range.hpp,Completed,Borrowed range with value type constraint,borrowed_range is_satisfied,Medium,Verified,Extends std::borrowed_range with lambda predicate
 include/xieite/trait/is_bounded_array.hpp,trait,is_bounded_array.hpp,Completed,Bounded array with optional length constraint,is_bounded_array_v type_id lambda,High,Verified,Complex ternary with length-specific array matching
 include/xieite/trait/is_c.hpp,trait,is_c.hpp,Completed,Const qualification detection (reference-aware),is_const_v rm_ref,Medium,Verified,Strips references before checking const qualification
-include/xieite/trait/is_c_referent.hpp,trait,is_c_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp, template specialization patterns,High,Verified,Documented in concepts.md - Referent Detection Concepts section
+include/xieite/trait/is_c_referent.hpp,trait,is_c_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp | template specialization patterns,High,Verified,Documented in concepts.md - Referent Detection Concepts section
 include/xieite/trait/is_char.hpp,trait,is_char.hpp,Documented,Concept for any character type,<type_traits>,Low,Verified,"All char types including char8_t, char16_t, char32_t"
 include/xieite/trait/is_class.hpp,trait,is_class.hpp,Completed,Class type detection concept,is_class_v,Low,Verified,Concept wrapper around std library trait
 include/xieite/trait/is_clock.hpp,trait,is_clock.hpp,Completed,C++20 clock concept wrapper,chrono::is_clock_v,Low,Verified,Concept wrapper for std::chrono::is_clock_v
@@ -487,7 +487,7 @@ include/xieite/trait/is_invoc.hpp,trait,is_invoc.hpp,Completed,Invocable with sp
 include/xieite/trait/is_istream.hpp,trait,is_istream.hpp,Documented,Stream type concept,None,Low,Verified,Detects input stream types and derived classes
 include/xieite/trait/is_linear2d.hpp,trait,is_linear2d.hpp,Documented,Geometric type concept,is_arith;is_same_any,Medium,Verified,Detects 2D linear geometric types (line/ray/segment)
 include/xieite/trait/is_lref.hpp,trait,is_lref.hpp,Completed,Lvalue reference detection concept,is_lvalue_reference_v,Low,Verified,Concept wrapper around std library trait
-include/xieite/trait/is_lref_referent.hpp,trait,is_lref_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp, template specialization patterns,High,Verified,Documented in concepts.md - Referent Detection Concepts section
+include/xieite/trait/is_lref_referent.hpp,trait,is_lref_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp | template specialization patterns," template specialization patterns",High,Documented in concepts.md - Referent Detection Concepts section
 include/xieite/trait/is_member_fn_ptr.hpp,trait,is_member_fn_ptr.hpp,Completed,Member function pointer detection,is_member_function_pointer_v,Low,Verified,Concept wrapper around std library trait
 include/xieite/trait/is_member_obj_ptr.hpp,trait,is_member_obj_ptr.hpp,Completed,Member object pointer detection,is_member_object_pointer_v,Low,Verified,Concept wrapper around std library trait
 include/xieite/trait/is_narrow_char.hpp,trait,is_narrow_char.hpp,Documented,Character type concept,is_ordinary_char;rm_cv,Low,Verified,Enhanced narrow character detection including char8_t
@@ -499,7 +499,7 @@ include/xieite/trait/is_noex_conv_from_any.hpp,trait,is_noex_conv_from_any.hpp,D
 include/xieite/trait/is_noex_invoc.hpp,trait,is_noex_invoc.hpp,Completed,Nothrow invocable with specific signature,is_nothrow_invocable_r_v type_id lambda,High,Verified,Complex lambda with signature parsing using type_id
 include/xieite/trait/is_noex_iter.hpp,trait,is_noex_iter.hpp,Documented,Advanced noexcept concept,Multiple dependencies,Very High,Verified,Comprehensive noexcept iterator with exhaustive operation verification
 include/xieite/trait/is_noex_range.hpp,trait,is_noex_range.hpp,Documented,Noexcept range concept,std::ranges,Medium,Verified,Detects ranges with noexcept iteration guarantees
-include/xieite/trait/is_noex_referent.hpp,trait,is_noex_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp, template specialization patterns,High,Verified,Documented in concepts.md - Referent Detection Concepts section
+include/xieite/trait/is_noex_referent.hpp,trait,is_noex_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp | template specialization patterns," template specialization patterns",High,Documented in concepts.md - Referent Detection Concepts section
 include/xieite/trait/is_noex_sentinel.hpp,trait,is_noex_sentinel.hpp,Documented,Noexcept sentinel concept,std::ranges,Medium,Verified,Detects sentinels with noexcept comparison operations
 include/xieite/trait/is_noex_swap.hpp,trait,is_noex_swap.hpp,Documented,Noexcept concept,std::type_traits,Low,Verified,Simple wrapper around std::is_nothrow_swappable_v
 include/xieite/trait/is_noex_swap_with.hpp,trait,is_noex_swap_with.hpp,Documented,Noexcept concept,std::type_traits,Low,Verified,Detects noexcept swappable with specific type
@@ -521,10 +521,10 @@ include/xieite/trait/is_read_only_range.hpp,trait,is_read_only_range.hpp,Documen
 include/xieite/trait/is_ref.hpp,trait,is_ref.hpp,Completed,Any reference type detection,is_lref is_rref,Low,Verified,Disjunction of lvalue and rvalue reference concepts
 include/xieite/trait/is_ref_conv_from_tmp.hpp,trait,is_ref_conv_from_tmp.hpp,Documented,C++23 reference concept,std::type_traits,Medium,Verified,Detects reference conversion from temporaries
 include/xieite/trait/is_ref_ctor_from_tmp.hpp,trait,is_ref_ctor_from_tmp.hpp,Documented,C++23 reference concept,std::type_traits,Medium,Verified,Detects reference construction from temporaries
-include/xieite/trait/is_ref_referent.hpp,trait,is_ref_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp, template specialization patterns,High,Verified,Documented in concepts.md - Referent Detection Concepts section
+include/xieite/trait/is_ref_referent.hpp,trait,is_ref_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp | template specialization patterns,High,Verified,Documented in concepts.md - Referent Detection Concepts section
 include/xieite/trait/is_ref_to.hpp,trait,is_ref_to.hpp,Documented,Reference concept,rm_ref,Low,Verified,Detects reference to specific type
 include/xieite/trait/is_rref.hpp,trait,is_rref.hpp,Completed,Rvalue reference detection concept,is_rvalue_reference_v,Low,Verified,Concept wrapper around std library trait
-include/xieite/trait/is_rref_referent.hpp,trait,is_rref_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp, template specialization patterns,High,Verified,Documented in concepts.md - Referent Detection Concepts section
+include/xieite/trait/is_rref_referent.hpp,trait,is_rref_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp | template specialization patterns,High,Verified,Documented in concepts.md - Referent Detection Concepts section
 include/xieite/trait/is_same.hpp,trait,is_same.hpp,Documented,Type comparison concept,None,Low,Verified,C++20 concept wrapper around std::same_as
 include/xieite/trait/is_same_any.hpp,trait,is_same_any.hpp,Documented,Variadic comparison concept,std::concepts,Medium,Verified,Detects same type as any of multiple candidates
 include/xieite/trait/is_satisfied.hpp,trait,is_satisfied.hpp,Completed,Universal lambda predicate satisfaction checker,requires,Medium,Verified,Core utility for range value type constraints
@@ -551,15 +551,15 @@ include/xieite/trait/is_union.hpp,trait,is_union.hpp,Documented,Type classificat
 include/xieite/trait/is_unscoped_enum.hpp,trait,is_unscoped_enum.hpp,Completed,Unscoped enum detection,is_enum is_scoped_enum negation,Medium,Verified,Enum that is not scoped (traditional enum)
 include/xieite/trait/is_unsigned.hpp,trait,is_unsigned.hpp,Completed,Unsigned integer concept (excluding bool),unsigned_integral same_as rm_cv,Medium,Verified,Unsigned integral concept with bool exclusion
 include/xieite/trait/is_v.hpp,trait,is_v.hpp,Completed,Volatile qualification detection (reference-aware),is_volatile_v rm_ref,Medium,Verified,Strips references before checking volatile qualification
-include/xieite/trait/is_v_referent.hpp,trait,is_v_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp, template specialization patterns,High,Verified,Documented in concepts.md - Referent Detection Concepts section
-include/xieite/trait/is_variadic_referent.hpp,trait,is_variadic_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp, template specialization patterns,High,Verified,Documented in concepts.md - Referent Detection Concepts section
-include/xieite/trait/is_view.hpp,trait,is_view.hpp,Documented,,,,,
+include/xieite/trait/is_v_referent.hpp,trait,is_v_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp | template specialization patterns,High,Verified,Documented in concepts.md - Referent Detection Concepts section
+include/xieite/trait/is_variadic_referent.hpp,trait,is_variadic_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp | template specialization patterns,High,Verified,Documented in concepts.md - Referent Detection Concepts section
+include/xieite/trait/is_view.hpp,trait,is_view.hpp,Documented,,,,Verified,
 include/xieite/trait/is_viewable_range.hpp,trait,is_viewable_range.hpp,Completed,Viewable range with value type constraint,ranges is_satisfied,Medium,Verified,Extends std::viewable_range with lambda predicate
 include/xieite/trait/is_vlref.hpp,trait,is_vlref.hpp,Completed,Volatile lvalue reference detection,is_v is_lref,Low,Verified,Composition of volatile and lvalue reference concepts
 include/xieite/trait/is_void.hpp,trait,is_void.hpp,Documented,Type classification concept,std::type_traits,Low,Verified,C++20 concept wrapper around std::is_void_v
 include/xieite/trait/is_vref.hpp,trait,is_vref.hpp,Completed,Volatile reference (any reference) detection,is_v is_ref,Low,Verified,Composition of volatile and any reference concepts
 include/xieite/trait/is_vrref.hpp,trait,is_vrref.hpp,Completed,Volatile rvalue reference detection,is_v is_rref,Low,Verified,Composition of volatile and rvalue reference concepts
-include/xieite/trait/is_wide_char.hpp,trait,is_wide_char.hpp,Documented,Character type concept,Multiple,Low,Verified,Detects wide character types (char16_t, char32_t, wchar_t)
+include/xieite/trait/is_wide_char.hpp,trait,is_wide_char.hpp,Documented,Character type concept,Multiple,Low,Verified,Detects wide character types (char16_t|char32_t|wchar_t)
 include/xieite/trait/maybe_base.hpp,trait,maybe_base.hpp,Completed,Conditional base class inheritance,conditional_t dummy,Medium,Verified,Used for optional feature inheritance patterns
 include/xieite/trait/maybe_ref.hpp,trait,maybe_ref.hpp,Completed,Optimal parameter passing strategy,conditional_t sizeof trivially_copyable_v,Medium,Verified,Automatically selects value vs const reference based on size and triviality
 include/xieite/trait/rm_c.hpp,trait,rm_c.hpp,Completed,Remove const qualifier type modification utility,<type_traits>,Low,Verified,Reference-aware const removal wrapping std::remove_const_t
