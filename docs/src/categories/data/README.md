@@ -5,7 +5,45 @@ The `data/` category provides a comprehensive collection of data structures, con
 ## Overview
 
 ```mermaid
-graph LR
+---
+config:
+    theme: 'base'
+    curve: 'straight'
+    themeVariables:
+        darkMode: true
+        clusterBkg: '#22272f62'
+        clusterBorder: '#6a6f77ff'
+        clusterTextColor: '#6a6f77ff'
+        lineColor: '#C1C4CAAA'
+        background: '#262B33'
+        primaryColor: '#2b4268ff'
+        primaryTextColor: '#C1C4CAff'
+        primaryBorderColor: '#6a6f77ff'
+        primaryLabelBkg: '#262B33'
+        secondaryColor: '#425f5fff'
+        secondaryBorderColor: '#8c9c81ff'
+        secondaryTextColor: '#C1C4CAff'
+        tertiaryColor: '#4d4962ff'
+        tertiaryBorderColor: '#8983a5ff'
+        tertiaryTextColor: '#eeeeee55'
+        nodeTextColor: '#C1C4CA'
+        defaultLinkColor: '#C1C4CA'
+        edgeLabelBackground: '#262B33'
+        edgeLabelBorderColor: '#C1C4CAff'
+        labelTextColor: '#ffffff'
+        errorBkgColor: '#724848ff'
+        errorTextColor: '#C1C4CA'
+        flowchart:
+            curve: 'basis'
+            nodeSpacing: 50
+            rankSpacing: 50
+            subGraphTitleMargin:
+                top: 15
+                bottom: 15
+                left: 15
+                right: 15
+---
+flowchart LR
     Data[data/]
 
     Data --> Fixed[Fixed Containers]
@@ -21,9 +59,9 @@ graph LR
     Fixed --> fixed_md[fixed_md_container.hpp]
 
     Str --> trim[trim.hpp]
-    Str --> split[split.hpp]
-    Str --> join[join.hpp]
-    Str --> replace[replace.hpp]
+    Str --> split[str_split.hpp]
+    Str --> join[str_join.hpp]
+    Str --> replace[str_replace.hpp]
     Str --> case[Case Conversion]
 
     Char --> isalpha[isalpha.hpp]
@@ -48,6 +86,40 @@ graph LR
     style Char fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
     style Search fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
     style Manip fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
+
+
+    linkStyle default stroke:#C1C4CAaa,stroke-width:2px,color:#C1C4CAaa
+
+    style Data fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style Fixed fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style Str fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style Char fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style Search fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style Manip fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+
+    style fixed_array fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style fixed_str fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style fixed_map fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style fixed_set fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style fixed_md fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style trim fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style split fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style join fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style replace fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style case fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style isalpha fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style isdigit fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style isalnum fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style isspace fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style iscntrl fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style find_occur fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style find_consec fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style between fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style after fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style reverse fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style rotate fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style unique fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style sort fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
 ```
 
 ## Fixed-Size Containers
@@ -122,7 +194,45 @@ tensor[1][2][3] = 42;
 ### Text Manipulation
 
 ```mermaid
-graph LR
+---
+config:
+    theme: 'base'
+    curve: 'straight'
+    themeVariables:
+        darkMode: true
+        clusterBkg: '#22272f62'
+        clusterBorder: '#6a6f77ff'
+        clusterTextColor: '#6a6f77ff'
+        lineColor: '#C1C4CAAA'
+        background: '#262B33'
+        primaryColor: '#2b4268ff'
+        primaryTextColor: '#C1C4CAff'
+        primaryBorderColor: '#6a6f77ff'
+        primaryLabelBkg: '#262B33'
+        secondaryColor: '#425f5fff'
+        secondaryBorderColor: '#8c9c81ff'
+        secondaryTextColor: '#C1C4CAff'
+        tertiaryColor: '#4d4962ff'
+        tertiaryBorderColor: '#8983a5ff'
+        tertiaryTextColor: '#eeeeee55'
+        nodeTextColor: '#C1C4CA'
+        defaultLinkColor: '#C1C4CA'
+        edgeLabelBackground: '#262B33'
+        edgeLabelBorderColor: '#C1C4CAff'
+        labelTextColor: '#ffffff'
+        errorBkgColor: '#724848ff'
+        errorTextColor: '#C1C4CA'
+        flowchart:
+            curve: 'basis'
+            nodeSpacing: 50
+            rankSpacing: 50
+            subGraphTitleMargin:
+                top: 15
+                bottom: 15
+                left: 15
+                right: 15
+---
+flowchart TD
     Input[Input String]
 
     Input --> Trim[Trim]
@@ -133,56 +243,67 @@ graph LR
     Trim --> trim_start[trim_start]
     Trim --> trim_end[trim_end]
     Trim --> trim_all[trim]
-
     Split --> split_delim[By Delimiter]
     Split --> split_pred[By Predicate]
     Split --> split_lines[By Lines]
-
     Replace --> replace_all[Replace All]
     Replace --> replace_first[Replace First]
     Replace --> replace_last[Replace Last]
-
     Case --> to_upper[to_upper]
     Case --> to_lower[to_lower]
     Case --> to_title[to_title]
 
-    style Input fill:#0d1117,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Trim fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Split fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Replace fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Case fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
+    linkStyle default stroke:#C1C4CAaa,stroke-width:2px,color:#C1C4CAaa
+
+    style Input fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style Trim fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style Split fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style Replace fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style Case fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+
+    style trim_start fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style trim_end fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style trim_all fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style split_delim fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style split_pred fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style split_lines fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style replace_all fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style replace_first fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style replace_last fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style to_upper fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style to_lower fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style to_title fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
 ```
 
 #### Trimming Functions
 ```cpp
-#include <xieite/data/trim_start.hpp>
-#include <xieite/data/trim_end.hpp>
+#include <xieite/data/trim_front.hpp>
+#include <xieite/data/trim_back.hpp>
 #include <xieite/data/trim.hpp>
 
 std::string s = "  hello  ";
 auto trimmed = xieite::trim(s);           // "hello"
-auto left = xieite::trim_start(s);        // "hello  "
-auto right = xieite::trim_end(s);         // "  hello"
+auto left = xieite::trim_front(s);        // "hello  "
+auto right = xieite::trim_back(s);         // "  hello"
 ```
 
 #### Splitting Functions
 ```cpp
-#include <xieite/data/split.hpp>
-#include <xieite/data/split_lines.hpp>
+#include <xieite/data/str_split.hpp>
 
 std::string text = "a,b,c";
-auto parts = xieite::split(text, ',');    // ["a", "b", "c"]
+auto parts = xieite::str_split(text, ',');    // ["a", "b", "c"]
 
 std::string lines = "line1\nline2\nline3";
-auto line_vec = xieite::split_lines(lines);
+auto line_vec = xieite::str_split(lines, '\n');
 ```
 
 #### Joining Functions
 ```cpp
-#include <xieite/data/join.hpp>
+#include <xieite/data/str_join.hpp>
 
 std::vector<std::string> parts = {"a", "b", "c"};
-auto joined = xieite::join(parts, ", ");  // "a, b, c"
+auto joined = xieite::str_join(parts, ", ");  // "a, b, c"
 ```
 
 ## Character Classification
@@ -221,7 +342,45 @@ bool is_graph = xieite::isgraph('#');      // true
 ### Advanced Search Algorithms
 
 ```mermaid
-graph TD
+---
+config:
+    theme: 'base'
+    curve: 'straight'
+    themeVariables:
+        darkMode: true
+        clusterBkg: '#22272f62'
+        clusterBorder: '#6a6f77ff'
+        clusterTextColor: '#6a6f77ff'
+        lineColor: '#C1C4CAAA'
+        background: '#262B33'
+        primaryColor: '#2b4268ff'
+        primaryTextColor: '#C1C4CAff'
+        primaryBorderColor: '#6a6f77ff'
+        primaryLabelBkg: '#262B33'
+        secondaryColor: '#425f5fff'
+        secondaryBorderColor: '#8c9c81ff'
+        secondaryTextColor: '#C1C4CAff'
+        tertiaryColor: '#4d4962ff'
+        tertiaryBorderColor: '#8983a5ff'
+        tertiaryTextColor: '#eeeeee55'
+        nodeTextColor: '#C1C4CA'
+        defaultLinkColor: '#C1C4CA'
+        edgeLabelBackground: '#262B33'
+        edgeLabelBorderColor: '#C1C4CAff'
+        labelTextColor: '#ffffff'
+        errorBkgColor: '#724848ff'
+        errorTextColor: '#C1C4CA'
+        flowchart:
+            curve: 'basis'
+            nodeSpacing: 50
+            rankSpacing: 50
+            subGraphTitleMargin:
+                top: 15
+                bottom: 15
+                left: 15
+                right: 15
+---
+flowchart TB
     Search[Search Operations]
 
     Search --> Occur[Occurrence Finding]
@@ -242,11 +401,22 @@ graph TD
     Pred --> find_if[find_if variants]
     Pred --> count_if[count_if variants]
 
-    style Search fill:#0d1117,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Occur fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Consec fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Pos fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Pred fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
+    linkStyle default stroke:#C1C4CAaa,stroke-width:2px,color:#C1C4CAaa
+
+    style Search fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style Occur fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style Consec fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style Pos fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style Pred fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style find_occur fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style find_nth fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style find_most fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style find_consec_if fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style after fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style before fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style between fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style find_if fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style count_if fill: #353748ff,stroke:#8c90a4ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
 ```
 
 #### Finding Occurrences

@@ -2,608 +2,413 @@
 
 ## Overview
 
-The data structures category contains 65 header files providing enhanced containers, string utilities, iterator helpers, and algorithms optimized for both compile-time and runtime use.
+The data structures category contains enhanced containers, string utilities, iterator helpers, and algorithms optimized for both compile-time and runtime use.
 
-## Organization
+## Fixed Containers
 
-The data headers are organized into functional groups:
-
-- **Compile-Time Structures** (15+ headers): Fixed-size containers and compile-time data
-- **String Utilities** (20+ headers): String manipulation and parsing
-- **Iterator Utilities** (10+ headers): Iterator adapters and helpers
-- **Container Algorithms** (10+ headers): Enhanced container operations
-- **Memory Management** (5+ headers): Smart pointers and allocators
-- **Range Utilities** (5+ headers): Range-based operations
-
-## Compile-Time Data Structures
-
-### Fixed Arrays
-
-#### fixed_array
+### `fixed_array`
 - **Header**: `data/fixed_array.hpp`
 - **Synopsis**: `template<typename T, std::size_t N> class fixed_array`
 - **Purpose**: Compile-time fixed array with constexpr operations
 - **Example**:
     ```cpp
-    constexpr xieite::fixed_array<int, 5> arr{1, 2, 3, 4, 5};
-    constexpr auto sum = arr.apply([](auto... values) { return (values + ...); });  // 15
+    xieite::fixed_array<int, 5> arr{1, 2, 3, 4, 5};
+    assert(arr[0] == 1);
+    assert(arr.size() == 5);
     ```
 
-#### fixed_vector
-- **Header**: `data/fixed_vector.hpp`
-- **Synopsis**: `template<typename T, std::size_t Capacity> class fixed_vector`
-- **Purpose**: Stack-allocated vector with fixed capacity
+### `fixed_str`
+- **Header**: `data/fixed_str.hpp`
+- **Synopsis**: `template<xieite::is_char Char, std::size_t N> struct fixed_str`
+- **Purpose**: Fixed-size string container
 - **Example**:
     ```cpp
-    xieite::fixed_vector<int, 100> vec;
-    vec.push_back(42);  // No heap allocation
+    xieite::fixed_str<char, 10> str("Hello");
+    auto view = str.view();  // Get string_view
+    assert(str.size() == 10);
     ```
 
-#### bit_array
-- **Header**: `data/bit_array.hpp`
-- **Synopsis**: `template<std::size_t N> class bit_array`
-- **Purpose**: Space-efficient bit storage
-- **Example**:
-    ```cpp
-    xieite::bit_array<64> bits;
-    bits.set(10);
-    bits.flip(20);
-    ```
+### `fixed_map`
+- **Header**: `data/fixed_map.hpp`
+- **Purpose**: Fixed-capacity map container
 
-### Compile-Time Strings
-
-#### static_string
-- **Header**: `data/static_string.hpp`
-- **Synopsis**: `template<std::size_t N> class static_string`
-- **Purpose**: Compile-time string with constexpr operations
-- **Example**:
-    ```cpp
-    constexpr xieite::static_string<20> str{"Hello"};
-    constexpr auto len = str.length();  // 5
-    ```
-
-#### fixed_string
-- **Header**: `data/fixed_string.hpp`
-- **Synopsis**: `template<std::size_t N> struct fixed_string`
-- **Purpose**: String literal wrapper for template parameters
-- **Example**:
-    ```cpp
-    template<xieite::fixed_string Name>
-    struct named_type {
-        static constexpr auto name = Name;
-    };
-    ```
+### `fixed_set`
+- **Header**: `data/fixed_set.hpp`
+- **Purpose**: Fixed-capacity set container
 
 ## String Utilities
 
-### String Manipulation
-
-#### split
-- **Header**: `data/split.hpp`
-- **Synopsis**: `auto split(std::string_view str, std::string_view delimiter)`
-- **Purpose**: Split string by delimiter
+### `str_split`
+- **Header**: `data/str_split.hpp`
+- **Synopsis**: `template<is_char Char, typename Traits, typename VecAlloc> vector<string_view<Char, Traits>, VecAlloc> str_split(string_view<Char, Traits> strv, string_view<Char, Traits> delim, bool discard_empty = false, const VecAlloc& vec_alloc = {})`
+- **Purpose**: Split strings by delimiter returning vector of string views
+- **Description**: Splits a string into parts based on a delimiter. Can optionally discard empty segments. The function returns a vector of string_view objects pointing into the original string.
 - **Example**:
     ```cpp
-    auto parts = xieite::split("a,b,c", ",");
-    // parts = {"a", "b", "c"}
+    #include <xieite/data/str_split.hpp>
+    #include <vector>
+    #include <string_view>
+
+    std::string text = "apple,banana,cherry";
+    auto parts = xieite::str_split(text, ",");
+    // parts contains: ["apple", "banana", "cherry"]
+
+    // With empty segments
+    std::string text2 = "a,,b";
+    auto parts2 = xieite::str_split(text2, ",", false);  // Keep empty
+    // parts2 contains: ["a", "", "b"]
+
+    auto parts3 = xieite::str_split(text2, ",", true);   // Discard empty
+    // parts3 contains: ["a", "b"]
     ```
 
-#### join
-- **Header**: `data/join.hpp`
-- **Synopsis**: `template<typename Range> std::string join(const Range& r, std::string_view sep)`
-- **Purpose**: Join range elements with separator
+### `str_join`
+- **Header**: `data/str_join.hpp`
+- **Synopsis**: `template<input_range Range, is_char Char, typename Traits, typename Alloc> string<Char, Traits, Alloc> str_join(Range&& range, string_view<Char, Traits> delim = "", string_view<Char, Traits> pfx = "", string_view<Char, Traits> sfx = "", const Alloc& alloc = {})`
+- **Purpose**: Join elements from a range into a string with optional delimiter, prefix, and suffix
+- **Description**: Takes a range of string-like objects and joins them together with a delimiter. Optionally adds prefix and suffix to the entire result.
 - **Example**:
     ```cpp
-    std::vector<std::string> v{"a", "b", "c"};
-    auto result = xieite::join(v, ", ");  // "a, b, c"
+    #include <xieite/data/str_join.hpp>
+    #include <vector>
+    #include <string>
+
+    std::vector<std::string> words = {"apple", "banana", "cherry"};
+    auto result = xieite::str_join(words, ", ");
+    // result is "apple, banana, cherry"
+
+    // With prefix and suffix
+    auto result2 = xieite::str_join(words, ", ", "[", "]");
+    // result2 is "[apple, banana, cherry]"
+
+    // Join with no delimiter
+    auto result3 = xieite::str_join(words);
+    // result3 is "applebananacherry"
     ```
 
-#### trim
-- **Header**: `data/trim.hpp`
-- **Synopsis**: `std::string_view trim(std::string_view str)`
-- **Purpose**: Remove leading/trailing whitespace
+### `make_str_view`
+- **Header**: `data/make_str_view.hpp`
+- **Synopsis**: Various overloads for creating string_view from different sources
+- **Purpose**: String view creation utilities with automatic type deduction
+- **Description**: Creates string_view objects from various string sources including C-style strings, std::string, character literals, and fixed arrays. Handles null-terminated strings correctly.
 - **Example**:
     ```cpp
-    auto trimmed = xieite::trim("  hello  ");  // "hello"
+    #include <xieite/data/make_str_view.hpp>
+    #include <string>
+
+    // From string literal
+    auto sv1 = xieite::make_str_view("hello");
+
+    // From std::string
+    std::string str = "world";
+    auto sv2 = xieite::make_str_view(str);
+
+    // From single character
+    auto sv3 = xieite::make_str_view('x');
+
+    // From existing string_view
+    std::string_view existing = "test";
+    auto sv4 = xieite::make_str_view(existing);
     ```
 
-#### trim_left
-- **Header**: `data/trim_left.hpp`
-- **Synopsis**: `std::string_view trim_left(std::string_view str)`
-- **Purpose**: Remove leading whitespace
+## Character Utilities
 
-#### trim_right
-- **Header**: `data/trim_right.hpp`
-- **Synopsis**: `std::string_view trim_right(std::string_view str)`
-- **Purpose**: Remove trailing whitespace
-
-#### replace
-- **Header**: `data/replace.hpp`
-- **Synopsis**: `std::string replace(std::string_view str, std::string_view from, std::string_view to)`
-- **Purpose**: Replace all occurrences
+### `isalnum`
+- **Header**: `data/isalnum.hpp`
+- **Synopsis**: `bool isalnum(is_char auto c)` and overloads for strings
+- **Purpose**: Check if character or all characters in string are alphanumeric
+- **Description**: Checks if a character is alphanumeric (letters or digits) or if all characters in a string are alphanumeric. Returns true for characters a-z, A-Z, 0-9.
 - **Example**:
     ```cpp
-    auto result = xieite::replace("hello world", "o", "0");  // "hell0 w0rld"
+    #include <xieite/data/isalnum.hpp>
+
+    // Single character
+    assert(xieite::isalnum('a') == true);
+    assert(xieite::isalnum('5') == true);
+    assert(xieite::isalnum('!') == false);
+
+    // String
+    assert(xieite::isalnum("abc123") == true);
+    assert(xieite::isalnum("abc-123") == false);  // Contains hyphen
     ```
 
-#### replace_first
-- **Header**: `data/replace_first.hpp`
-- **Synopsis**: Replace first occurrence only
-
-#### replace_last
-- **Header**: `data/replace_last.hpp`
-- **Synopsis**: Replace last occurrence only
-
-### String Queries
-
-#### starts_with
-- **Header**: `data/starts_with.hpp`
-- **Synopsis**: `bool starts_with(std::string_view str, std::string_view prefix)`
-- **Purpose**: Check string prefix
+### `isalpha`
+- **Header**: `data/isalpha.hpp`
+- **Synopsis**: `bool isalpha(is_char auto c)` and overloads for strings
+- **Purpose**: Check if character or all characters in string are alphabetic
+- **Description**: Checks if a character is alphabetic (letters only) or if all characters in a string are alphabetic. Returns true for characters a-z, A-Z.
 - **Example**:
     ```cpp
-    xieite::starts_with("hello", "hel")  // true
+    #include <xieite/data/isalpha.hpp>
+
+    assert(xieite::isalpha('a') == true);
+    assert(xieite::isalpha('Z') == true);
+    assert(xieite::isalpha('5') == false);
+    assert(xieite::isalpha("hello") == true);
+    assert(xieite::isalpha("hello5") == false);
     ```
 
-#### ends_with
-- **Header**: `data/ends_with.hpp`
-- **Synopsis**: `bool ends_with(std::string_view str, std::string_view suffix)`
-- **Purpose**: Check string suffix
-
-#### contains
-- **Header**: `data/contains.hpp`
-- **Synopsis**: `bool contains(std::string_view str, std::string_view substr)`
-- **Purpose**: Check substring presence
-
-#### count
-- **Header**: `data/count.hpp`
-- **Synopsis**: `std::size_t count(std::string_view str, std::string_view substr)`
-- **Purpose**: Count substring occurrences
-
-### Case Conversion
-
-#### to_lower
-- **Header**: `data/to_lower.hpp`
-- **Synopsis**: `std::string to_lower(std::string_view str)`
-- **Purpose**: Convert to lowercase
+### `isdigit`
+- **Header**: `data/isdigit.hpp`
+- **Synopsis**: `bool isdigit(is_char auto c)` and overloads for strings
+- **Purpose**: Check if character or all characters in string are digits
+- **Description**: Checks if a character is a digit (0-9) or if all characters in a string are digits.
 - **Example**:
     ```cpp
-    xieite::to_lower("Hello")  // "hello"
+    #include <xieite/data/isdigit.hpp>
+
+    assert(xieite::isdigit('5') == true);
+    assert(xieite::isdigit('a') == false);
+    assert(xieite::isdigit("12345") == true);
+    assert(xieite::isdigit("123a") == false);
     ```
 
-#### to_upper
-- **Header**: `data/to_upper.hpp`
-- **Synopsis**: `std::string to_upper(std::string_view str)`
-- **Purpose**: Convert to uppercase
+### `islower`
+- **Header**: `data/islower.hpp`
+- **Synopsis**: `bool islower(is_char auto c)` and overloads for strings
+- **Purpose**: Check if character or all characters in string are lowercase
+- **Description**: Checks if a character is lowercase or if all alphabetic characters in a string are lowercase.
+- **Example**:
+    ```cpp
+    #include <xieite/data/islower.hpp>
 
-#### to_title
-- **Header**: `data/to_title.hpp`
-- **Synopsis**: `std::string to_title(std::string_view str)`
-- **Purpose**: Convert to title case
+    assert(xieite::islower('a') == true);
+    assert(xieite::islower('A') == false);
+    assert(xieite::islower("hello") == true);
+    assert(xieite::islower("Hello") == false);
+    ```
 
-#### to_snake_case
-- **Header**: `data/to_snake_case.hpp`
-- **Synopsis**: Convert to snake_case
+### `isupper`
+- **Header**: `data/isupper.hpp`
+- **Synopsis**: `bool isupper(is_char auto c)` and overloads for strings
+- **Purpose**: Check if character or all characters in string are uppercase
+- **Description**: Checks if a character is uppercase or if all alphabetic characters in a string are uppercase.
+- **Example**:
+    ```cpp
+    #include <xieite/data/isupper.hpp>
 
-#### to_camel_case
-- **Header**: `data/to_camel_case.hpp`
-- **Synopsis**: Convert to camelCase
+    assert(xieite::isupper('A') == true);
+    assert(xieite::isupper('a') == false);
+    assert(xieite::isupper("HELLO") == true);
+    assert(xieite::isupper("Hello") == false);
+    ```
 
-#### to_pascal_case
-- **Header**: `data/to_pascal_case.hpp`
-- **Synopsis**: Convert to PascalCase
+### `isspace`
+- **Header**: `data/isspace.hpp`
+- **Synopsis**: `bool isspace(is_char auto c)` and overloads for strings
+- **Purpose**: Check if character or all characters in string are whitespace
+- **Description**: Checks if a character is whitespace (space, tab, newline, etc.) or if all characters in a string are whitespace.
+- **Example**:
+    ```cpp
+    #include <xieite/data/isspace.hpp>
+
+    assert(xieite::isspace(' ') == true);
+    assert(xieite::isspace('\t') == true);
+    assert(xieite::isspace('a') == false);
+    assert(xieite::isspace("   ") == true);
+    assert(xieite::isspace(" a ") == false);
+    ```
 
 ## Iterator Utilities
 
-### Iterator Adapters
+### `iters`
+- **Header**: `data/iters.hpp`
+- **Purpose**: Iterator helper utilities
 
-#### enumerate
-- **Header**: `data/enumerate.hpp`
-- **Synopsis**: `auto enumerate(Range&& range)`
-- **Purpose**: Add index to iteration
+### Array Utilities
+
+### `make_array`
+- **Header**: `data/make_array.hpp`
+- **Synopsis**: `template<typename Value, std::size_t length> array<Value, length> make_array(Range&& range, Fn&& conv = {})`
+- **Purpose**: Create arrays from ranges with optional conversion function
+
+## Search Utilities
+
+### `find_most_consec`
+- **Header**: `data/find_most_consec.hpp`
+- **Synopsis**: `subrange<iterator_t<Range>> find_most_consec(Range& range, range_common_reference_t<const Range> value, Fn&& cmp = {})`
+- **Purpose**: Find the longest consecutive sequence of a specific value in a range
+- **Description**: Searches through a range to find the longest consecutive sequence of elements equal to the given value. Returns a subrange pointing to the longest sequence found.
 - **Example**:
     ```cpp
-    std::vector<std::string> v{"a", "b", "c"};
-    for (auto [i, val] : xieite::enumerate(v)) {
-        std::cout << i << ": " << val << '\n';
-    }
+    #include <xieite/data/find_most_consec.hpp>
+    #include <vector>
+
+    std::vector<int> data = {1, 2, 2, 2, 3, 2, 2, 4};
+    auto longest = xieite::find_most_consec(data, 2);
+    // longest points to the sequence of three 2's at indices 1-3
+    assert(std::distance(longest.begin(), longest.end()) == 3);
     ```
 
-#### zip
-- **Header**: `data/zip.hpp`
-- **Synopsis**: `auto zip(Range1&& r1, Range2&& r2)`
-- **Purpose**: Iterate multiple ranges together
+### `find_most_consec_if`
+- **Header**: `data/find_most_consec_if.hpp`
+- **Synopsis**: `subrange<iterator_t<Range>> find_most_consec_if(Range& range, Fn&& predicate)`
+- **Purpose**: Find the longest consecutive sequence of elements matching a predicate
+- **Description**: Similar to find_most_consec but uses a predicate function to determine matching elements instead of equality comparison.
 - **Example**:
     ```cpp
-    std::vector<int> nums{1, 2, 3};
-    std::vector<char> chars{'a', 'b', 'c'};
-    for (auto [n, c] : xieite::zip(nums, chars)) {
-        // n=1,c='a'; n=2,c='b'; n=3,c='c'
-    }
+    #include <xieite/data/find_most_consec_if.hpp>
+    #include <vector>
+
+    std::vector<int> data = {1, 4, 6, 8, 3, 2, 4, 6};
+    auto longest = xieite::find_most_consec_if(data, [](int x) { return x % 2 == 0; });
+    // longest points to the sequence of even numbers 4, 6, 8
+    assert(std::distance(longest.begin(), longest.end()) == 3);
     ```
 
-#### filter
-- **Header**: `data/filter.hpp`
-- **Synopsis**: `auto filter(Range&& range, Pred pred)`
-- **Purpose**: Filter range elements
+### `find_occur`
+- **Header**: `data/find_occur.hpp`
+- **Synopsis**: Various overloads for finding occurrences in sequences
+- **Purpose**: Find occurrences of elements or subsequences in a range
+- **Description**: Searches for occurrences of specific values or patterns within a range and returns information about their positions.
 - **Example**:
     ```cpp
-    std::vector<int> v{1, 2, 3, 4, 5};
-    for (int n : xieite::filter(v, [](int x) { return x % 2 == 0; })) {
-        // n = 2, 4
-    }
+    #include <xieite/data/find_occur.hpp>
+    #include <vector>
+
+    std::vector<int> data = {1, 2, 3, 2, 5, 2};
+    auto occurrences = xieite::find_occur(data, 2);
+    // Returns information about where value 2 occurs in the sequence
     ```
 
-#### transform
-- **Header**: `data/transform.hpp`
-- **Synopsis**: `auto transform(Range&& range, Func func)`
-- **Purpose**: Transform range elements
+### `find_occur_if`
+- **Header**: `data/find_occur_if.hpp`
+- **Synopsis**: Various overloads for finding occurrences with predicate
+- **Purpose**: Find occurrences of elements matching a predicate in a range
+- **Description**: Similar to find_occur but uses a predicate function to determine matching elements.
 - **Example**:
     ```cpp
-    std::vector<int> v{1, 2, 3};
-    for (int n : xieite::transform(v, [](int x) { return x * 2; })) {
-        // n = 2, 4, 6
-    }
+    #include <xieite/data/find_occur_if.hpp>
+    #include <vector>
+
+    std::vector<int> data = {1, 4, 3, 6, 5, 8};
+    auto occurrences = xieite::find_occur_if(data, [](int x) { return x % 2 == 0; });
+    // Returns information about where even numbers occur
     ```
 
-#### take
-- **Header**: `data/take.hpp`
-- **Synopsis**: `auto take(Range&& range, std::size_t n)`
-- **Purpose**: Take first n elements
+## String Position Utilities
+
+### `after`
+- **Header**: `data/after.hpp`
+- **Synopsis**: `auto after(Range0&& range, Range1&& subrange)` and `auto after(Range&& range, range_common_reference_t<Range> x)`
+- **Purpose**: Get portion of range after a delimiter or subsequence
+- **Description**: Returns a subrange containing everything after the first occurrence of the specified delimiter or subsequence. If the delimiter is not found, returns an empty range.
 - **Example**:
     ```cpp
-    std::vector<int> v{1, 2, 3, 4, 5};
-    for (int n : xieite::take(v, 3)) {
-        // n = 1, 2, 3
-    }
+    #include <xieite/data/after.hpp>
+    #include <string>
+
+    std::string text = "hello-world-test";
+    auto result = xieite::after(text, "-");
+    // result contains "world-test"
+
+    auto result2 = xieite::after(text, 'o');
+    // result2 contains "llo-world-test" (after first 'o')
     ```
 
-#### drop
-- **Header**: `data/drop.hpp`
-- **Synopsis**: `auto drop(Range&& range, std::size_t n)`
-- **Purpose**: Skip first n elements
-
-#### cycle
-- **Header**: `data/cycle.hpp`
-- **Synopsis**: `auto cycle(Range&& range)`
-- **Purpose**: Infinitely repeat range
-
-#### reverse
-- **Header**: `data/reverse.hpp`
-- **Synopsis**: `auto reverse(Range&& range)`
-- **Purpose**: Reverse iteration order
-
-## Container Algorithms
-
-### Sorting and Searching
-
-#### sort
-- **Header**: `data/sort.hpp`
-- **Synopsis**: `void sort(Container& c, Compare comp = {})`
-- **Purpose**: In-place container sort
+### `after_last`
+- **Header**: `data/after_last.hpp`
+- **Synopsis**: Similar to `after` but finds last occurrence
+- **Purpose**: Get portion of range after the last occurrence of delimiter
+- **Description**: Returns a subrange containing everything after the last occurrence of the specified delimiter. Useful for extracting file extensions or final path components.
 - **Example**:
     ```cpp
-    std::vector<int> v{3, 1, 4, 1, 5};
-    xieite::sort(v);  // {1, 1, 3, 4, 5}
+    #include <xieite/data/after_last.hpp>
+    #include <string>
+
+    std::string path = "path/to/file.txt";
+    auto extension = xieite::after_last(path, ".");
+    // extension contains "txt"
+
+    std::string text = "a-b-c-d";
+    auto result = xieite::after_last(text, "-");
+    // result contains "d"
     ```
 
-#### stable_sort
-- **Header**: `data/stable_sort.hpp`
-- **Synopsis**: Stable sorting algorithm
-
-#### binary_search
-- **Header**: `data/binary_search.hpp`
-- **Synopsis**: `auto binary_search(const Container& c, const T& value)`
-- **Purpose**: Binary search in sorted container
-
-#### lower_bound
-- **Header**: `data/lower_bound.hpp`
-- **Synopsis**: Find first not less than value
-
-#### upper_bound
-- **Header**: `data/upper_bound.hpp`
-- **Synopsis**: Find first greater than value
-
-### Set Operations
-
-#### unique
-- **Header**: `data/unique.hpp`
-- **Synopsis**: `void unique(Container& c)`
-- **Purpose**: Remove consecutive duplicates
+### `before`
+- **Header**: `data/before.hpp`
+- **Synopsis**: `auto before(Range0&& range, Range1&& subrange)` and `auto before(Range&& range, range_common_reference_t<Range> x)`
+- **Purpose**: Get portion of range before a delimiter or subsequence
+- **Description**: Returns a subrange containing everything before the first occurrence of the specified delimiter or subsequence.
 - **Example**:
     ```cpp
-    std::vector<int> v{1, 1, 2, 2, 3};
-    xieite::unique(v);  // {1, 2, 3}
+    #include <xieite/data/before.hpp>
+    #include <string>
+
+    std::string text = "hello-world-test";
+    auto result = xieite::before(text, "-");
+    // result contains "hello"
+
+    std::string email = "user@domain.com";
+    auto username = xieite::before(email, "@");
+    // username contains "user"
     ```
 
-#### intersection
-- **Header**: `data/intersection.hpp`
-- **Synopsis**: `auto intersection(const Container1& c1, const Container2& c2)`
-- **Purpose**: Set intersection
-
-#### union_set
-- **Header**: `data/union_set.hpp`
-- **Synopsis**: `auto union_set(const Container1& c1, const Container2& c2)`
-- **Purpose**: Set union
-
-#### difference
-- **Header**: `data/difference.hpp`
-- **Synopsis**: `auto difference(const Container1& c1, const Container2& c2)`
-- **Purpose**: Set difference
-
-### Container Queries
-
-#### all_of
-- **Header**: `data/all_of.hpp`
-- **Synopsis**: `bool all_of(const Container& c, Pred pred)`
-- **Purpose**: Check if all elements satisfy predicate
-
-#### any_of
-- **Header**: `data/any_of.hpp`
-- **Synopsis**: `bool any_of(const Container& c, Pred pred)`
-- **Purpose**: Check if any element satisfies predicate
-
-#### none_of
-- **Header**: `data/none_of.hpp`
-- **Synopsis**: `bool none_of(const Container& c, Pred pred)`
-- **Purpose**: Check if no elements satisfy predicate
-
-#### find
-- **Header**: `data/find.hpp`
-- **Synopsis**: `auto find(const Container& c, const T& value)`
-- **Purpose**: Find element in container
-
-#### find_if
-- **Header**: `data/find_if.hpp`
-- **Synopsis**: `auto find_if(const Container& c, Pred pred)`
-- **Purpose**: Find element by predicate
-
-## Specialized Containers
-
-### Ring Buffer
-
-#### ring_buffer
-- **Header**: `data/ring_buffer.hpp`
-- **Synopsis**: `template<typename T, std::size_t N> class ring_buffer`
-- **Purpose**: Fixed-size circular buffer
+### `before_last`
+- **Header**: `data/before_last.hpp`
+- **Synopsis**: Similar to `before` but finds last occurrence
+- **Purpose**: Get portion of range before the last occurrence of delimiter
+- **Description**: Returns a subrange containing everything before the last occurrence of the specified delimiter. Useful for extracting directory paths or base names.
 - **Example**:
     ```cpp
-    xieite::ring_buffer<int, 3> buf;
-    buf.push(1);
-    buf.push(2);
-    buf.push(3);
-    buf.push(4);  // Overwrites 1
+    #include <xieite/data/before_last.hpp>
+    #include <string>
+
+    std::string path = "path/to/file.txt";
+    auto basename = xieite::before_last(path, ".");
+    // basename contains "path/to/file"
+
+    std::string text = "a-b-c-d";
+    auto result = xieite::before_last(text, "-");
+    // result contains "a-b-c"
     ```
 
-### Flat Containers
-
-#### flat_map
-- **Header**: `data/flat_map.hpp`
-- **Synopsis**: `template<typename K, typename V> class flat_map`
-- **Purpose**: Cache-friendly sorted map
+### `between`
+- **Header**: `data/between.hpp`
+- **Synopsis**: `auto between(auto&& range, auto&& a, auto&& b)`
+- **Purpose**: Get portion of range between two delimiters
+- **Description**: Returns a subrange containing everything between the first occurrence of delimiter `a` and the first occurrence of delimiter `b` after `a`. Combines `after` and `before` operations.
 - **Example**:
     ```cpp
-    xieite::flat_map<int, std::string> map;
-    map[1] = "one";
-    map[2] = "two";
+    #include <xieite/data/between.hpp>
+    #include <string>
+
+    std::string text = "start[content]end";
+    auto result = xieite::between(text, "[", "]");
+    // result contains "content"
+
+    std::string xml = "<tag>value</tag>";
+    auto value = xieite::between(xml, ">", "<");
+    // value contains "value"
     ```
-
-#### flat_set
-- **Header**: `data/flat_set.hpp`
-- **Synopsis**: `template<typename T> class flat_set`
-- **Purpose**: Cache-friendly sorted set
-
-### Small Containers
-
-#### small_vector
-- **Header**: `data/small_vector.hpp`
-- **Synopsis**: `template<typename T, std::size_t N> class small_vector`
-- **Purpose**: Vector with small buffer optimization
-- **Example**:
-    ```cpp
-    xieite::small_vector<int, 5> vec;  // Stack storage for 5 elements
-    vec.push_back(1);  // No allocation
-    ```
-
-#### small_string
-- **Header**: `data/small_string.hpp`
-- **Synopsis**: String with small buffer optimization
-
-## Memory Utilities
-
-### Smart Pointers
-
-#### observer_ptr
-- **Header**: `data/observer_ptr.hpp`
-- **Synopsis**: `template<typename T> class observer_ptr`
-- **Purpose**: Non-owning pointer wrapper
-- **Example**:
-    ```cpp
-    int x = 42;
-    xieite::observer_ptr<int> p{&x};
-    ```
-
-#### clone_ptr
-- **Header**: `data/clone_ptr.hpp`
-- **Synopsis**: `template<typename T> class clone_ptr`
-- **Purpose**: Deep-copying smart pointer
-
-### Memory Operations
-
-#### uninitialized_array
-- **Header**: `data/uninitialized_array.hpp`
-- **Synopsis**: Array without default construction
-
-#### aligned_storage
-- **Header**: `data/aligned_storage.hpp`
-- **Synopsis**: Aligned memory storage
-
-## Parsing Utilities
-
-#### parse
-- **Header**: `data/parse.hpp`
-- **Synopsis**: `template<typename T> std::optional<T> parse(std::string_view str)`
-- **Purpose**: Parse string to type
-- **Example**:
-    ```cpp
-    auto n = xieite::parse<int>("42");     // std::optional(42)
-    auto f = xieite::parse<float>("3.14"); // std::optional(3.14f)
-    ```
-
-#### parse_csv
-- **Header**: `data/parse_csv.hpp`
-- **Synopsis**: Parse CSV data
-
-#### parse_json
-- **Header**: `data/parse_json.hpp`
-- **Synopsis**: Basic JSON parsing
-
-## Numeric Strings
-
-#### is_numeric
-- **Header**: `data/is_numeric.hpp`
-- **Synopsis**: `bool is_numeric(std::string_view str)`
-- **Purpose**: Check if string is numeric
-
-#### is_integer
-- **Header**: `data/is_integer.hpp`
-- **Synopsis**: Check if string represents integer
-
-#### is_float
-- **Header**: `data/is_float.hpp`
-- **Synopsis**: Check if string represents float
-
-## String Builders
-
-#### string_builder
-- **Header**: `data/string_builder.hpp`
-- **Synopsis**: `class string_builder`
-- **Purpose**: Efficient string concatenation
-- **Example**:
-    ```cpp
-    xieite::string_builder sb;
-    sb << "Hello" << ' ' << "World" << '!';
-    std::string result = sb.str();  // "Hello World!"
-    ```
-
-## Hashing Utilities
-
-#### hash_combine
-- **Header**: `data/hash_combine.hpp`
-- **Synopsis**: `void hash_combine(std::size_t& seed, const T& value)`
-- **Purpose**: Combine hash values
-- **Example**:
-    ```cpp
-    std::size_t h = 0;
-    xieite::hash_combine(h, "hello");
-    xieite::hash_combine(h, 42);
-    ```
-
-#### fnv1a_hash
-- **Header**: `data/fnv1a_hash.hpp`
-- **Synopsis**: FNV-1a hash algorithm
-
-## Encoding Utilities
-
-#### base64_encode
-- **Header**: `data/base64_encode.hpp`
-- **Synopsis**: Base64 encoding
-
-#### base64_decode
-- **Header**: `data/base64_decode.hpp`
-- **Synopsis**: Base64 decoding
-
-#### url_encode
-- **Header**: `data/url_encode.hpp`
-- **Synopsis**: URL encoding
-
-#### url_decode
-- **Header**: `data/url_decode.hpp`
-- **Synopsis**: URL decoding
-
-## Validation
-
-#### is_palindrome
-- **Header**: `data/is_palindrome.hpp`
-- **Synopsis**: `bool is_palindrome(std::string_view str)`
-- **Purpose**: Check if palindrome
-
-#### is_anagram
-- **Header**: `data/is_anagram.hpp`
-- **Synopsis**: `bool is_anagram(std::string_view s1, std::string_view s2)`
-- **Purpose**: Check if anagrams
-
-## Range Utilities
-
-#### chunk
-- **Header**: `data/chunk.hpp`
-- **Synopsis**: `auto chunk(Range&& r, std::size_t size)`
-- **Purpose**: Split range into chunks
-- **Example**:
-    ```cpp
-    std::vector<int> v{1,2,3,4,5,6};
-    for (auto chunk : xieite::chunk(v, 2)) {
-        // chunk = {1,2}, {3,4}, {5,6}
-    }
-    ```
-
-#### slide
-- **Header**: `data/slide.hpp`
-- **Synopsis**: `auto slide(Range&& r, std::size_t window)`
-- **Purpose**: Sliding window over range
-
-#### adjacent
-- **Header**: `data/adjacent.hpp`
-- **Synopsis**: `auto adjacent<N>(Range&& r)`
-- **Purpose**: Adjacent elements
 
 ## Usage Examples
 
-### String Processing
-```cpp
-#include <xieite/data/split.hpp>
-#include <xieite/data/trim.hpp>
-#include <xieite/data/join.hpp>
-
-std::string input = "  hello, world  ";
-auto trimmed = xieite::trim(input);
-auto parts = xieite::split(trimmed, ", ");
-auto result = xieite::join(parts, " | ");  // "hello | world"
-```
-
-### Container Operations
-```cpp
-#include <xieite/data/enumerate.hpp>
-#include <xieite/data/filter.hpp>
-
-std::vector<int> numbers{1, 2, 3, 4, 5};
-for (auto [i, val] : xieite::enumerate(numbers)) {
-    if (val % 2 == 0) {
-        std::cout << "Even at " << i << ": " << val << '\n';
-    }
-}
-```
-
-### Compile-Time Data
+### Fixed Containers
 ```cpp
 #include <xieite/data/fixed_array.hpp>
+#include <xieite/data/fixed_str.hpp>
 
-constexpr xieite::fixed_array<int, 5> data{1, 2, 3, 4, 5};
-constexpr auto sum = data.apply([](auto... values) { return (values + ...); });
-static_assert(sum == 15);
+// Fixed array
+xieite::fixed_array<int, 5> arr = {1, 2, 3, 4, 5};
+assert(arr.size() == 5);
+
+// Fixed string
+xieite::fixed_str<char, 10> str("Hello");
+auto view = str.view();
 ```
 
-## Performance Notes
+### String Operations
+```cpp
+#include <xieite/data/str_split.hpp>
+#include <xieite/data/str_join.hpp>
+#include <xieite/data/make_str_view.hpp>
+```
 
-- Small buffer optimization reduces allocations
-- Flat containers improve cache locality
-- String views avoid unnecessary copies
-- Compile-time structures enable optimization
-- Iterator adapters have minimal overhead
+## Implementation Notes
+1. **Template parameter order**: `fixed_str` requires character type first, then size
+2. **Method names**: Use `.view()` for accessing fixed_str content
+3. **make_array**: Takes a range and optional conversion function
 
 ## See Also
-
-- [Data Structures Overview](../../categories/data/README.md)
-- [Iterator Patterns](../../categories/data/iterators.md)
-- [String Utilities](../../categories/data/strings.md)
-- [Functional API](./fn.md)
+- [Data Structures Category Overview](../../categories/data/README.md)

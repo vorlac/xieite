@@ -426,34 +426,98 @@ constexpr bool check = List::template apply(
 );
 ```
 
-## Mermaid Diagram
-
+# Hierarchy Diagram
 ```mermaid
-graph LR
-    A[type_list] --> B[Access Operations]
-    A --> C[Modification Operations]
-    A --> D[Query Operations]
-    A --> E[Transform Operations]
+---
+config:
+    theme: 'base'
+    curve: 'straight'
+    themeVariables:
+        darkMode: true
+        clusterBkg: '#22272f62'
+        clusterBorder: '#6a6f77ff'
+        clusterTextColor: '#6a6f77ff'
+        lineColor: '#C1C4CAAA'
+        background: '#262B33'
+        primaryColor: '#2b4268ff'
+        primaryTextColor: '#C1C4CAff'
+        primaryBorderColor: '#6a6f77ff'
+        primaryLabelBkg: '#262B33'
+        secondaryColor: '#425f5fff'
+        secondaryBorderColor: '#8c9c81ff'
+        secondaryTextColor: '#C1C4CAff'
+        tertiaryColor: '#4d4962ff'
+        tertiaryBorderColor: '#8983a5ff'
+        tertiaryTextColor: '#eeeeee55'
+        nodeTextColor: '#C1C4CA'
+        defaultLinkColor: '#C1C4CA'
+        edgeLabelBackground: '#262B33'
+        edgeLabelBorderColor: '#C1C4CAff'
+        labelTextColor: '#ffffff'
+        errorBkgColor: '#724848ff'
+        errorTextColor: '#C1C4CA'
+        flowchart:
+            curve: 'basis'
+            nodeSpacing: 50
+            rankSpacing: 50
+            subGraphTitleMargin:
+                top: 15
+                bottom: 15
+                left: 15
+                right: 15
+---
+flowchart LR
+    subgraph asdf[" "]
+        direction LR
+        A[type_list] --> B[Access Operations]
+        A --> C[Modification Operations]
+        A --> D[Query Operations]
+        A --> E[Transform Operations]
 
-    B --> B1[at - Index access]
-    B --> B2[size - Element count]
-    B --> B3[slice - Range extraction]
+        B --> B1[at - Index access]
+        B --> B2[size - Element count]
+        B --> B3[slice - Range extraction]
 
-    C --> C1[append/prepend]
-    C --> C2[insert/erase]
-    C --> C3[replace/set]
+        C --> C1[append/prepend]
+        C --> C2[insert/erase]
+        C --> C3[replace/set]
 
-    D --> D1[has - Contains type]
-    D --> D2[find - Search type]
-    D --> D3[all/any - Conditions]
+        D --> D1[has - Contains type]
+        D --> D2[find - Search type]
+        D --> D3[all/any - Conditions]
 
-    E --> E1[filter - Select types]
-    E --> E2[transform - Map function]
-    E --> E3[fold - Reduce types]
+        E --> E1[filter - Select types]
+        E --> E2[transform - Map function]
+        E --> E3[fold - Reduce types]
 
-    F[Supporting Utilities] --> F1[type_id - Type wrapper]
-    F --> F2[fold/fold_for - Reductions]
-    F --> F3[demangle - Type names]
+        F[Supporting Utilities] --> F1[type_id - Type wrapper]
+        F --> F2[fold/fold_for - Reductions]
+        F --> F3[demangle - Type names]
+    end
+
+    linkStyle default stroke:#C1C4CAaa,stroke-width:2px,color:#C1C4CAaa
+
+    style A fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style B fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style B1 fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style B2 fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style B3 fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style C fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style C1 fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style C2 fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style C3 fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style D fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style D1 fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style D2 fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style D3 fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style E fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style E1 fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style E2 fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style E3 fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style F fill:#7a7253ff,stroke:#c7c19bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style F1 fill:#7a7253ff,stroke:#c7c19bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style F2 fill:#7a7253ff,stroke:#c7c19bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style F3 fill:#7a7253ff,stroke:#c7c19bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
 ```
 
 ## See Also

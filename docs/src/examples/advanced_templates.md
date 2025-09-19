@@ -112,7 +112,7 @@ auto multiply_all(Args... args)
     XIEITE_ARROW_NOEX((... * args))
 
 // Advanced curry example
-auto complex_operation = xieite::curry(
+auto complex_operation = /* Manual currying */
     [](int a, double b, std::string c, bool d) {
         std::cout << "a=" << a << ", b=" << b
                   << ", c=" << c << ", d=" << d << '\n';
@@ -136,7 +136,7 @@ void print_aggregate_info() {
 // Compile-time prime calculations
 template<std::size_t N>
 struct PrimeCalculator {
-    static constexpr bool is_prime = xieite::is_prime(N);
+    static constexpr bool is_prime = xieite::prime(N);
     static constexpr std::size_t next = xieite::prime<N + 1>;
 
     static void print_info() {

@@ -12,18 +12,15 @@ This example demonstrates basic usage of XIEITE utilities for common programming
 
 // Math utilities
 #include <xieite/math/abs.hpp>
-#include <xieite/math/clamp.hpp>
 #include <xieite/math/almost_equal.hpp>
 #include <xieite/math/sign.hpp>
 
-// String utilities
-#include <xieite/data/split_str.hpp>
-#include <xieite/data/join_str.hpp>
-#include <xieite/data/trim_str.hpp>
+// Data utilities
+#include <xieite/data/fixed_str.hpp>
+#include <xieite/data/make_str_view.hpp>
 
 // Function utilities
-#include <xieite/fn/scope_exit.hpp>
-#include <xieite/fn/finally.hpp>
+#include <xieite/fn/scope_guard.hpp>
 
 // I/O utilities
 #include <xieite/io/log.hpp>
@@ -43,10 +40,10 @@ int main() {
         auto positive = xieite::abs(negative);
         xieite::log::info("abs({}) = {}", negative, positive);
 
-        // Clamping values
-        double value = 150.0;
-        auto clamped = xieite::clamp(value, 0.0, 100.0);
-        xieite::log::info("clamp({}, 0, 100) = {}", value, clamped);
+        // Safe absolute value works with various types
+        double floating = -3.14;
+        auto abs_float = xieite::abs(floating);
+        xieite::log::info("abs({}) = {}", floating, abs_float);
 
         // Floating-point comparison
         double a = 0.1 + 0.2;
@@ -64,54 +61,29 @@ int main() {
     {
         xieite::log::info("\n=== String Utilities ===");
 
-        // String splitting
-        std::string csv = "apple,banana,orange,grape";
-        auto fruits = xieite::split_str(csv, ',');
-        xieite::log::info("Split '{}' into {} parts", csv, fruits.size());
+        // Fixed string demonstration
+        auto fixed_str = xieite::fixed_str("Hello XIEITE");
+        xieite::log::info("Fixed string: '{}'", fixed_str.view());
 
-        // String joining
-        std::vector<std::string> words = {"Hello", "XIEITE", "World"};
-        auto sentence = xieite::join_str(words, " ");
-        xieite::log::info("Joined: '{}'", sentence);
-
-        // String trimming
-        std::string padded = "  \t Hello World \n ";
-        auto trimmed = xieite::trim_str(padded);
-        xieite::log::info("Trimmed: '{}' -> '{}'", padded, trimmed);
+        // String view creation
+        std::string data = "Hello World";
+        auto view = xieite::make_str_view(data);
+        xieite::log::info("String view: '{}'", view);
     }
 
     // RAII and scope guards
     {
         xieite::log::info("\n=== Scope Guards ===");
 
-        // Automatic cleanup
+        // Scope guard demonstration
         {
-            xieite::scope_exit cleanup([] {
+            auto cleanup = xieite::scope_guard([] {
                 xieite::log::info("Scope exited - cleaning up");
             });
 
             xieite::log::info("Doing work in scope...");
             // Work happens here
         } // cleanup runs here
-
-        // Finally block pattern
-        auto process_file = [](const std::string& filename) {
-            auto finally = xieite::finally([&] {
-                xieite::log::info("Closing file: {}", filename);
-            });
-
-            xieite::log::info("Processing file: {}", filename);
-            // File processing logic
-
-            if (filename.empty()) {
-                xieite::log::error("Empty filename!");
-                return false;
-            }
-            return true;
-        };
-
-        process_file("data.txt");
-        process_file("");
     }
 
     // System information

@@ -5,7 +5,45 @@ The `fn/` category provides powerful functional programming utilities and higher
 ## Overview
 
 ```mermaid
-graph LR
+---
+config:
+    theme: 'base'
+    curve: 'straight'
+    themeVariables:
+        darkMode: true
+        clusterBkg: '#22272f62'
+        clusterBorder: '#6a6f77ff'
+        clusterTextColor: '#6a6f77ff'
+        lineColor: '#C1C4CAAA'
+        background: '#262B33'
+        primaryColor: '#2b4268ff'
+        primaryTextColor: '#C1C4CAff'
+        primaryBorderColor: '#6a6f77ff'
+        primaryLabelBkg: '#262B33'
+        secondaryColor: '#425f5fff'
+        secondaryBorderColor: '#8c9c81ff'
+        secondaryTextColor: '#C1C4CAff'
+        tertiaryColor: '#4d4962ff'
+        tertiaryBorderColor: '#8983a5ff'
+        tertiaryTextColor: '#eeeeee55'
+        nodeTextColor: '#C1C4CA'
+        defaultLinkColor: '#C1C4CA'
+        edgeLabelBackground: '#262B33'
+        edgeLabelBorderColor: '#C1C4CAff'
+        labelTextColor: '#ffffff'
+        errorBkgColor: '#724848ff'
+        errorTextColor: '#C1C4CA'
+        flowchart:
+            curve: 'basis'
+            nodeSpacing: 50
+            rankSpacing: 50
+            subGraphTitleMargin:
+                top: 15
+                bottom: 15
+                left: 15
+                right: 15
+---
+flowchart LR
     Fn[fn/]
 
     Fn --> HOF[Higher-Order Functions]
@@ -36,12 +74,31 @@ graph LR
     Utils --> cast[cast.hpp]
     Utils --> also[also.hpp]
 
-    style Fn fill:#0d1117,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style HOF fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Comb fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Guards fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style UDL fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Utils fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
+linkStyle default stroke:#C1C4CAaa,stroke-width:2px,color:#C1C4CAaa
+
+style Fn fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style HOF fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Comb fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Guards fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style UDL fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Utils fill:#7a7253ff,stroke:#c7c19bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style memoize fill:#2b5f5fff,stroke:#6d9c9cff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style apply fill:#3a3f47ff,stroke:#6a6f77ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style distribute fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style reverse fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style y_comb fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style visitor fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style mixfix fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style scope fill:#7a7253ff,stroke:#c7c19bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style process fill:#2b5f5fff,stroke:#6d9c9cff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style number fill:#3a3f47ff,stroke:#6a6f77ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style range fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style unit fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style fstr fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style unroll fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style time fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style cast fill:#7a7253ff,stroke:#c7c19bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style also fill:#2b5f5fff,stroke:#6d9c9cff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
 ```
 
 ## Higher-Order Functions
@@ -51,13 +108,10 @@ graph LR
 ```cpp
 #include <xieite/fn/memoize.hpp>
 
-// Memoize expensive computations
-auto fib = xieite::memoize([](int n) -> int {
-    if (n <= 1) return n;
-    return fib(n - 1) + fib(n - 2);
-});
-
-int result = fib(40);  // Fast due to memoization
+// Memoize function calls
+auto expensive_fn = [](int x) { return x * x; };
+int result = xieite::memoize(expensive_fn, 10);  // Returns 100
+int cached = xieite::memoize(expensive_fn, 10);   // Uses cached result
 ```
 
 ### Argument Manipulation
@@ -129,7 +183,7 @@ auto result = xieite::apply_as_tuple(
 ```cpp
 #include <xieite/fn/y_combinator.hpp>
 
-// Recursive lambda without explicit self-reference
+// Fixed-point combinator for recursive functions
 auto factorial = xieite::y_combinator([](auto self, int n) -> int {
     return n <= 1 ? 1 : n * self(n - 1);
 });
@@ -171,7 +225,45 @@ bool in_range = between(5, 1, 10);  // true
 ### Scope Guard
 
 ```mermaid
-graph LR
+---
+config:
+    theme: 'base'
+    curve: 'straight'
+    themeVariables:
+        darkMode: true
+        clusterBkg: '#22272f62'
+        clusterBorder: '#6a6f77ff'
+        clusterTextColor: '#6a6f77ff'
+        lineColor: '#C1C4CAAA'
+        background: '#262B33'
+        primaryColor: '#2b4268ff'
+        primaryTextColor: '#C1C4CAff'
+        primaryBorderColor: '#6a6f77ff'
+        primaryLabelBkg: '#262B33'
+        secondaryColor: '#425f5fff'
+        secondaryBorderColor: '#8c9c81ff'
+        secondaryTextColor: '#C1C4CAff'
+        tertiaryColor: '#4d4962ff'
+        tertiaryBorderColor: '#8983a5ff'
+        tertiaryTextColor: '#eeeeee55'
+        nodeTextColor: '#C1C4CA'
+        defaultLinkColor: '#C1C4CA'
+        edgeLabelBackground: '#262B33'
+        edgeLabelBorderColor: '#C1C4CAff'
+        labelTextColor: '#ffffff'
+        errorBkgColor: '#724848ff'
+        errorTextColor: '#C1C4CA'
+        flowchart:
+            curve: 'basis'
+            nodeSpacing: 50
+            rankSpacing: 50
+            subGraphTitleMargin:
+                top: 15
+                bottom: 15
+                left: 15
+                right: 15
+---
+flowchart LR
     Enter[Scope Entry]
     Body[Scope Body]
     Exit[Scope Exit]
@@ -181,10 +273,13 @@ graph LR
     Body --> Exit
     Exit --> Guard
 
-    style Enter fill:#0d1117,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Body fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Exit fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Guard fill:#161b22,stroke:#f85149,stroke-width:2px,color:#c9d1d9
+    linkStyle default stroke:#C1C4CAaa,stroke-width:2px,color:#C1C4CAaa
+
+
+    style Enter fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style Body fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style Exit fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+    style Guard fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
 ```
 
 ```cpp
@@ -284,14 +379,13 @@ auto data = 1_GB;                // 1073741824 bytes
 #include <xieite/fn/unroll.hpp>
 
 // Compile-time loop unrolling
-auto sum = xieite::unroll<5>([](auto... indices) {
+auto result = xieite::unroll<5>([](auto... indices) {
     return ((indices + 1) + ...);
 });
-// sum = 1 + 2 + 3 + 4 + 5 = 15
 
 // Type-based unrolling
-xieite::unroll<int, double, char>([](auto... types) {
-    ((std::cout << sizeof(types) << " "), ...);
+xieite::unroll<int, double, char>([](auto... indices) {
+    // Process with indices 0, 1, 2...
 });
 ```
 

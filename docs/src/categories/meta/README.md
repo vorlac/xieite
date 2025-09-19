@@ -5,6 +5,35 @@ The `meta/` category provides advanced template metaprogramming utilities for co
 ## Overview
 
 ```mermaid
+---
+config:
+    theme: 'base'
+    curve: 'straight'
+    themeVariables:
+        darkMode: true
+        clusterBkg: '#22272f62'
+        clusterBorder: '#6a6f77ff'
+        clusterTextColor: '#6a6f77ff'
+        lineColor: '#C1C4CAAA'
+        background: '#262B33'
+        primaryColor: '#2b4268ff'
+        primaryTextColor: '#C1C4CAff'
+        primaryBorderColor: '#6a6f77ff'
+        primaryLabelBkg: '#262B33'
+        secondaryColor: '#425f5fff'
+        secondaryBorderColor: '#8c9c81ff'
+        secondaryTextColor: '#C1C4CAff'
+        tertiaryColor: '#4d4962ff'
+        tertiaryBorderColor: '#8983a5ff'
+        tertiaryTextColor: '#eeeeee55'
+        nodeTextColor: '#C1C4CA'
+        defaultLinkColor: '#C1C4CA'
+        edgeLabelBackground: '#262B33'
+        edgeLabelBorderColor: '#C1C4CA'
+        labelTextColor: '#C1C4CA'
+        errorBkgColor: '#724848ff'
+        errorTextColor: '#C1C4CA'
+---
 graph LR
     Meta[meta/]
 
@@ -37,12 +66,32 @@ graph LR
     Fold --> fold_for[fold_for.hpp]
     Fold --> any[any.hpp]
 
-    style Meta fill:#0d1117,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Seq fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Tuple fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Type fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Compile fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Fold fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
+linkStyle default stroke:#C1C4CAaa,stroke-width:2px,color:#C1C4CAaa
+
+style Meta fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Seq fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Tuple fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Type fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Compile fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Fold fill:#7a7253ff,stroke:#c7c19bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style make_seq fill:#2b5f5fff,stroke:#6d9c9cff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style seq fill:#3a3f47ff,stroke:#6a6f77ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style seq_for fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style make_tuple fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style reverse_tuple fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style subtuple fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style splice_tuple fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style fwd_tuple fill:#7a7253ff,stroke:#c7c19bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style type_list fill:#2b5f5fff,stroke:#6d9c9cff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style type_id fill:#3a3f47ff,stroke:#6a6f77ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style type_name fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style type_counter fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style make_cxpr fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style state fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style enum_size fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style fold fill:#7a7253ff,stroke:#c7c19bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style fold_for fill:#2b5f5fff,stroke:#6d9c9cff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style any fill:#3a3f47ff,stroke:#6a6f77ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
 ```
 
 ## Integer Sequences
@@ -99,6 +148,35 @@ constexpr auto evens = xieite::seq_for<0, 10, 2>;
 ### Tuple Creation and Transformation
 
 ```mermaid
+---
+config:
+    theme: 'base'
+    curve: 'straight'
+    themeVariables:
+        darkMode: true
+        clusterBkg: '#22272f62'
+        clusterBorder: '#6a6f77ff'
+        clusterTextColor: '#6a6f77ff'
+        lineColor: '#C1C4CAAA'
+        background: '#262B33'
+        primaryColor: '#2b4268ff'
+        primaryTextColor: '#C1C4CAff'
+        primaryBorderColor: '#6a6f77ff'
+        primaryLabelBkg: '#262B33'
+        secondaryColor: '#425f5fff'
+        secondaryBorderColor: '#8c9c81ff'
+        secondaryTextColor: '#C1C4CAff'
+        tertiaryColor: '#4d4962ff'
+        tertiaryBorderColor: '#8983a5ff'
+        tertiaryTextColor: '#eeeeee55'
+        nodeTextColor: '#C1C4CA'
+        defaultLinkColor: '#C1C4CA'
+        edgeLabelBackground: '#262B33'
+        edgeLabelBorderColor: '#C1C4CA'
+        labelTextColor: '#C1C4CA'
+        errorBkgColor: '#724848ff'
+        errorTextColor: '#C1C4CA'
+---
 graph LR
     Input[Input Types/Values]
 
@@ -117,10 +195,20 @@ graph LR
     Extract --> subtuple[subtuple]
     Extract --> tuple_size[tuple_size]
 
-    style Input fill:#0d1117,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Create fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Transform fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Extract fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
+linkStyle default stroke:#C1C4CAaa,stroke-width:2px,color:#C1C4CAaa
+
+style Input fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Create fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Transform fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Extract fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style make_tuple fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style fwd_tuple fill:#7a7253ff,stroke:#c7c19bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style decay_tuple fill:#2b5f5fff,stroke:#6d9c9cff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style reverse fill:#3a3f47ff,stroke:#6a6f77ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style splice fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style collapse fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style subtuple fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style tuple_size fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
 ```
 
 #### Making Tuples
@@ -251,6 +339,35 @@ constexpr auto c = counter<struct B>::next();  // 0
 ### Basic Fold
 
 ```mermaid
+---
+config:
+    theme: 'base'
+    curve: 'straight'
+    themeVariables:
+        darkMode: true
+        clusterBkg: '#22272f62'
+        clusterBorder: '#6a6f77ff'
+        clusterTextColor: '#6a6f77ff'
+        lineColor: '#C1C4CAAA'
+        background: '#262B33'
+        primaryColor: '#2b4268ff'
+        primaryTextColor: '#C1C4CAff'
+        primaryBorderColor: '#6a6f77ff'
+        primaryLabelBkg: '#262B33'
+        secondaryColor: '#425f5fff'
+        secondaryBorderColor: '#8c9c81ff'
+        secondaryTextColor: '#C1C4CAff'
+        tertiaryColor: '#4d4962ff'
+        tertiaryBorderColor: '#8983a5ff'
+        tertiaryTextColor: '#eeeeee55'
+        nodeTextColor: '#C1C4CA'
+        defaultLinkColor: '#C1C4CA'
+        edgeLabelBackground: '#262B33'
+        edgeLabelBorderColor: '#C1C4CA'
+        labelTextColor: '#C1C4CA'
+        errorBkgColor: '#724848ff'
+        errorTextColor: '#C1C4CA'
+---
 graph TD
     Fold[Fold Operation]
 
@@ -262,10 +379,15 @@ graph TD
     Right --> foldr[fold_right]
     Cond --> fold_for[fold_for]
 
-    style Fold fill:#0d1117,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Left fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Right fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Cond fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
+linkStyle default stroke:#C1C4CAaa,stroke-width:2px,color:#C1C4CAaa
+
+style Fold fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Left fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Right fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Cond fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style foldl fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style foldr fill:#7a7253ff,stroke:#c7c19bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style fold_for fill:#2b5f5fff,stroke:#6d9c9cff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
 ```
 
 ```cpp

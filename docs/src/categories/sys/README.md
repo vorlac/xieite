@@ -5,6 +5,35 @@ The `sys/` category provides low-level system interaction utilities. With 21 hea
 ## Overview
 
 ```mermaid
+---
+config:
+    theme: 'base'
+    curve: 'straight'
+    themeVariables:
+        darkMode: true
+        clusterBkg: '#22272f62'
+        clusterBorder: '#6a6f77ff'
+        clusterTextColor: '#6a6f77ff'
+        lineColor: '#C1C4CAAA'
+        background: '#262B33'
+        primaryColor: '#2b4268ff'
+        primaryTextColor: '#C1C4CAff'
+        primaryBorderColor: '#6a6f77ff'
+        primaryLabelBkg: '#262B33'
+        secondaryColor: '#425f5fff'
+        secondaryBorderColor: '#8c9c81ff'
+        secondaryTextColor: '#C1C4CAff'
+        tertiaryColor: '#4d4962ff'
+        tertiaryBorderColor: '#8983a5ff'
+        tertiaryTextColor: '#eeeeee55'
+        nodeTextColor: '#C1C4CA'
+        defaultLinkColor: '#C1C4CA'
+        edgeLabelBackground: '#262B33'
+        edgeLabelBorderColor: '#C1C4CA'
+        labelTextColor: '#C1C4CA'
+        errorBkgColor: '#724848ff'
+        errorTextColor: '#C1C4CA'
+---
 graph LR
     Sys[sys/]
 
@@ -35,12 +64,30 @@ graph LR
     Debug --> segfault[segfault.hpp]
     Debug --> cosmic_ray[detect_cosmic_ray.hpp]
 
-    style Sys fill:#0d1117,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Memory fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Threading fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Process fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Hardware fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Debug fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
+linkStyle default stroke:#C1C4CAaa,stroke-width:2px,color:#C1C4CAaa
+
+style Sys fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Memory fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Threading fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Process fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Hardware fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Debug fill:#7a7253ff,stroke:#c7c19bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style aligned_mem fill:#2b5f5fff,stroke:#6d9c9cff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style mem_info fill:#3a3f47ff,stroke:#6a6f77ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style page_mem fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style thread_pool fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style thread_loop fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style thread_interval fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style thread_timeout fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style exec fill:#7a7253ff,stroke:#c7c19bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style exit fill:#2b5f5fff,stroke:#6d9c9cff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style process_result fill:#3a3f47ff,stroke:#6a6f77ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style nproc fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style total_mem fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style available_mem fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style stopwatch fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style segfault fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style cosmic_ray fill:#7a7253ff,stroke:#c7c19bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
 ```
 
 ## Memory Operations
@@ -114,6 +161,35 @@ class SecureData {
 ### Thread Pool
 
 ```mermaid
+---
+config:
+    theme: 'base'
+    curve: 'straight'
+    themeVariables:
+        darkMode: true
+        clusterBkg: '#22272f62'
+        clusterBorder: '#6a6f77ff'
+        clusterTextColor: '#6a6f77ff'
+        lineColor: '#C1C4CAAA'
+        background: '#262B33'
+        primaryColor: '#2b4268ff'
+        primaryTextColor: '#C1C4CAff'
+        primaryBorderColor: '#6a6f77ff'
+        primaryLabelBkg: '#262B33'
+        secondaryColor: '#425f5fff'
+        secondaryBorderColor: '#8c9c81ff'
+        secondaryTextColor: '#C1C4CAff'
+        tertiaryColor: '#4d4962ff'
+        tertiaryBorderColor: '#8983a5ff'
+        tertiaryTextColor: '#eeeeee55'
+        nodeTextColor: '#C1C4CA'
+        defaultLinkColor: '#C1C4CA'
+        edgeLabelBackground: '#262B33'
+        edgeLabelBorderColor: '#C1C4CA'
+        labelTextColor: '#C1C4CA'
+        errorBkgColor: '#724848ff'
+        errorTextColor: '#C1C4CA'
+---
 graph LR
     Tasks[Task Queue]
     Pool[Thread Pool]
@@ -124,10 +200,12 @@ graph LR
     Pool --> Workers
     Workers --> Results
 
-    style Tasks fill:#0d1117,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Pool fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Workers fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Results fill:#161b22,stroke:#f85149,stroke-width:2px,color:#c9d1d9
+linkStyle default stroke:#C1C4CAaa,stroke-width:2px,color:#C1C4CAaa
+
+style Tasks fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Pool fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Workers fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Results fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
 ```
 
 ```cpp
@@ -290,7 +368,36 @@ thread_pool.set_threads(xieite::nproc());
 ### Memory Statistics
 
 ```mermaid
-graph TD
+---
+config:
+    theme: 'base'
+    curve: 'straight'
+    themeVariables:
+        darkMode: true
+        clusterBkg: '#22272f62'
+        clusterBorder: '#6a6f77ff'
+        clusterTextColor: '#6a6f77ff'
+        lineColor: '#C1C4CAAA'
+        background: '#262B33'
+        primaryColor: '#2b4268ff'
+        primaryTextColor: '#C1C4CAff'
+        primaryBorderColor: '#6a6f77ff'
+        primaryLabelBkg: '#262B33'
+        secondaryColor: '#425f5fff'
+        secondaryBorderColor: '#8c9c81ff'
+        secondaryTextColor: '#C1C4CAff'
+        tertiaryColor: '#4d4962ff'
+        tertiaryBorderColor: '#8983a5ff'
+        tertiaryTextColor: '#eeeeee55'
+        nodeTextColor: '#C1C4CA'
+        defaultLinkColor: '#C1C4CA'
+        edgeLabelBackground: '#262B33'
+        edgeLabelBorderColor: '#C1C4CA'
+        labelTextColor: '#C1C4CA'
+        errorBkgColor: '#724848ff'
+        errorTextColor: '#C1C4CA'
+---
+flowchart TD
     Memory[System Memory]
 
     Memory --> Total[Total RAM]
@@ -303,11 +410,17 @@ graph TD
     Used --> calc[Total - Available]
     Pages --> page_mem["page_mem()"]
 
-    style Memory fill:#0d1117,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Total fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Available fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Used fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Pages fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
+linkStyle default stroke:#C1C4CAaa,stroke-width:2px,color:#C1C4CAaa
+
+style Memory fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Total fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Available fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Used fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Pages fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style total_mem fill:#7a7253ff,stroke:#c7c19bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style available_mem fill:#2b5f5fff,stroke:#6d9c9cff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style calc fill:#3a3f47ff,stroke:#6a6f77ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style page_mem fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
 ```
 
 ## Performance Monitoring

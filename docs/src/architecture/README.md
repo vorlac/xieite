@@ -182,15 +182,15 @@ namespace xieite {
 
     // Type traits
     template<typename T>
-    concept is_integral = /* ... */;
+    concept is_int = /* ... */;
 
-    // Math functions
+    // Math functions (lookup tables)
     template<typename T>
-    constexpr T factorial(T n);
+    constexpr auto factorial = /* ... */;
 
     // Data structures
-    template<typename T, size_t N>
-    class fixed_array;
+    template<typename CharType, std::size_t N>
+    struct fixed_str;
 }
 ```
 
@@ -309,17 +309,13 @@ graph BT
 ### Include Strategy
 
 ```cpp
-// Option 1: Specific includes (recommended)
+// Specific includes (recommended)
 #include <xieite/pp/arrow.hpp>
-#include <xieite/trait/is_integral.hpp>
+#include <xieite/trait/is_int.hpp>
 #include <xieite/math/factorial.hpp>
 
-// Option 2: Category includes
-#include <xieite/pp.hpp>    // All preprocessor utilities
-#include <xieite/trait.hpp>  // All type traits
-
-// Option 3: Everything (not recommended)
-#include <xieite/xieite.hpp>  // Entire library
+// Each header must be included individually
+// No aggregate headers are provided
 ```
 
 ### Compilation Characteristics
@@ -423,12 +419,6 @@ XIEITE follows semantic versioning (MAJOR.MINOR.PATCH):
 - **MINOR**: New functionality, backward compatible
 - **PATCH**: Bug fixes, performance improvements
 
-Current version extracted from `include/xieite/xieite.hpp`:
-```cpp
-#define XIEITE_VERSION_MAJOR 0
-#define XIEITE_VERSION_MINOR 118
-#define XIEITE_VERSION_PATCH 2
-```
 
 ## Quality Assurance
 

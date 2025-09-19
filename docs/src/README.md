@@ -56,7 +56,7 @@ auto double_value(int x) XIEITE_ARROW(x * 2)
 ### Concept-Based Design
 Comprehensive use of C++20 concepts for compile-time validation:
 ```cpp
-template<xieite::is_arithmetic T>
+template<xieite::is_arith T>
 auto process(T value) { /* ... */ }
 ```
 
@@ -90,11 +90,10 @@ Jump directly to the [API Reference](reference/README.md) for complete function 
 ```cpp
 // Include specific utilities
 #include <xieite/pp/arrow.hpp>
-#include <xieite/trait/is_arithmetic.hpp>
+#include <xieite/trait/is_arith.hpp>
 #include <xieite/math/factorial.hpp>
 
-// Or include everything (not recommended for production)
-#include <xieite/xieite.hpp>
+// Note: There is no single header that includes everything
 ```
 
 ## Documentation Conventions

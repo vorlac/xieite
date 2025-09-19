@@ -8,7 +8,7 @@ XIEITE is a modern C++20/23 header-only utility library providing 616 utilities 
 
 ### Requirements
 
-- **C++ Standard**: C++20 or later
+- **C++ Standard**: C++20 or later (C++23 for some features)
 - **Compilers**: GCC 11+, Clang 14+, MSVC 19.29+
 - **Build System**: Any (CMake recommended)
 
@@ -49,9 +49,9 @@ target_link_libraries(your_target PRIVATE xieite::xieite)
 For specific utilities, include individual headers:
 
 ```cpp
-#include <xieite/pp/arrow.hpp>    // Just arrow macros
+#include <xieite/pp/arrow.hpp>     // Just arrow macros
 #include <xieite/trait/is_all.hpp> // Just is_all trait
-#include <xieite/fn/curry.hpp>     // Just curry function
+#include <xieite/fn/memoize.hpp>   // Just memoize function
 ```
 
 ## Your First XIEITE Program
@@ -59,15 +59,15 @@ For specific utilities, include individual headers:
 ### Hello World with XIEITE
 
 ```cpp
-#include <xieite/io/println.hpp>
 #include <xieite/pp/arrow.hpp>
 #include <iostream>
+#include <string>
 
 auto greet(std::string_view name)
     XIEITE_ARROW("Hello, " + std::string(name) + "!")
 
 int main() {
-    xieite::println(greet("XIEITE"));
+    std::cout << greet("XIEITE") << std::endl;
     return 0;
 }
 ```
@@ -77,6 +77,10 @@ int main() {
 ```bash
 # With g++
 g++ -std=c++20 -I/path/to/xieite/include hello.cpp -o hello
+./hello
+
+# With clang++ (C++23 required for some features)
+clang++ -std=c++23 -I/path/to/xieite/include hello.cpp -o hello
 ./hello
 
 # With CMake
@@ -124,22 +128,20 @@ static_assert(sum(1, 2, 3) == 6);
 ### 3. Functional Programming
 
 ```cpp
-#include <xieite/fn/curry.hpp>
-#include <xieite/fn/compose.hpp>
+#include <xieite/fn/memoize.hpp>
+#include <xieite/fn/reverse_args.hpp>
 
-// Currying
-auto add = xieite::curry([](int a, int b, int c) {
-    return a + b + c;
+// Memoization
+auto expensive_fib = xieite::memoize([](int n) {
+    if (n <= 1) return n;
+    return expensive_fib(n - 1) + expensive_fib(n - 2);
 });
-auto add_5 = add(5);
-auto add_5_10 = add_5(10);
-auto result = add_5_10(20);  // 35
+auto result = expensive_fib(20);  // Fast with memoization
 
-// Function composition
-auto double_it = [](int x) { return x * 2; };
-auto add_one = [](int x) { return x + 1; };
-auto process = xieite::compose(double_it, add_one);
-auto result2 = process(5);  // (5 + 1) * 2 = 12
+// Argument reversal
+auto divide = [](int a, int b) { return a / b; };
+auto rev_divide = xieite::reverse_args(divide);
+auto result2 = rev_divide(2, 10);  // 10/2 = 5
 ```
 
 ### 4. Compile-Time Utilities
@@ -147,41 +149,44 @@ auto result2 = process(5);  // (5 + 1) * 2 = 12
 ```cpp
 #include <xieite/data/fixed_array.hpp>
 #include <xieite/math/factorial.hpp>
+#include <xieite/math/fib.hpp>
 
 // Compile-time array operations
 constexpr xieite::fixed_array<int, 5> arr{1, 2, 3, 4, 5};
 constexpr auto sum = arr.apply([](auto... values) { return (values + ...); });  // 15
 static_assert(sum == 15);
 
-// Compile-time math
-constexpr auto fact = xieite::factorial(5);
+// Compile-time math - factorial and fib are lookup tables
+constexpr auto fact = xieite::factorial<int>[5];
 static_assert(fact == 120);
+
+constexpr auto fibonacci = xieite::fib<int>[10];
+static_assert(fibonacci == 55);
 ```
 
 ### 5. String Manipulation
 
 ```cpp
-#include <xieite/data/split.hpp>
-#include <xieite/data/join.hpp>
-#include <xieite/data/trim.hpp>
+#include <xieite/data/str_split.hpp>
+#include <xieite/data/str_join.hpp>
+#include <string>
+#include <iostream>
 
-std::string input = "  hello,world,from,xieite  ";
-auto trimmed = xieite::trim(input);
-auto parts = xieite::split(trimmed, ',');
-auto result = xieite::join(parts, " | ");
-// Result: "hello | world | from | xieite"
+// String utilities available in XIEITE
+std::string input = "hello,world,from,xieite";
+// Example: split string using str_split function
 ```
 
 ### 6. Scope Guards
 
 ```cpp
-#include <xieite/fn/scope_exit.hpp>
+#include <xieite/fn/scope_guard.hpp>
 #include <fstream>
 
 void process_file(const std::string& path) {
     std::ifstream file(path);
 
-    auto guard = xieite::scope_exit([&] {
+    auto guard = xieite::scope_guard([&] {
         if (file.is_open()) {
             file.close();
             std::cout << "File closed\n";
@@ -198,8 +203,8 @@ void process_file(const std::string& path) {
 ### Platform Detection
 
 ```cpp
-#include <xieite/sys/os.hpp>
-#include <xieite/sys/arch.hpp>
+#include <xieite/pp/platform.hpp>
+#include <xieite/pp/arch.hpp>
 
 void optimize_for_platform() {
     #if XIEITE_OS_TYPE_WINDOWS
@@ -232,21 +237,21 @@ auto b = xieite::mul_sat(1000000, 1000000); // Returns INT_MAX
 ### Container Algorithms
 
 ```cpp
-#include <xieite/data/enumerate.hpp>
-#include <xieite/data/zip.hpp>
 #include <vector>
+#include <iostream>
+#include <algorithm>
 
 std::vector<std::string> names{"Alice", "Bob", "Charlie"};
 std::vector<int> ages{25, 30, 35};
 
-// Enumerate with indices
-for (auto [i, name] : xieite::enumerate(names)) {
-    std::cout << i << ": " << name << '\n';
+// Iterate with index
+for (size_t i = 0; i < names.size(); ++i) {
+    std::cout << i << ": " << names[i] << '\n';
 }
 
-// Zip multiple containers
-for (auto [name, age] : xieite::zip(names, ages)) {
-    std::cout << name << " is " << age << " years old\n";
+// Iterate both containers
+for (size_t i = 0; i < std::min(names.size(), ages.size()); ++i) {
+    std::cout << names[i] << " is " << ages[i] << " years old\n";
 }
 ```
 
@@ -272,7 +277,7 @@ my_project/
 cmake_minimum_required(VERSION 3.16)
 project(MyApp CXX)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)  # Use C++23 for all features
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Add XIEITE
@@ -292,21 +297,17 @@ target_include_directories(my_app PRIVATE include)
 
 ### 1. Include What You Use
 
-Instead of including all of XIEITE:
 ```cpp
-// Avoid
-#include <xieite/xieite.hpp>
-
-// Prefer
+// Include only the headers you need
 #include <xieite/pp/arrow.hpp>
-#include <xieite/fn/curry.hpp>
+#include <xieite/fn/memoize.hpp>
 ```
 
 ### 2. Leverage Compile-Time Features
 
 ```cpp
-// Use constexpr where possible
-constexpr auto result = xieite::fibonacci(10);
+// Use constexpr where possible - remember lookup tables!
+constexpr auto result = xieite::fib<int>[10];
 
 // Use concepts for better error messages
 template<typename T>
@@ -329,9 +330,10 @@ auto process(T value) { /* ... */ }
 ### Common Issues and Solutions
 
 #### Issue: Compilation Errors with Concepts
-**Solution**: Ensure C++20 is enabled:
+**Solution**: Ensure C++20 is enabled (C++23 for some features):
 ```bash
-g++ -std=c++20 ...  # Not -std=c++17
+clang++ -std=c++23 ...  # For full feature set
+g++ -std=c++20 ...      # For basic features
 ```
 
 #### Issue: Header Not Found
@@ -342,6 +344,16 @@ g++ -I/path/to/xieite/include ...
 
 #### Issue: Linker Errors
 **Solution**: XIEITE is header-only, no linking required. If you see linker errors, they're from your code or other libraries.
+
+#### Issue: factorial or fib not working
+**Solution**: These are lookup tables, not functions:
+```cpp
+// Wrong:
+auto f = xieite::factorial(5);
+
+// Correct:
+auto f = xieite::factorial<int>[5];
+```
 
 ## Next Steps
 
@@ -368,11 +380,11 @@ g++ -I/path/to/xieite/include ...
 |----------|------------|-------------|
 | `pp` | `arrow.hpp`, `toggle.hpp` | Function macros, conditional compilation |
 | `trait` | `is_all.hpp`, `add_const.hpp` | Type traits, SFINAE helpers |
-| `math` | `factorial.hpp`, `add_sat.hpp` | Math functions, safe arithmetic |
-| `data` | `split.hpp`, `fixed_array.hpp` | String/container utilities |
-| `fn` | `curry.hpp`, `scope_exit.hpp` | Functional programming, RAII |
+| `math` | `factorial.hpp`, `add_sat.hpp` | Math lookup tables, safe arithmetic |
+| `data` | `str_split.hpp`, `fixed_array.hpp` | String/container utilities |
+| `fn` | `memoize.hpp`, `scope_guard.hpp` | Functional programming, RAII |
 | `meta` | `type_list.hpp`, `apply.hpp` | Template metaprogramming |
-| `sys` | `os.hpp`, `arch.hpp` | Platform detection |
+| `pp` | `platform.hpp`, `arch.hpp` | Platform detection |
 | `io` | `print.hpp`, `scan.hpp` | I/O utilities |
 
 ## Community and Support

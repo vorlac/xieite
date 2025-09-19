@@ -2,545 +2,190 @@
 
 ## Overview
 
-The io category contains 30+ header files providing input/output utilities, including enhanced stream operations, formatting helpers, file I/O, scanning/parsing, and debug output utilities.
+The io category contains input/output utilities, including file operations, terminal control, logging, and debug output utilities.
 
-## Organization
 
-The io headers are organized into functional groups:
+## Core I/O Utilities
 
-- **Stream Operations** (8+ headers): Enhanced stream manipulation
-- **Formatting** (6+ headers): Output formatting utilities
-- **File Operations** (5+ headers): File I/O helpers
-- **Scanning/Parsing** (5+ headers): Input parsing utilities
-- **Debug Output** (4+ headers): Debug and logging helpers
-- **Console I/O** (2+ headers): Terminal/console operations
+### `dump`
+- **Header**: `io/dump.hpp`
+- **Purpose**: Debug output and data dumping utilities
 
-## Stream Operations
+### `file`
+- **Header**: `io/file.hpp`
+- **Synopsis**: `struct file` - RAII wrapper for FILE* operations
+- **Purpose**: Cross-platform file operations with automatic resource management
+- **Description**: Provides a modern C++ wrapper around C FILE operations with RAII semantics. Supports Windows wide character paths, file descriptor operations, and automatic cleanup. Handles platform differences transparently.
+- **Example**:
+    ```cpp
+    #include <xieite/io/file.hpp>
+    #include <iostream>
 
-### print
-**Header**: `io/print.hpp`
-**Synopsis**: `void print(Args&&... args)`
-**Purpose**: Print values to stdout
-**Example**:
-```cpp
-xieite::print("Hello", " ", "World", '\n');
-xieite::print("Value: ", 42, ", Pi: ", 3.14159);
-```
+    // RAII file handling
+    {
+        xieite::file f("data.txt", "w");
+        if (f) {
+            std::fprintf(f.get(), "Hello, World!\n");
+        }
+        // File automatically closed when f goes out of scope
+    }
 
-### println
-**Header**: `io/println.hpp`
-**Synopsis**: `void println(Args&&... args)`
-**Purpose**: Print values with newline
-**Example**:
-```cpp
-xieite::println("Hello World");
-xieite::println("Count:", 10);
-```
+    // Open from file descriptor
+    xieite::file f2(STDOUT_FILENO, "w");
 
-### eprint
-**Header**: `io/eprint.hpp`
-**Synopsis**: `void eprint(Args&&... args)`
-**Purpose**: Print to stderr
-**Example**:
-```cpp
-xieite::eprint("Error: ", error_message);
-```
+    // Open from standard streams
+    xieite::file f3(std::cout);
 
-### eprintln
-**Header**: `io/eprintln.hpp`
-**Synopsis**: `void eprintln(Args&&... args)`
-**Purpose**: Print to stderr with newline
-**Example**:
-```cpp
-xieite::eprintln("Error occurred!");
-```
+    // Manual operations
+    xieite::file f4;
+    f4.open("output.txt", "a");
+    if (f4) {
+        int fd = f4.desc();  // Get file descriptor
+        f4.close();
+    }
+    ```
 
-### stream_guard
-**Header**: `io/stream_guard.hpp`
-**Synopsis**: `class stream_guard`
-**Purpose**: RAII stream state restoration
-**Example**:
-```cpp
-{
-    xieite::stream_guard guard(std::cout);
-    std::cout << std::hex << std::uppercase;
-    std::cout << 255;  // Prints "FF"
-}  // Stream state restored
-```
+### `file_pipe`
+- **Header**: `io/file_pipe.hpp`
+- **Purpose**: File pipe operations for inter-process communication
 
-### stream_separator
-**Header**: `io/stream_separator.hpp`
-**Synopsis**: `class stream_separator`
-**Purpose**: Auto-insert separators
-**Example**:
-```cpp
-xieite::stream_separator sep(std::cout, ", ");
-sep << 1 << 2 << 3;  // Prints: "1, 2, 3"
-```
+### `keys`
+- **Header**: `io/keys.hpp`
+- **Purpose**: Keyboard input handling
 
-### stream_indent
-**Header**: `io/stream_indent.hpp`
-**Synopsis**: `class stream_indent`
-**Purpose**: Manage indentation
-**Example**:
-```cpp
-xieite::stream_indent indent(std::cout);
-indent.push(4);
-indent << "Indented line\n";
-indent.push(4);
-indent << "More indented\n";
-indent.pop();
-indent << "Less indented\n";
-```
+### `keys_char`
+- **Header**: `io/keys_char.hpp`
+- **Purpose**: Character-based keyboard input
 
-### tee_stream
-**Header**: `io/tee_stream.hpp`
-**Synopsis**: `class tee_stream`
-**Purpose**: Write to multiple streams
-**Example**:
-```cpp
-std::ofstream file("log.txt");
-xieite::tee_stream tee(std::cout, file);
-tee << "This goes to both console and file\n";
-```
+### `log`
+- **Header**: `io/log.hpp`
+- **Synopsis**: Structured logging with colored output and source location tracking
+- **Purpose**: Provides info, warn, and error logging with automatic timestamps and source location
+- **Description**: Creates structured log messages with color coding for terminal output, timestamps, and automatic source location tracking. Supports standard format strings and file output.
+- **Example**:
+    ```cpp
+    #include <xieite/io/log.hpp>
+    #include <cstdio>
 
-## Input Operations
+    // Basic logging to stdout with color and source location
+    xieite::log::info("Starting application");
+    xieite::log::warn("Low memory warning: {}MB remaining", 512);
+    xieite::log::error("Failed to open file: {}", "config.txt");
 
-### scan
-**Header**: `io/scan.hpp`
-**Synopsis**: `bool scan(T& value)`
-**Purpose**: Read from stdin
-**Example**:
-```cpp
-int n;
-if (xieite::scan(n)) {
-    std::cout << "Read: " << n << '\n';
-}
-```
+    // Log to specific file
+    std::FILE* logfile = std::fopen("app.log", "a");
+    xieite::log::info(logfile, "Application event: {}", "startup");
+    std::fclose(logfile);
 
-### scan_line
-**Header**: `io/scan_line.hpp`
-**Synopsis**: `std::string scan_line()`
-**Purpose**: Read entire line
-**Example**:
-```cpp
-std::cout << "Enter name: ";
-auto name = xieite::scan_line();
-```
+    // Output format: "INFO  [2024-01-15 14:30:25] main.cpp:main:42: Starting application"
+    ```
 
-### scan_all
-**Header**: `io/scan_all.hpp`
-**Synopsis**: `std::string scan_all()`
-**Purpose**: Read all input
-**Example**:
-```cpp
-auto content = xieite::scan_all();
-```
+### `pos`
+- **Header**: `io/pos.hpp`
+- **Purpose**: Position and cursor control
 
-### scan_until
-**Header**: `io/scan_until.hpp`
-**Synopsis**: `std::string scan_until(char delimiter)`
-**Purpose**: Read until delimiter
-**Example**:
-```cpp
-auto word = xieite::scan_until(' ');
-```
+### `read`
+- **Header**: `io/read.hpp`
+- **Synopsis**: `std::string read(std::istream& stream, int delim = EOF)` and `std::string read(std::FILE* stream, int delim = EOF)`
+- **Purpose**: Read content from streams with optional delimiter
+- **Description**: Reads from input streams until EOF or a specified delimiter. Supports both C++ streams (istream) and C FILE pointers. Optimized for large file reading with efficient buffering.
+- **Example**:
+    ```cpp
+    #include <xieite/io/read.hpp>
+    #include <iostream>
+    #include <sstream>
+    #include <cstdio>
 
-### scan_n
-**Header**: `io/scan_n.hpp`
-**Synopsis**: `std::string scan_n(std::size_t n)`
-**Purpose**: Read n characters
-**Example**:
-```cpp
-auto chunk = xieite::scan_n(10);  // Read 10 chars
-```
+    // Read entire stream content
+    std::istringstream iss("Hello\nWorld\nTest");
+    auto content = xieite::read(iss);
+    // content contains "Hello\nWorld\nTest"
 
-## Formatting Utilities
+    // Read until delimiter
+    std::istringstream iss2("line1\nline2\nline3");
+    auto line = xieite::read(iss2, '\n');
+    // line contains "line1"
 
-### format
-**Header**: `io/format.hpp`
-**Synopsis**: `std::string format(const std::string& fmt, Args&&... args)`
-**Purpose**: Format string (printf-style)
-**Example**:
-```cpp
-auto str = xieite::format("Value: %d, Pi: %.2f", 42, 3.14159);
-// "Value: 42, Pi: 3.14"
-```
+    // Read from C FILE pointer
+    std::FILE* file = std::fopen("data.txt", "r");
+    if (file) {
+        auto file_content = xieite::read(file);
+        std::fclose(file);
+    }
+    ```
 
-### pad_left
-**Header**: `io/pad_left.hpp`
-**Synopsis**: `std::string pad_left(const std::string& str, std::size_t width, char fill = ' ')`
-**Purpose**: Left-pad string
-**Example**:
-```cpp
-auto padded = xieite::pad_left("42", 5, '0');  // "00042"
-```
+### `term`
+- **Header**: `io/term.hpp`
+- **Synopsis**: Terminal control and manipulation utilities
+- **Purpose**: Provides terminal control functions for cross-platform terminal operations
+- **Description**: Contains utilities for terminal manipulation, cursor control, and terminal state management.
+- **Example**:
+    ```cpp
+    #include <xieite/io/term.hpp>
+    // Terminal control utilities
+    // Terminal control example
+    ```
 
-### pad_right
-**Header**: `io/pad_right.hpp`
-**Synopsis**: `std::string pad_right(const std::string& str, std::size_t width, char fill = ' ')`
-**Purpose**: Right-pad string
-**Example**:
-```cpp
-auto padded = xieite::pad_right("Hello", 10, '.');  // "Hello....."
-```
+## Usage Notes
 
-### pad_center
-**Header**: `io/pad_center.hpp`
-**Synopsis**: `std::string pad_center(const std::string& str, std::size_t width, char fill = ' ')`
-**Purpose**: Center string with padding
-**Example**:
-```cpp
-auto centered = xieite::pad_center("Hi", 7, '-');  // "--Hi---"
-```
+The I/O module in XIEITE is minimal. Common I/O operations are:
 
-### align_columns
-**Header**: `io/align_columns.hpp`
-**Synopsis**: `std::string align_columns(const std::vector<std::vector<std::string>>& data)`
-**Purpose**: Align data in columns
-**Example**:
-```cpp
-std::vector<std::vector<std::string>> data = {
-    {"Name", "Age", "City"},
-    {"Alice", "30", "New York"},
-    {"Bob", "25", "LA"}
-};
-auto table = xieite::align_columns(data);
-```
+1. **In other modules**: Check `data/` for string operations
+2. **Use standard library**: Many common I/O operations should use `<iostream>`, `<fstream>`, etc.
+3. **Platform-specific**: Some operations may be in `sys/` for system-level I/O
 
-### hex_dump
-**Header**: `io/hex_dump.hpp`
-**Synopsis**: `std::string hex_dump(const void* data, std::size_t size)`
-**Purpose**: Generate hex dump
-**Example**:
-```cpp
-char buffer[] = "Hello World";
-auto dump = xieite::hex_dump(buffer, sizeof(buffer));
-```
-
-## File Operations
-
-### read_file
-**Header**: `io/read_file.hpp`
-**Synopsis**: `std::string read_file(const std::string& path)`
-**Purpose**: Read entire file
-**Example**:
-```cpp
-auto content = xieite::read_file("config.txt");
-```
-
-### write_file
-**Header**: `io/write_file.hpp`
-**Synopsis**: `void write_file(const std::string& path, const std::string& content)`
-**Purpose**: Write to file
-**Example**:
-```cpp
-xieite::write_file("output.txt", "Hello World");
-```
-
-### append_file
-**Header**: `io/append_file.hpp`
-**Synopsis**: `void append_file(const std::string& path, const std::string& content)`
-**Purpose**: Append to file
-**Example**:
-```cpp
-xieite::append_file("log.txt", "New log entry\n");
-```
-
-### read_lines
-**Header**: `io/read_lines.hpp`
-**Synopsis**: `std::vector<std::string> read_lines(const std::string& path)`
-**Purpose**: Read file as lines
-**Example**:
-```cpp
-auto lines = xieite::read_lines("data.txt");
-for (const auto& line : lines) {
-    process_line(line);
-}
-```
-
-### write_lines
-**Header**: `io/write_lines.hpp`
-**Synopsis**: `void write_lines(const std::string& path, const std::vector<std::string>& lines)`
-**Purpose**: Write lines to file
-**Example**:
-```cpp
-std::vector<std::string> lines = {"Line 1", "Line 2", "Line 3"};
-xieite::write_lines("output.txt", lines);
-```
-
-### file_size
-**Header**: `io/file_size.hpp`
-**Synopsis**: `std::size_t file_size(const std::string& path)`
-**Purpose**: Get file size
-**Example**:
-```cpp
-auto size = xieite::file_size("large_file.dat");
-std::cout << "File size: " << size << " bytes\n";
-```
-
-### file_exists
-**Header**: `io/file_exists.hpp`
-**Synopsis**: `bool file_exists(const std::string& path)`
-**Purpose**: Check if file exists
-**Example**:
-```cpp
-if (xieite::file_exists("config.ini")) {
-    load_config("config.ini");
-}
-```
-
-## Debug Output
-
-### debug_print
-**Header**: `io/debug_print.hpp`
-**Synopsis**: `void debug_print(const T& value)`
-**Purpose**: Print debug representation
-**Example**:
-```cpp
-std::vector<int> v{1, 2, 3};
-xieite::debug_print(v);  // Prints: [1, 2, 3]
-```
-
-### dump
-**Header**: `io/dump.hpp`
-**Synopsis**: `void dump(const T& value, const std::string& name = "")`
-**Purpose**: Dump variable with name
-**Example**:
-```cpp
-int x = 42;
-xieite::dump(x, "x");  // Prints: "x = 42"
-```
-
-### trace
-**Header**: `io/trace.hpp`
-**Synopsis**: `void trace(const std::string& msg)`
-**Purpose**: Trace execution with file/line
-**Example**:
-```cpp
-xieite::trace("Checkpoint reached");
-// Prints: "[file.cpp:123] Checkpoint reached"
-```
-
-### log
-**Header**: `io/log.hpp`
-**Synopsis**: `void log(LogLevel level, const std::string& msg)`
-**Purpose**: Leveled logging
-**Example**:
-```cpp
-xieite::log(xieite::LogLevel::INFO, "Starting process");
-xieite::log(xieite::LogLevel::ERROR, "Connection failed");
-```
-
-## Console/Terminal
-
-### clear_screen
-**Header**: `io/clear_screen.hpp`
-**Synopsis**: `void clear_screen()`
-**Purpose**: Clear terminal screen
-**Example**:
-```cpp
-xieite::clear_screen();
-```
-
-### set_color
-**Header**: `io/set_color.hpp`
-**Synopsis**: `void set_color(Color fg, Color bg = Color::DEFAULT)`
-**Purpose**: Set terminal colors
-**Example**:
-```cpp
-xieite::set_color(xieite::Color::RED);
-std::cout << "Error!" << std::endl;
-xieite::set_color(xieite::Color::DEFAULT);
-```
-
-### cursor_position
-**Header**: `io/cursor_position.hpp`
-**Synopsis**: `void cursor_position(int row, int col)`
-**Purpose**: Move cursor position
-**Example**:
-```cpp
-xieite::cursor_position(10, 20);
-std::cout << "Text at position (10, 20)";
-```
-
-### get_terminal_size
-**Header**: `io/get_terminal_size.hpp`
-**Synopsis**: `std::pair<int, int> get_terminal_size()`
-**Purpose**: Get terminal dimensions
-**Example**:
-```cpp
-auto [rows, cols] = xieite::get_terminal_size();
-std::cout << "Terminal: " << rows << "x" << cols << '\n';
-```
-
-## Progress Indicators
-
-### progress_bar
-**Header**: `io/progress_bar.hpp`
-**Synopsis**: `class progress_bar`
-**Purpose**: Display progress bar
-**Example**:
-```cpp
-xieite::progress_bar bar(100);
-for (int i = 0; i <= 100; ++i) {
-    bar.update(i);
-    // Do work...
-}
-```
-
-### spinner
-**Header**: `io/spinner.hpp`
-**Synopsis**: `class spinner`
-**Purpose**: Display spinning indicator
-**Example**:
-```cpp
-xieite::spinner spin;
-while (processing) {
-    spin.update();
-    // Do work...
-}
-```
-
-## Binary I/O
-
-### read_binary
-**Header**: `io/read_binary.hpp`
-**Synopsis**: `std::vector<uint8_t> read_binary(const std::string& path)`
-**Purpose**: Read binary file
-**Example**:
-```cpp
-auto data = xieite::read_binary("image.png");
-```
-
-### write_binary
-**Header**: `io/write_binary.hpp`
-**Synopsis**: `void write_binary(const std::string& path, const std::vector<uint8_t>& data)`
-**Purpose**: Write binary file
-**Example**:
-```cpp
-std::vector<uint8_t> data = generate_data();
-xieite::write_binary("output.bin", data);
-```
-
-### binary_reader
-**Header**: `io/binary_reader.hpp`
-**Synopsis**: `class binary_reader`
-**Purpose**: Read binary data with endianness
-**Example**:
-```cpp
-xieite::binary_reader reader("data.bin");
-auto magic = reader.read<uint32_t>();
-auto version = reader.read<uint16_t>();
-```
-
-### binary_writer
-**Header**: `io/binary_writer.hpp`
-**Synopsis**: `class binary_writer`
-**Purpose**: Write binary data with endianness
-**Example**:
-```cpp
-xieite::binary_writer writer("output.bin");
-writer.write<uint32_t>(0x12345678);
-writer.write<uint16_t>(42);
-```
-
-## String Streams
-
-### string_reader
-**Header**: `io/string_reader.hpp`
-**Synopsis**: `class string_reader`
-**Purpose**: Read from string
-**Example**:
-```cpp
-xieite::string_reader reader("42 3.14 hello");
-int n;
-double d;
-std::string s;
-reader >> n >> d >> s;
-```
-
-### string_writer
-**Header**: `io/string_writer.hpp`
-**Synopsis**: `class string_writer`
-**Purpose**: Write to string
-**Example**:
-```cpp
-xieite::string_writer writer;
-writer << "Value: " << 42 << ", Pi: " << 3.14;
-std::string result = writer.str();
-```
-
-## Usage Examples
-
-### Basic I/O
-```cpp
-#include <xieite/io/println.hpp>
-#include <xieite/io/scan_line.hpp>
-
-int main() {
-    xieite::println("Enter your name:");
-    auto name = xieite::scan_line();
-    xieite::println("Hello,", name, "!");
-}
-```
+## Common I/O Tasks
 
 ### File Operations
 ```cpp
-#include <xieite/io/read_lines.hpp>
-#include <xieite/io/write_file.hpp>
+#include <xieite/io/file.hpp>
+#include <xieite/io/read.hpp>
 
-void process_config() {
-    auto lines = xieite::read_lines("config.txt");
-    std::string output;
-    for (const auto& line : lines) {
-        output += process_line(line) + "\n";
-    }
-    xieite::write_file("processed.txt", output);
+// RAII file management
+xieite::file f("data.txt", "r");
+if (f) {
+    auto content = xieite::read(f.get());
+    // Process content...
 }
 ```
 
-### Debug Output
+### Terminal Control
 ```cpp
-#include <xieite/io/debug_print.hpp>
-#include <xieite/io/dump.hpp>
-
-void debug_data() {
-    std::map<std::string, int> data = {
-        {"apple", 5},
-        {"banana", 3}
-    };
-    xieite::debug_print(data);
-
-    int count = 42;
-    xieite::dump(count, "count");
-}
+#include <xieite/io/term.hpp>
+// Terminal manipulation utilities
 ```
 
-### Progress Display
+### Logging
 ```cpp
-#include <xieite/io/progress_bar.hpp>
+#include <xieite/io/log.hpp>
 
-void process_items(const std::vector<Item>& items) {
-    xieite::progress_bar bar(items.size());
-    for (std::size_t i = 0; i < items.size(); ++i) {
-        process_item(items[i]);
-        bar.update(i + 1);
-    }
-}
+// Structured logging with color and timestamps
+xieite::log::info("Application started");
+xieite::log::warn("Memory usage: {}%", usage);
+xieite::log::error("Connection failed: {}", error_msg);
 ```
 
-## Performance Notes
+### Keyboard Input
+```cpp
+#include <xieite/io/keys.hpp>
+#include <xieite/io/keys_char.hpp>
+// Keyboard input handling
+```
 
-- Stream guards have minimal overhead
-- File operations buffer for efficiency
-- Binary I/O uses memory mapping when available
-- Progress indicators use minimal terminal updates
-- Debug output is optimized out in release builds
+## Integration with Other Modules
+
+The I/O utilities often work with:
+- **Data structures** from `data/` for string manipulation
+- **System utilities** from `sys/` for platform-specific I/O
+- **Preprocessor macros** from `pp/` for conditional compilation
+
+## Best Practices
+
+1. **Use standard library when appropriate**: XIEITE's I/O module is minimal by design
+2. **Platform considerations**: Some I/O operations may be platform-specific
 
 ## See Also
 
-- [I/O Utilities Overview](../../categories/io/README.md)
-- [Stream Operations](../../categories/io/streams.md)
-- [File Operations](../../categories/io/files.md)
-- [System API](./sys.md)
+- [Data Structures API](./data.md) - For string and container operations
+- [System Utilities API](./sys.md) - For system-level I/O operations
+- [Complete API Reference](../README.md)

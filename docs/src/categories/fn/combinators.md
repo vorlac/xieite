@@ -281,8 +281,8 @@ auto even_odd = xieite::y_combinator([](auto self, int n, bool check_even) -> bo
     return self(self, n - 2, check_even);
 });
 
-bool is_even = even_odd(10, true);   // true
-bool is_odd = even_odd(9, false);    // true
+bool result_even = even_odd(10, true);   // true
+bool result_odd = even_odd(9, false);    // true
 
 // Tail-recursive factorial
 auto tail_factorial = xieite::y_combinator([](auto self, int n, int acc = 1) -> int {

@@ -13,8 +13,6 @@ Complete catalog of error messages, warnings, and diagnostic information that ma
 ### [Compiler Support](compilers.md)
 Detailed information about compiler compatibility, version requirements, and compiler-specific considerations for XIEITE.
 
-### [Migration Guide](migration.md)
-Step-by-step instructions for migrating between XIEITE versions, handling breaking changes, and updating existing codebases.
 
 ### [Glossary](glossary.md)
 Definitions of technical terms, concepts, and acronyms used throughout the XIEITE documentation and codebase.
@@ -81,43 +79,43 @@ xieite::fixed_array<int, 10> arr{1, 2, 3, 4, 5};
 
 ## Categories Overview
 
-### Preprocessor (pp)
-- 67 utilities for macro programming and conditional compilation
+### Preprocessor (`pp`)
+- 72 utilities for macro programming and conditional compilation
 - Platform detection, compiler detection, and feature testing
 - Advanced macro manipulation and code generation
 
-### Type Traits (trait)
-- 89 type traits and concepts for template metaprogramming
+### Type Traits (`trait`)
+- 276 type traits and concepts for template metaprogramming
 - Enhanced type checking and template constraints
 - SFINAE helpers and substitution detection
 
-### Mathematics (math)
-- 114 mathematical functions and utilities
+### Mathematics (`math`)
+- 110 mathematical functions and utilities
 - Arithmetic operations, number theory, and algorithms
 - Compile-time mathematical computations
 
-### Data Structures (data)
-- 152 data manipulation and container utilities
+### Data Structures (`data`)
+- 65 data manipulation and container utilities
 - String processing, fixed-size containers, and algorithms
 - Memory management and data organization
 
-### Functional Programming (fn)
-- 48 functional programming utilities
+### Functional Programming (`fn`)
+- 35 functional programming utilities
 - Function composition, currying, and higher-order functions
 - Scope management and RAII patterns
 
-### Metaprogramming (meta)
-- 61 template metaprogramming utilities
+### Metaprogramming (`meta`)
+- 28 template metaprogramming utilities
 - Type list manipulation and compile-time algorithms
 - Template recursion and substitution patterns
 
-### System Utilities (sys)
-- 42 system-level utilities
+### System Utilities (`sys`)
+- 21 system-level utilities
 - Environment access, platform queries, and OS interaction
 - Architecture and endianness detection
 
-### Input/Output (io)
-- 43 I/O utilities and formatting helpers
+### Input/Output (`io`)
+- 9 I/O utilities and formatting helpers
 - Stream processing, scanning, and output formatting
 - Debug output and diagnostic tools
 

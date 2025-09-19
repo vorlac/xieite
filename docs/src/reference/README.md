@@ -189,12 +189,8 @@ Deprecated features are maintained for at least one minor version.
 #include <xieite/trait/is_integral.hpp>
 #include <xieite/math/abs.hpp>
 
-// Category headers (includes all in category)
-#include <xieite/trait.hpp>
-#include <xieite/math.hpp>
-
-// Entire library
-#include <xieite/xieite.hpp>
+// Note: No category-level or library-wide include files exist
+// Include only the specific headers you need
 ```
 
 ### Namespace Usage
@@ -289,7 +285,7 @@ void process(T value) {
 
 ```cpp
 // Good - compile-time when possible
-constexpr auto result = xieite::factorial(5);
+constexpr auto result = xieite::factorial<int>[5];
 
 // Less optimal - always runtime
 auto result = compute_factorial(5);

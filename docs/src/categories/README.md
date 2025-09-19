@@ -8,14 +8,14 @@ XIEITE's 616 headers are organized into 8 carefully designed categories, each se
 
 | Category | Headers | Purpose | Primary Focus |
 |----------|---------|---------|---------------|
-| **[trait](trait/index.md)** | 276 | Type traits and concepts | Compile-time type introspection |
-| **[pp](pp/index.md)** | 72 | Preprocessor utilities | Macros and compile-time code generation |
-| **[math](math/index.md)** | 110 | Mathematical functions | Algorithms, constants, and computations |
-| **[data](data/index.md)** | 65 | Data structures | Containers, strings, and algorithms |
-| **[fn](fn/index.md)** | 35 | Functional programming | Function composition and utilities |
-| **[meta](meta/index.md)** | 28 | Metaprogramming | Template manipulation and type lists |
-| **[sys](sys/index.md)** | 21 | System utilities | OS interaction and hardware access |
-| **[io](io/index.md)** | 9 | Input/Output | Terminal, files, and logging |
+| **[trait](trait/README.md)** | 276 | Type traits and concepts | Compile-time type introspection |
+| **[pp](pp/README.md)** | 72 | Preprocessor utilities | Macros and compile-time code generation |
+| **[math](math/README.md)** | 110 | Mathematical functions | Algorithms, constants, and computations |
+| **[data](data/README.md)** | 65 | Data structures | Containers, strings, and algorithms |
+| **[fn](fn/README.md)** | 35 | Functional programming | Function composition and utilities |
+| **[meta](meta/README.md)** | 28 | Metaprogramming | Template manipulation and type lists |
+| **[sys](sys/README.md)** | 21 | System utilities | OS interaction and hardware access |
+| **[io](io/README.md)** | 9 | Input/Output | Terminal, files, and logging |
 
 ## Architectural Layers
 
@@ -194,7 +194,7 @@ Functional programming patterns:
 
 ```cpp
 // Currying example
-auto add = xieite::curry([](int a, int b) { return a + b; });
+auto add = /* Manual currying */
 auto add5 = add(5);
 auto result = add5(3);  // 8
 ```
@@ -258,7 +258,7 @@ Common usage patterns combine multiple categories:
 template<typename T>
     requires xieite::is_arithmetic<T>  // trait
 auto compute(T value) {
-    auto doubled = xieite::curry(      // fn
+    auto doubled = /* Manual currying */
         [](T x) { return x * 2; }
     );
     return doubled(xieite::abs(value)); // math
@@ -341,12 +341,12 @@ Each category has its own detailed documentation:
 
 1. **[Preprocessor Utilities (`pp`)](pp/README.md)** - Start here for macro system
 2. **[Type Traits (`trait`)](trait/README.md)** - Foundation for type checking
-3. **[Mathematics (`math`)](math/index.md)** - Mathematical algorithms
-4. **[Data Structures (`data`)](data/index.md)** - Containers and algorithms
-5. **[Functional Programming (`fn`)](fn/index.md)** - Function utilities
-6. **[Metaprogramming (`meta`)](meta/index.md)** - Template metaprogramming
-7. **[System Utilities (`sys`)](sys/index.md)** - System interaction
-8. **[Input/Output (`io`)](io/index.md)** - I/O operations
+3. **[Mathematics (`math`)](math/README.md)** - Mathematical algorithms
+4. **[Data Structures (`data`)](data/README.md)** - Containers and algorithms
+5. **[Functional Programming (`fn`)](fn/README.md)** - Function utilities
+6. **[Metaprogramming (`meta`)](meta/README.md)** - Template metaprogramming
+7. **[System Utilities (`sys`)](sys/README.md)** - System interaction
+8. **[Input/Output (`io`)](io/README.md)** - I/O operations
 
 ## Quick Start Examples
 
@@ -380,4 +380,4 @@ xieite::log::info("System has {} CPU cores", xieite::nproc());
 
 ---
 
-*Start Exploring: [Type Traits](trait/README.md) | [Preprocessor](pp/README.md) | [Mathematics](math/index.md)*
+*Start Exploring: [Type Traits](trait/README.md) | [Preprocessor](pp/README.md) | [Mathematics](math/README.md)*

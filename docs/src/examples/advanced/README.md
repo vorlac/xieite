@@ -16,7 +16,6 @@ Explore sophisticated template programming patterns using XIEITE utilities:
 - **Concept-Based Design** - Advanced concept definitions and constraint composition
 - **Template Recursion** - Recursive template patterns for complex computations
 
-**Status**: ✅ Complete - [View Documentation](./templates.md)
 
 ### [Compile-Time Examples](./compile_time.md)
 
@@ -28,7 +27,6 @@ Master compile-time computation and optimization techniques:
 - **Compile-Time String Processing** - Advanced string manipulation at compile time
 - **Performance Optimization** - Zero-runtime-cost abstractions and optimizations
 
-**Status**: ✅ Complete - [View Documentation](./compile_time.md)
 
 ### [Custom Traits](./custom_traits.md)
 
@@ -40,7 +38,6 @@ Learn to build sophisticated type traits and concepts:
 - **Type Transformation** - Advanced type manipulation and conversion patterns
 - **Detection Idioms** - Modern detection patterns using concepts and SFINAE
 
-**Status**: ✅ Complete - [View Documentation](./custom_traits.md)
 
 ## Learning Progression
 

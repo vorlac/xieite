@@ -389,7 +389,7 @@ namespace xieite_functional {
 
     // Curried functions with XIEITE utilities
     template<xieite::is_arith T>
-    auto curried_safe_divide = xieite::curry([](T a, T b) -> std::optional<T> {
+    auto curried_safe_divide = /* Manual currying */
         if (b == T{}) return std::nullopt;
         return a / b;
     });

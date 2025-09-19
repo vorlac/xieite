@@ -26,8 +26,7 @@ int factorial(int n) {
 }
 
 // XIEITE compile-time approach
-template<std::size_t N>
-constexpr auto factorial = xieite::fact<N>;  // Computed at compile time
+constexpr auto factorial_5 = xieite::factorial<int>[5];  // Computed at compile time
 ```
 
 ### 3. Zero-Cost Abstractions
@@ -113,7 +112,7 @@ Advanced compile-time and runtime computation:
 ### Application Layer (data, fn, sys, io)
 High-level utilities for application development:
 - **Data Structures (data)**: Containers, strings, iterators
-- **Functional (fn)**: Function composition, currying, scope guards
+- **Functional (fn)**: Memoization, argument manipulation, scope guards
 - **System (sys)**: Process management, threading, memory operations
 - **I/O (io)**: Terminal control, file operations, logging
 
@@ -173,9 +172,9 @@ XIEITE has **zero external dependencies**:
 Templates are instantiated in user code:
 ```cpp
 // User code
-#include <xieite/math/fact.hpp>
+#include <xieite/math/factorial.hpp>
 
-constexpr auto result = xieite::fact<5>;  // Instantiated here
+constexpr auto result = xieite::factorial<int>[5];  // Instantiated here
 ```
 
 ### Inline Expansion
@@ -245,7 +244,7 @@ target_link_libraries(my_app PRIVATE xieite::xieite)
 
 ### Manual Integration
 ```bash
-g++ -std=c++20 -I/path/to/xieite/include my_app.cpp
+g++ -std=c++23 -I/path/to/xieite/include my_app.cpp
 ```
 
 ### Package Managers
@@ -262,11 +261,11 @@ g++ -std=c++20 -I/path/to/xieite/include my_app.cpp
 
 ### Version Detection
 ```cpp
-#include <xieite/xieite.hpp>
+#include <xieite/pp/ver.hpp>
 
-static_assert(XIEITE_VERSION_MAJOR == 0);
-static_assert(XIEITE_VERSION_MINOR == 118);
-static_assert(XIEITE_VERSION_PATCH == 2);
+static_assert(XIEITE_VER_MAJOR == 0);
+static_assert(XIEITE_VER_MINOR == 118);
+static_assert(XIEITE_VER_PATCH == 2);
 ```
 
 ## Quality Assurance

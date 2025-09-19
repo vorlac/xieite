@@ -186,7 +186,6 @@
 - [Appendices](appendix/README.md)
   - [Error Reference](appendix/errors.md)
   - [Compiler Support](appendix/compilers.md)
-  - [Migration Guide](appendix/migration.md)
   - [Performance Notes](appendix/performance.md)
   - [Glossary](appendix/glossary.md)
   - [Index](appendix/index.md)

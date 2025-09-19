@@ -14,7 +14,6 @@ Your first introduction to XIEITE covering:
 - **Compilation requirements** - C++20 setup and compiler configuration
 - **Simple working examples** - Complete code samples you can run immediately
 
-**Status**: ✅ Complete - Provides comprehensive introduction with verified examples
 
 ## Basic Utility Usage
 
@@ -27,7 +26,6 @@ Common utility functions and their practical applications:
 - **Container helpers** - Working with data structures
 - **I/O utilities** - Basic input/output operations
 
-**Status**: ✅ Complete - [View Documentation](./simple_utilities.md)
 
 ### [Common Patterns](./common_patterns.md)
 
@@ -38,7 +36,6 @@ Frequently used programming patterns with XIEITE:
 - **Performance patterns** - Compile-time optimizations
 - **Cross-platform patterns** - Platform-agnostic development
 
-**Status**: ✅ Complete - [View Documentation](./common_patterns.md)
 
 ## Learning Progression
 

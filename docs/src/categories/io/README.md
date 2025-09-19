@@ -5,6 +5,35 @@ The `io/` category provides comprehensive I/O operations for files, streams, and
 ## Overview
 
 ```mermaid
+---
+config:
+    theme: 'base'
+    curve: 'straight'
+    themeVariables:
+        darkMode: true
+        clusterBkg: '#22272f62'
+        clusterBorder: '#6a6f77ff'
+        clusterTextColor: '#6a6f77ff'
+        lineColor: '#C1C4CAAA'
+        background: '#262B33'
+        primaryColor: '#2b4268ff'
+        primaryTextColor: '#C1C4CAff'
+        primaryBorderColor: '#6a6f77ff'
+        primaryLabelBkg: '#262B33'
+        secondaryColor: '#425f5fff'
+        secondaryBorderColor: '#8c9c81ff'
+        secondaryTextColor: '#C1C4CAff'
+        tertiaryColor: '#4d4962ff'
+        tertiaryBorderColor: '#8983a5ff'
+        tertiaryTextColor: '#eeeeee55'
+        nodeTextColor: '#C1C4CA'
+        defaultLinkColor: '#C1C4CA'
+        edgeLabelBackground: '#262B33'
+        edgeLabelBorderColor: '#C1C4CA'
+        labelTextColor: '#C1C4CA'
+        errorBkgColor: '#724848ff'
+        errorTextColor: '#C1C4CA'
+---
 graph LR
     IO[io/]
 
@@ -26,11 +55,22 @@ graph LR
     Input --> keys[keys.hpp]
     Input --> keys_char[keys_char.hpp]
 
-    style IO fill:#0d1117,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Files fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Logging fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Terminal fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Input fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
+linkStyle default stroke:#C1C4CAaa,stroke-width:2px,color:#C1C4CAaa
+
+style IO fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Files fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Logging fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Terminal fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Input fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style file fill:#7a7253ff,stroke:#c7c19bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style file_pipe fill:#2b5f5fff,stroke:#6d9c9cff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style read fill:#3a3f47ff,stroke:#6a6f77ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style dump fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style log fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style term fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style pos fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style keys fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style keys_char fill:#7a7253ff,stroke:#c7c19bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
 ```
 
 ## File Operations
@@ -114,8 +154,8 @@ fclose(fp);
 std::ifstream ifs("input.txt");
 std::string text = xieite::read(ifs);
 
-// Read binary data
-std::vector<std::byte> binary = xieite::read_binary("data.bin");
+// Read from streams and files
+std::string content = xieite::read("file.txt");
 ```
 
 ### Data Dumping
@@ -123,24 +163,9 @@ std::vector<std::byte> binary = xieite::read_binary("data.bin");
 ```cpp
 #include <xieite/io/dump.hpp>
 
-// Dump data structure to file
-struct Config {
-    int version;
-    std::string name;
-    std::vector<int> values;
-};
-
-Config config{1, "test", {1, 2, 3}};
-xieite::dump(config, "config.dump");
-
-// Human-readable dump with formatting
-xieite::dump_pretty(config, "config_readable.txt");
-
-// Binary dump
-xieite::dump_binary(config, "config.bin");
-
-// Append to existing dump
-xieite::dump_append(new_data, "log.dump");
+// Simple data dumping utility for debugging
+// Outputs structured representation of data
+xieite::dump(data, output_stream);
 ```
 
 ## Logging System
@@ -148,7 +173,36 @@ xieite::dump_append(new_data, "log.dump");
 ### Structured Logging
 
 ```mermaid
-graph LR
+---
+config:
+    theme: 'base'
+    curve: 'straight'
+    themeVariables:
+        darkMode: true
+        clusterBkg: '#22272f62'
+        clusterBorder: '#6a6f77ff'
+        clusterTextColor: '#6a6f77ff'
+        lineColor: '#C1C4CAAA'
+        background: '#262B33'
+        primaryColor: '#2b4268ff'
+        primaryTextColor: '#C1C4CAff'
+        primaryBorderColor: '#6a6f77ff'
+        primaryLabelBkg: '#262B33'
+        secondaryColor: '#425f5fff'
+        secondaryBorderColor: '#8c9c81ff'
+        secondaryTextColor: '#C1C4CAff'
+        tertiaryColor: '#4d4962ff'
+        tertiaryBorderColor: '#8983a5ff'
+        tertiaryTextColor: '#eeeeee55'
+        nodeTextColor: '#C1C4CA'
+        defaultLinkColor: '#C1C4CA'
+        edgeLabelBackground: '#262B33'
+        edgeLabelBorderColor: '#C1C4CA'
+        labelTextColor: '#C1C4CA'
+        errorBkgColor: '#724848ff'
+        errorTextColor: '#C1C4CA'
+---
+graph TD
     Log[Log Entry]
 
     Log --> Level[Severity Level]
@@ -158,11 +212,14 @@ graph LR
 
     Level --> Color[Color Coding]
 
-    style Log fill:#0d1117,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Level fill:#161b22,stroke:#f85149,stroke-width:2px,color:#c9d1d9
-    style Time fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Location fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
-    style Message fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
+linkStyle default stroke:#C1C4CAaa,stroke-width:2px,color:#C1C4CAaa
+
+style Log fill:#2b4268ff,stroke:#779DC9ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Level fill:#425f5fff,stroke:#8c9c81ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Time fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Location fill:#7a6253ff,stroke:#c7ac9bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Message fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
+style Color fill:#7a7253ff,stroke:#c7c19bff,stroke-width:2px,color:#C1C4CA,rx:8,ry:8
 ```
 
 ```cpp
@@ -170,68 +227,19 @@ graph LR
 
 // Basic logging with severity levels
 xieite::log::info("Application started");
-xieite::log::debug("Processing {} items", count);
 xieite::log::warn("Memory usage at {}%", percentage);
 xieite::log::error("Failed to open file: {}", filename);
-xieite::log::fatal("Critical error: {}", error_msg);
 
 // Log to file
 FILE* log_file = fopen("app.log", "a");
 xieite::log::info(log_file, "Logged to file");
 
-// Structured logging with metadata
-xieite::log::event()
-    .level(xieite::log::severity::warning)
-    .tag("network")
-    .message("Connection timeout")
-    .field("host", hostname)
-    .field("port", port)
-    .field("timeout_ms", 5000)
-    .emit();
+// Format strings with arguments
+xieite::log::info("Processing {} items", count);
+xieite::log::error("Error code: {}", error_code);
 ```
 
-### Custom Log Formatting
-
-```cpp
-#include <xieite/io/log.hpp>
-
-// Define custom log format
-xieite::log::set_format(
-    "[{timestamp:%Y-%m-%d %H:%M:%S}] "
-    "[{level:^7}] "
-    "{file}:{line} - "
-    "{message}"
-);
-
-// Custom color scheme
-xieite::log::set_colors({
-    {xieite::log::severity::debug, xieite::color::gray},
-    {xieite::log::severity::info, xieite::color::blue},
-    {xieite::log::severity::warn, xieite::color::yellow},
-    {xieite::log::severity::error, xieite::color::red},
-    {xieite::log::severity::fatal, xieite::color::magenta}
-});
-
-// Conditional logging
-xieite::log::if_debug("Debug mode active");
-xieite::log::once("This message appears only once");
-xieite::log::every_n(100, "Logged every 100th call");
-```
-
-### Log Categories
-
-```cpp
-// Category-based logging
-namespace app_log = xieite::log::category("app");
-namespace net_log = xieite::log::category("network");
-
-app_log::info("Application initialized");
-net_log::debug("Sending packet: {}", packet_id);
-
-// Enable/disable categories
-xieite::log::disable_category("network");
-xieite::log::set_category_level("app", xieite::log::severity::warn);
-```
+The log system provides simple structured logging with automatic timestamps, source location, and color coding for terminal output.
 
 ## Terminal Control
 
@@ -240,274 +248,37 @@ xieite::log::set_category_level("app", xieite::log::severity::warn);
 ```cpp
 #include <xieite/io/term.hpp>
 
-// Clear screen
-xieite::term::clear();
-
-// Clear line
-xieite::term::clear_line();
-
-// Move cursor
-xieite::term::move_cursor(10, 5);  // Column 10, Row 5
-
-// Save/restore cursor position
-xieite::term::save_cursor();
-// ... do work ...
-xieite::term::restore_cursor();
-
-// Set terminal colors
-xieite::term::set_fg_color(xieite::color::green);
-xieite::term::set_bg_color(xieite::color::black);
-xieite::term::reset_colors();
-
-// Terminal attributes
-xieite::term::bold();
-xieite::term::underline();
-xieite::term::blink();
-xieite::term::reset_attrs();
+// Terminal control utilities
+// Check implementation for available functions
 ```
 
-### Terminal Dimensions
-
-```cpp
-#include <xieite/io/term.hpp>
-
-// Get terminal size
-auto [width, height] = xieite::term::size();
-std::cout << "Terminal: " << width << "x" << height << "\n";
-
-// Check if output is terminal
-if (xieite::term::is_tty(stdout)) {
-    // Use colors and formatting
-    xieite::term::set_fg_color(xieite::color::cyan);
-}
-
-// Hide/show cursor
-xieite::term::hide_cursor();
-// ... display progress ...
-xieite::term::show_cursor();
-```
-
-### Cursor Position
+### Position Control
 
 ```cpp
 #include <xieite/io/pos.hpp>
 
-// Get current cursor position
-auto [col, row] = xieite::pos::get();
-
-// Set absolute position
-xieite::pos::set(0, 0);  // Top-left corner
-
-// Relative movement
-xieite::pos::up(3);
-xieite::pos::down(2);
-xieite::pos::right(5);
-xieite::pos::left(10);
-
-// Move to beginning/end
-xieite::pos::home();       // Beginning of line
-xieite::pos::end();        // End of line
-xieite::pos::next_line();  // Beginning of next line
-xieite::pos::prev_line();  // Beginning of previous line
+// Cursor position utilities
+// Check implementation for available functions
 ```
 
 ## Keyboard Input
 
-### Key Detection
-
 ```cpp
 #include <xieite/io/keys.hpp>
-
-// Check if key is pressed
-if (xieite::keys::is_pressed(xieite::key::space)) {
-    jump();
-}
-
-// Get pressed keys
-auto pressed = xieite::keys::get_pressed();
-for (xieite::key k : pressed) {
-    handle_key(k);
-}
-
-// Wait for key press
-xieite::key k = xieite::keys::wait();
-std::cout << "You pressed: " << xieite::keys::name(k) << "\n";
-
-// Non-blocking key check
-if (auto key = xieite::keys::try_get()) {
-    process_key(*key);
-}
-```
-
-### Character Input
-
-```cpp
 #include <xieite/io/keys_char.hpp>
 
-// Get single character (non-blocking)
-if (auto ch = xieite::keys_char::getch()) {
-    std::cout << "Got char: " << *ch << "\n";
-}
-
-// Wait for character
-char c = xieite::keys_char::getchar();
-
-// Get password (no echo)
-std::string password = xieite::keys_char::get_password("Password: ");
-
-// Raw mode input
-xieite::keys_char::raw_mode raw;  // RAII raw mode
-char input = xieite::keys_char::getch_raw();
-// Automatically restores on destruction
+// Keyboard input utilities
+// Check implementation for available functions
 ```
 
-### Special Keys
+## Summary
 
-```cpp
-#include <xieite/io/keys.hpp>
-
-// Arrow keys
-if (xieite::keys::is_pressed(xieite::key::arrow_up)) {
-    move_up();
-}
-
-// Function keys
-for (int i = 1; i <= 12; ++i) {
-    if (xieite::keys::is_pressed(xieite::key::f(i))) {
-        handle_function_key(i);
-    }
-}
-
-// Modifiers
-bool ctrl = xieite::keys::is_ctrl_pressed();
-bool alt = xieite::keys::is_alt_pressed();
-bool shift = xieite::keys::is_shift_pressed();
-
-// Key combinations
-if (xieite::keys::is_combo(xieite::key::ctrl, xieite::key::c)) {
-    handle_copy();
-}
-```
-
-## Advanced Features
-
-### Progress Display
-
-```cpp
-class ProgressBar {
-    std::size_t total;
-    std::size_t current = 0;
-
-public:
-    ProgressBar(std::size_t total) : total(total) {}
-
-    void update(std::size_t n) {
-        current = n;
-        draw();
-    }
-
-    void draw() {
-        xieite::pos::home();
-        xieite::term::clear_line();
-
-        float percent = 100.0f * current / total;
-        int bar_width = 50;
-        int filled = bar_width * current / total;
-
-        std::cout << "[";
-        xieite::term::set_fg_color(xieite::color::green);
-        for (int i = 0; i < filled; ++i) {
-            std::cout << "=";
-        }
-        xieite::term::reset_colors();
-        for (int i = filled; i < bar_width; ++i) {
-            std::cout << " ";
-        }
-        std::cout << "] " << std::format("{:.1f}%", percent);
-        std::cout.flush();
-    }
-};
-```
-
-### Interactive Menu
-
-```cpp
-class Menu {
-    std::vector<std::string> items;
-    std::size_t selected = 0;
-
-public:
-    Menu(std::vector<std::string> items) : items(items) {}
-
-    std::size_t run() {
-        xieite::term::hide_cursor();
-        xieite::term::clear();
-
-        while (true) {
-            draw();
-
-            auto key = xieite::keys::wait();
-            switch (key) {
-                case xieite::key::arrow_up:
-                    if (selected > 0) selected--;
-                    break;
-                case xieite::key::arrow_down:
-                    if (selected < items.size() - 1) selected++;
-                    break;
-                case xieite::key::enter:
-                    xieite::term::show_cursor();
-                    return selected;
-                case xieite::key::escape:
-                    xieite::term::show_cursor();
-                    return -1;
-            }
-        }
-    }
-
-    void draw() {
-        xieite::pos::set(0, 0);
-        for (std::size_t i = 0; i < items.size(); ++i) {
-            if (i == selected) {
-                xieite::term::set_bg_color(xieite::color::blue);
-                std::cout << "> ";
-            } else {
-                std::cout << "  ";
-            }
-            std::cout << items[i];
-            xieite::term::reset_colors();
-            std::cout << "\n";
-        }
-    }
-};
-```
-
-### Colored Output
-
-```cpp
-class ColorPrinter {
-public:
-    static void info(std::string_view msg) {
-        xieite::term::set_fg_color(xieite::color::blue);
-        std::cout << "[INFO] ";
-        xieite::term::reset_colors();
-        std::cout << msg << "\n";
-    }
-
-    static void error(std::string_view msg) {
-        xieite::term::set_fg_color(xieite::color::red);
-        std::cerr << "[ERROR] ";
-        xieite::term::reset_colors();
-        std::cerr << msg << "\n";
-    }
-
-    static void success(std::string_view msg) {
-        xieite::term::set_fg_color(xieite::color::green);
-        std::cout << "[SUCCESS] ";
-        xieite::term::reset_colors();
-        std::cout << msg << "\n";
-    }
-};
-```
+The io/ category provides utilities for:
+- File operations and stream handling
+- Terminal control and positioning
+- Keyboard input detection
+- Logging with automatic formatting
+- Data dumping utilities
 
 ## Platform Considerations
 
