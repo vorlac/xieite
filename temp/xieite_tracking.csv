@@ -261,7 +261,7 @@ include/xieite/pp/check.hpp,pp,check.hpp,Documented,Probe detection utility,at,M
 include/xieite/pp/cm.hpp,pp,cm.hpp,Documented,Comma manipulation utility,None,Low,Verified,Advanced comma handling in macro expansions
 include/xieite/pp/comma.hpp,pp,comma.hpp,Documented,Comma token generator,None,Low,Verified,Simple utility to generate comma tokens in macro expansions
 include/xieite/pp/compiler.hpp,pp,compiler.hpp,Completed,Compiler detection and version extraction (100+ compilers),None,High,Verified,Detects compiler type and version
-include/xieite/pp/compl.hpp,pp,compl.hpp,Documented,Boolean complement macro,cat,Low,Verified,Bit flip operation using lookup table (0→1, 1→0)
+include/xieite/pp/compl.hpp,pp,compl.hpp,Documented,Boolean complement macro,cat,Low,Verified,Bit flip operation using lookup table (0→1 | 1→0)
 include/xieite/pp/count.hpp,pp,count.hpp,Documented,Variadic argument counter,None,High,Verified,Count up to 256 arguments using argument shifting with __VA_OPT__ support
 include/xieite/pp/debug.hpp,pp,debug.hpp,Documented,Debug mode detection,None,Low,Verified,Multi-framework debug detection (DEBUG, NDEBUG, _DEBUG, QT_DEBUG)
 include/xieite/pp/defer.hpp,pp,defer.hpp,Documented,Deferred expansion utility,None,Medium,Verified,Delay macro expansion for complex metaprogramming patterns
