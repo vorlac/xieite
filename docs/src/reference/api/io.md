@@ -188,4 +188,4 @@ The I/O utilities often work with:
 
 - [Data Structures API](./data.md) - For string and container operations
 - [System Utilities API](./sys.md) - For system-level I/O operations
-- [Complete API Reference](../README.md)
+- [Complete API Reference](../)

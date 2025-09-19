@@ -521,7 +521,7 @@ Program completed successfully
 After mastering these simple utilities:
 
 1. **Explore [Common Patterns](./common_patterns.md)** for more sophisticated techniques
-2. **Study [Advanced Examples](../advanced/README.md)** for template metaprogramming
+2. **Study [Advanced Examples](../advanced/)** for template metaprogramming
 3. **Review specific category documentation** for comprehensive utility coverage
 4. **Experiment with combinations** of utilities to solve complex problems
 
@@ -529,5 +529,5 @@ After mastering these simple utilities:
 
 - [Getting Started](./getting_started.md) - Basic setup and introduction
 - [Common Patterns](./common_patterns.md) - Advanced usage patterns
-- [Category Documentation](../../categories/README.md) - Complete utility reference
-- [API Reference](../../reference/README.md) - Detailed specifications
+- [Category Documentation](../../categories/) - Complete utility reference
+- [API Reference](../../reference/) - Detailed specifications

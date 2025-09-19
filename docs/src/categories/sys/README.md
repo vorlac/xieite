@@ -616,7 +616,7 @@ The sys/ category follows these principles:
 
 ## See Also
 
-- [I/O Utilities](../io/README.md) - File and stream operations
-- [Threading](../fn/README.md) - Functional threading utilities
-- [Data Structures](../data/README.md) - Thread-safe containers
-- [Math Functions](../math/README.md) - Hardware intrinsics
+- [I/O Utilities](../io/) - File and stream operations
+- [Threading](../fn/) - Functional threading utilities
+- [Data Structures](../data/) - Thread-safe containers
+- [Math Functions](../math/) - Hardware intrinsics

@@ -474,4 +474,4 @@ auto invoke_with_timing XIEITE_ARROW_DECL(
 
 ---
 
-*See also: [XIEITE_ARROW_CTOR](arrow_ctor.md) | [Perfect Forwarding Patterns](../template_patterns.md) | [Parameter Pack Utilities](../../categories/meta/README.md)*
+*See also: [XIEITE_ARROW_CTOR](arrow_ctor.md) | [Perfect Forwarding Patterns](../template_patterns.md) | [Parameter Pack Utilities](../../categories/meta/)*

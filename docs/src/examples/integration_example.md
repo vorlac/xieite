@@ -676,4 +676,4 @@ ENTRYPOINT ["task_manager"]
 
 ---
 
-*Return to [XIEITE Documentation Home](../../README.md)*
+*Return to [XIEITE Documentation Home](../../)*

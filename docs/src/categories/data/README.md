@@ -631,7 +631,7 @@ public:
 
 ## See Also
 
-- [Functional Utilities](../fn/README.md) - Functional programming support
-- [Meta Programming](../meta/README.md) - Template metaprogramming
-- [Type Traits](../trait/README.md) - Type introspection
-- [Math Functions](../math/README.md) - Mathematical operations
+- [Functional Utilities](../fn/) - Functional programming support
+- [Meta Programming](../meta/) - Template metaprogramming
+- [Type Traits](../trait/) - Type introspection
+- [Math Functions](../math/) - Mathematical operations

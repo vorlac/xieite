@@ -743,6 +743,6 @@ auto safe_negate(T value) {
 
 ## See Also
 
-- [Type Traits Overview](../../categories/trait/README.md)
+- [Type Traits Overview](../../categories/trait/)
 - [SFINAE Helpers](../../categories/trait/sfinae_helpers.md)
 - [Architecture Documentation](../../architecture/type_traits_arch.md)

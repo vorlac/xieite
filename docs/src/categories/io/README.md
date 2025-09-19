@@ -317,7 +317,7 @@ The io/ category follows these principles:
 
 ## See Also
 
-- [System Utilities](../sys/README.md) - Process and system control
-- [Data Structures](../data/README.md) - String and data manipulation
-- [Functional Utilities](../fn/README.md) - Stream processing
-- [Type Traits](../trait/README.md) - Stream type detection
+- [System Utilities](../sys/) - Process and system control
+- [Data Structures](../data/) - String and data manipulation
+- [Functional Utilities](../fn/) - Stream processing
+- [Type Traits](../trait/) - Stream type detection

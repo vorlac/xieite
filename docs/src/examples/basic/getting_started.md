@@ -358,16 +358,16 @@ auto f = xieite::factorial<int>[5];
 ## Next Steps
 
 1. **Explore Categories**: Browse the different utility categories:
-   - [Preprocessor Utilities](../../categories/pp/README.md)
-   - [Type Traits](../../categories/trait/README.md)
-   - [Functional Programming](../../categories/fn/README.md)
-   - [Data Structures](../../categories/data/README.md)
+   - [Preprocessor Utilities](../../categories/pp/)
+   - [Type Traits](../../categories/trait/)
+   - [Functional Programming](../../categories/fn/)
+   - [Data Structures](../../categories/data/)
 
 2. **Read API Reference**: Detailed documentation for all 616 utilities:
-   - [Complete API Reference](../../reference/README.md)
+   - [Complete API Reference](../../reference/)
 
 3. **Advanced Examples**: See complex usage patterns:
-   - [Advanced Patterns](../advanced/README.md)
+   - [Advanced Patterns](../advanced/)
    - [Template Metaprogramming](../advanced/templates.md)
 
 4. **Integration Examples**: Real-world integration:

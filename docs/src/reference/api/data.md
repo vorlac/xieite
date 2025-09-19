@@ -411,4 +411,4 @@ auto view = str.view();
 3. **make_array**: Takes a range and optional conversion function
 
 ## See Also
-- [Data Structures Category Overview](../../categories/data/README.md)
+- [Data Structures Category Overview](../../categories/data/)

@@ -297,9 +297,9 @@ Advanced examples include guidance on:
 
 After completing advanced examples:
 
-1. **Explore [Integration Guide](../integration/README.md)** for production usage patterns
-2. **Review [Architecture Documentation](../../architecture/README.md)** for design principles
-3. **Study [API Reference](../../reference/README.md)** for comprehensive utility documentation
+1. **Explore [Integration Guide](../integration/)** for production usage patterns
+2. **Review [Architecture Documentation](../../architecture/)** for design principles
+3. **Study [API Reference](../../reference/)** for comprehensive utility documentation
 4. **Consider contributing** advanced patterns back to the XIEITE community
 
 ## Support and Resources

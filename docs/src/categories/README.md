@@ -8,14 +8,14 @@ XIEITE's 616 headers are organized into 8 carefully designed categories, each se
 
 | Category | Headers | Purpose | Primary Focus |
 |----------|---------|---------|---------------|
-| **[trait](trait/README.md)** | 276 | Type traits and concepts | Compile-time type introspection |
-| **[pp](pp/README.md)** | 72 | Preprocessor utilities | Macros and compile-time code generation |
-| **[math](math/README.md)** | 110 | Mathematical functions | Algorithms, constants, and computations |
-| **[data](data/README.md)** | 65 | Data structures | Containers, strings, and algorithms |
-| **[fn](fn/README.md)** | 35 | Functional programming | Function composition and utilities |
-| **[meta](meta/README.md)** | 28 | Metaprogramming | Template manipulation and type lists |
-| **[sys](sys/README.md)** | 21 | System utilities | OS interaction and hardware access |
-| **[io](io/README.md)** | 9 | Input/Output | Terminal, files, and logging |
+| **[trait](trait/)** | 276 | Type traits and concepts | Compile-time type introspection |
+| **[pp](pp/)** | 72 | Preprocessor utilities | Macros and compile-time code generation |
+| **[math](math/)** | 110 | Mathematical functions | Algorithms, constants, and computations |
+| **[data](data/)** | 65 | Data structures | Containers, strings, and algorithms |
+| **[fn](fn/)** | 35 | Functional programming | Function composition and utilities |
+| **[meta](meta/)** | 28 | Metaprogramming | Template manipulation and type lists |
+| **[sys](sys/)** | 21 | System utilities | OS interaction and hardware access |
+| **[io](io/)** | 9 | Input/Output | Terminal, files, and logging |
 
 ## Architectural Layers
 
@@ -339,14 +339,14 @@ io:    █ 1.5% (9)
 
 Each category has its own detailed documentation:
 
-1. **[Preprocessor Utilities (`pp`)](pp/README.md)** - Start here for macro system
-2. **[Type Traits (`trait`)](trait/README.md)** - Foundation for type checking
-3. **[Mathematics (`math`)](math/README.md)** - Mathematical algorithms
-4. **[Data Structures (`data`)](data/README.md)** - Containers and algorithms
-5. **[Functional Programming (`fn`)](fn/README.md)** - Function utilities
-6. **[Metaprogramming (`meta`)](meta/README.md)** - Template metaprogramming
-7. **[System Utilities (`sys`)](sys/README.md)** - System interaction
-8. **[Input/Output (`io`)](io/README.md)** - I/O operations
+1. **[Preprocessor Utilities (`pp`)](pp/)** - Start here for macro system
+2. **[Type Traits (`trait`)](trait/)** - Foundation for type checking
+3. **[Mathematics (`math`)](math/)** - Mathematical algorithms
+4. **[Data Structures (`data`)](data/)** - Containers and algorithms
+5. **[Functional Programming (`fn`)](fn/)** - Function utilities
+6. **[Metaprogramming (`meta`)](meta/)** - Template metaprogramming
+7. **[System Utilities (`sys`)](sys/)** - System interaction
+8. **[Input/Output (`io`)](io/)** - I/O operations
 
 ## Quick Start Examples
 
@@ -380,4 +380,4 @@ xieite::log::info("System has {} CPU cores", xieite::nproc());
 
 ---
 
-*Start Exploring: [Type Traits](trait/README.md) | [Preprocessor](pp/README.md) | [Mathematics](math/README.md)*
+*Start Exploring: [Type Traits](trait/) | [Preprocessor](pp/) | [Mathematics](math/)*

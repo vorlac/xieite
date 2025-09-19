@@ -639,7 +639,7 @@ The meta/ category follows these principles:
 
 ## See Also
 
-- [Type Traits](../trait/README.md) - Type introspection and concepts
-- [Preprocessor](../pp/README.md) - Macro-based metaprogramming
-- [Functional Utilities](../fn/README.md) - Higher-order functions
-- [Data Structures](../data/README.md) - Compile-time containers
+- [Type Traits](../trait/) - Type introspection and concepts
+- [Preprocessor](../pp/) - Macro-based metaprogramming
+- [Functional Utilities](../fn/) - Higher-order functions
+- [Data Structures](../data/) - Compile-time containers

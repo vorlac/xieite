@@ -429,4 +429,4 @@ style F3 fill:#724848ff,stroke:#ac9696ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:
 - [Template Manipulation](./templates.md)
 - [Compile-Time Sequences](./sequences.md)
 - [Metaprogramming API](../../reference/api/meta.md)
-- [Type Traits](../trait/README.md)
+- [Type Traits](../trait/)

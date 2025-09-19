@@ -19,6 +19,7 @@ smart-punctuation = true
 print.enable = true
 fold.enable = true
 fold.level = 0
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
 
 [output.html.playground]
 editable = true

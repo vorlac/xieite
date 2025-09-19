@@ -601,7 +601,7 @@ The fn/ category follows these principles:
 
 ## See Also
 
-- [Meta Programming](../meta/README.md) - Template metaprogramming
-- [Type Traits](../trait/README.md) - Type introspection
-- [Data Structures](../data/README.md) - Container utilities
-- [Preprocessor](../pp/README.md) - Macro utilities
+- [Meta Programming](../meta/) - Template metaprogramming
+- [Type Traits](../trait/) - Type introspection
+- [Data Structures](../data/) - Container utilities
+- [Preprocessor](../pp/) - Macro utilities

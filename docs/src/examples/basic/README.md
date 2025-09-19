@@ -56,7 +56,7 @@ Frequently used programming patterns with XIEITE:
    - Learn how to combine utilities effectively
    - Develop idiomatic XIEITE code style
 
-4. **Advance Further**: [Advanced Examples](../advanced/README.md)
+4. **Advance Further**: [Advanced Examples](../advanced/)
    - Move to complex template metaprogramming
    - Explore compile-time computation
    - Master custom trait development
@@ -158,10 +158,10 @@ Every example includes:
 
 After completing these basic examples:
 
-1. **Explore [Advanced Examples](../advanced/README.md)** for sophisticated techniques
-2. **Review [Integration Guide](../integration/README.md)** for production usage
-3. **Study [Category Documentation](../../categories/README.md)** for comprehensive reference
-4. **Consult [API Reference](../../reference/README.md)** for detailed specifications
+1. **Explore [Advanced Examples](../advanced/)** for sophisticated techniques
+2. **Review [Integration Guide](../integration/)** for production usage
+3. **Study [Category Documentation](../../categories/)** for comprehensive reference
+4. **Consult [API Reference](../../reference/)** for detailed specifications
 
 ## Getting Help
 
@@ -172,9 +172,9 @@ After completing these basic examples:
 - **Platform issues** - Check supported platform and compiler combinations
 
 ### Additional Resources
-- **[Architecture Overview](../../architecture/README.md)** - Understanding XIEITE's design
-- **[Category Guides](../../categories/README.md)** - Detailed utility documentation
-- **[Integration Examples](../integration/README.md)** - Production usage patterns
+- **[Architecture Overview](../../architecture/)** - Understanding XIEITE's design
+- **[Category Guides](../../categories/)** - Detailed utility documentation
+- **[Integration Examples](../integration/)** - Production usage patterns
 
 ## Contributing
 

@@ -523,6 +523,6 @@ flowchart LR
 ## See Also
 
 - [Metaprogramming API](../../reference/api/meta.md)
-- [Type Traits](../trait/README.md)
+- [Type Traits](../trait/)
 - [Compile-Time Sequences](./sequences.md)
 - [Type List Operations](./operations.md)

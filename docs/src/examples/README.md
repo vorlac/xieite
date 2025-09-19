@@ -6,7 +6,7 @@ This section provides comprehensive examples demonstrating how to effectively us
 
 ## Example Categories
 
-### [Basic Usage](./basic/README.md)
+### [Basic Usage](./basic/)
 
 The basic examples introduce fundamental XIEITE utilities and common usage patterns:
 
@@ -14,7 +14,7 @@ The basic examples introduce fundamental XIEITE utilities and common usage patte
 - **[Simple Utilities](./basic/simple_utilities.md)** - Common utility functions and their applications
 - **[Common Patterns](./basic/common_patterns.md)** - Frequently used programming patterns with XIEITE
 
-### [Advanced Examples](./advanced/README.md)
+### [Advanced Examples](./advanced/)
 
 Advanced examples showcase complex template metaprogramming and specialized techniques:
 
@@ -22,7 +22,7 @@ Advanced examples showcase complex template metaprogramming and specialized tech
 - **[Compile-Time Examples](./advanced/compile_time.md)** - Compile-time computation and optimization
 - **[Custom Traits](./advanced/custom_traits.md)** - Building custom type traits and concepts
 
-### [Integration Guide](./integration/README.md)
+### [Integration Guide](./integration/)
 
 Integration examples demonstrate how to incorporate XIEITE into larger projects:
 
@@ -39,7 +39,7 @@ We recommend following this progression when learning XIEITE:
 3. **Learn [Common Patterns](./basic/common_patterns.md)** for practical programming techniques
 4. **Advance to [Template Metaprogramming](./advanced/templates.md)** for sophisticated techniques
 5. **Study [Compile-Time Examples](./advanced/compile_time.md)** for performance optimization
-6. **Review [Integration Guide](./integration/README.md)** for production usage
+6. **Review [Integration Guide](./integration/)** for production usage
 
 ## Code Examples Philosophy
 
@@ -223,6 +223,6 @@ When contributing new examples:
 
 ## See Also
 
-- [Architecture Overview](../architecture/README.md) - Understanding XIEITE's design
-- [Category Documentation](../categories/README.md) - Detailed utility reference
-- [API Reference](../reference/README.md) - Complete API documentation
+- [Architecture Overview](../architecture/) - Understanding XIEITE's design
+- [Category Documentation](../categories/) - Detailed utility reference
+- [API Reference](../reference/) - Complete API documentation

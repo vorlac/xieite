@@ -70,13 +70,13 @@ constexpr auto result = xieite::math::factorial(10);
 ## Navigation Guide
 
 ### For Implementers
-Start with [Architecture Overview](architecture/README.md) to understand the library's foundation, then dive into specific categories based on your needs.
+Start with [Architecture Overview](architecture/) to understand the library's foundation, then dive into specific categories based on your needs.
 
 ### For Advanced Users
-Begin with [Advanced Usage](advanced/README.md) for complex patterns and optimization techniques.
+Begin with [Advanced Usage](advanced/) for complex patterns and optimization techniques.
 
 ### For Quick Reference
-Jump directly to the [API Reference](reference/README.md) for complete function signatures and parameters.
+Jump directly to the [API Reference](reference/) for complete function signatures and parameters.
 
 ## Important Notes
 

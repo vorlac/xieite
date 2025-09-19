@@ -219,5 +219,5 @@ static_assert(xieite::prime(17));
 
 ## See Also
 
-- [Mathematics Category Overview](../../categories/math/README.md)
+- [Mathematics Category Overview](../../categories/math/)
 - [Compile-Time Computation](../../architecture/compile_time.md)

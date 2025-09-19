@@ -496,7 +496,7 @@ style E3 fill:#4d4962ff,stroke:#8983a5ff,stroke-width:2px,color:#C1C4CA,rx:8,ry:
 
 ## See Also
 
-- [Preprocessor Utilities](../pp/README.md)
+- [Preprocessor Utilities](../pp/)
 - [Architecture Detection](../pp/arch.md)
 - [System API](../../reference/api/sys.md)
 - [Cross-Platform Development](../../advanced/cross_platform.md)

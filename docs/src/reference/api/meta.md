@@ -249,6 +249,6 @@ void process_indices(xieite::seq<I...>) {
 
 ## See Also
 
-- [Metaprogramming Category Overview](../../categories/meta/README.md)
+- [Metaprogramming Category Overview](../../categories/meta/)
 - [Template Patterns](../../architecture/template_patterns.md)
 - [Compile-Time Computation](../../architecture/compile_time.md)

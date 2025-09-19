@@ -337,7 +337,7 @@ void print_system_stats() {
 
 ## See Also
 
-- [System Utilities Overview](../../categories/sys/README.md)
+- [System Utilities Overview](../../categories/sys/)
 - [Platform Detection](../pp/platform.md) - Located in `pp/` category
 - [Architecture Detection](../pp/arch.md) - Located in `pp/` category
 - [Meta Programming API](./meta.md)

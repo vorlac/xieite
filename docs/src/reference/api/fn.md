@@ -376,6 +376,6 @@ auto result = gcd(24, 36);  // 12
 
 ## See Also
 
-- [Functional Overview](../../categories/fn/README.md)
+- [Functional Overview](../../categories/fn/)
 - [Meta Programming API](./meta.md)
 - [Data Structures API](./data.md)
