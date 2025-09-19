@@ -1,0 +1,38 @@
+[book]
+authors = ["XIEITE Documentation Team"]
+language = "en"
+multilingual = false
+src = "src"
+title = "XIEITE Technical Documentation"
+description = "Comprehensive technical documentation for XIEITE C++ utility library"
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
+[output.html]
+mathjax-support = true
+git-repository-url = "https://github.com/Eczbek/xieite"
+edit-url-template = "https://github.com/Eczbek/xieite/edit/main/docs/{path}"
+default-theme = "ayu"
+preferred-dark-theme = "ayu"
+smart-punctuation = true
+print.enable = true
+fold.enable = true
+fold.level = 0
+
+[output.html.playground]
+editable = true
+line-numbers = true
+copyable = true
+
+[output.html.search]
+enable = true
+limit-results = 30
+teaser-word-count = 30
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 1
+boost-paragraph = 1
+expand = true
+heading-split-level = 3
+copy-js = true

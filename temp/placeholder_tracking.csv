@@ -1,0 +1,112 @@
+File Path,Category,Status,Priority,Complexity,Dependencies,Notes
+architecture/README.md,Architecture,Completed,Critical,High,None,Main architecture overview
+architecture/overview.md,Architecture,Completed,Critical,High,README.md,Library architecture details
+architecture/header_only.md,Architecture,Completed,High,Medium,overview.md,Header-only design explanation
+architecture/namespace.md,Architecture,Completed,High,Low,overview.md,Namespace organization
+architecture/build_system.md,Architecture,Completed,High,Medium,overview.md,CMake integration
+architecture/macro_system.md,Architecture,Completed,Critical,High,None,Macro system overview
+architecture/arrow_macros.md,Architecture,Completed,Critical,High,macro_system.md,Arrow macro family overview
+architecture/arrow/arrow.md,Architecture,Completed,Critical,High,arrow_macros.md,XIEITE_ARROW details
+architecture/arrow/arrow_noex.md,Architecture,Completed,High,Medium,arrow_macros.md,XIEITE_ARROW_NOEX details
+architecture/arrow/arrow_ret.md,Architecture,Completed,High,Medium,arrow_macros.md,XIEITE_ARROW_RET details
+architecture/arrow/arrow_if.md,Architecture,Completed,High,Medium,arrow_macros.md,XIEITE_ARROW_IF details
+architecture/arrow/arrow_choose.md,Architecture,Completed,High,Medium,arrow_macros.md,XIEITE_ARROW_CHOOSE details
+architecture/arrow/arrow_try.md,Architecture,Completed,High,Medium,arrow_macros.md,XIEITE_ARROW_TRY details
+architecture/arrow/arrow_decl.md,Architecture,Completed,High,Medium,arrow_macros.md,XIEITE_ARROW_DECL details
+architecture/arrow/arrow_ctor.md,Architecture,Completed,High,Medium,arrow_macros.md,XIEITE_ARROW_CTOR details
+architecture/preprocessor_patterns.md,Architecture,Completed,High,High,macro_system.md,Preprocessor patterns
+architecture/token_manipulation.md,Architecture,Completed,Medium,High,preprocessor_patterns.md,Token manipulation techniques
+architecture/template_patterns.md,Architecture,Completed,Critical,High,None,Template metaprogramming overview
+architecture/concepts.md,Architecture,Completed,Critical,High,template_patterns.md,Concept-based design
+architecture/sfinae.md,Architecture,Completed,High,High,template_patterns.md,SFINAE patterns
+architecture/compile_time.md,Architecture,Completed,High,High,template_patterns.md,Compile-time computation
+architecture/type_traits_arch.md,Architecture,Completed,High,High,template_patterns.md,Type traits architecture
+categories/README.md,Categories,Completed,High,Low,None,Categories overview
+categories/pp/README.md,Preprocessor,Completed,High,Medium,None,Preprocessor utilities overview
+categories/pp/arrow.md,Preprocessor,Completed,Critical,High,arrow_macros.md,Core arrow macros
+categories/pp/conditional.md,Preprocessor,Completed,High,Medium,None,Conditional compilation
+categories/pp/platform.md,Preprocessor,Completed,High,Medium,conditional.md,Platform detection
+categories/pp/arch.md,Preprocessor,Completed,Medium,Medium,platform.md,Architecture detection
+categories/pp/compiler.md,Preprocessor,Completed,Medium,Medium,platform.md,Compiler detection
+categories/pp/boolean.md,Preprocessor,Completed,Medium,Low,None,Boolean operations
+categories/pp/tokens.md,Preprocessor,Completed,Medium,Medium,None,Token operations
+categories/pp/strings.md,Preprocessor,Completed,Medium,Medium,None,String manipulation
+categories/pp/utilities.md,Preprocessor,Completed,Medium,Low,None,Utility macros
+categories/pp/debug.md,Preprocessor,Completed,Medium,Low,None,Debug macros
+categories/pp/version.md,Preprocessor,Completed,Medium,Low,None,Version detection
+categories/trait/README.md,Traits,Completed,High,Medium,None,Type traits overview
+categories/trait/concepts.md,Traits,Completed,Critical,High,concepts.md,Concepts documentation
+categories/trait/classification.md,Traits,Completed,High,Medium,None,Type classification
+categories/trait/queries.md,Traits,Completed,High,Medium,None,Type queries
+categories/trait/sfinae_helpers.md,Traits,Completed,High,High,sfinae.md,SFINAE helpers
+categories/trait/extensions.md,Traits,Completed,Medium,Medium,None,STL extensions
+categories/trait/custom.md,Traits,Completed,Medium,High,None,Custom traits
+categories/data/compile_time.md,Data,Completed,High,High,None,Compile-time structures
+categories/data/strings.md,Data,Completed,High,Medium,None,String utilities
+categories/data/iterators.md,Data,Completed,Medium,Medium,None,Iterator utilities
+categories/data/algorithms.md,Data,Completed,Medium,Medium,None,Container algorithms
+categories/data/memory.md,Data,Completed,High,Medium,None,Memory management
+categories/data/ranges.md,Data,Completed,Medium,High,None,Range utilities
+categories/fn/composition.md,Functional,Completed,High,High,None,Function composition
+categories/fn/currying.md,Functional,Completed,High,High,None,Currying patterns
+categories/fn/memoization.md,Functional,Completed,Medium,High,None,Memoization
+categories/fn/combinators.md,Functional,Completed,Medium,High,None,Combinator patterns
+categories/fn/scopes.md,Functional,Completed,High,Medium,None,Scope guards
+categories/fn/literals.md,Functional,Completed,Low,Medium,None,User literals
+categories/meta/templates.md,Meta,Completed,High,High,None,Template manipulation
+categories/meta/sequences.md,Meta,Completed,High,High,None,Compile-time sequences
+categories/meta/operations.md,Meta,Completed,High,High,None,Type list operations
+categories/meta/substitution.md,Meta,Completed,Medium,High,None,Substitution detection
+categories/meta/repetition.md,Meta,Completed,Medium,Medium,None,Compile-time repetition
+categories/sys/platform.md,System,Completed,High,Medium,None,Platform detection
+categories/sys/environment.md,System,Completed,Medium,Low,None,Environment variables
+categories/sys/features.md,System,Completed,Medium,Medium,None,OS-specific features
+categories/sys/architecture.md,System,Completed,Medium,Medium,None,Architecture detection
+categories/sys/endianness.md,System,Completed,Low,Low,None,Endianness handling
+categories/sys/queries.md,System,Completed,Medium,Low,None,System queries
+categories/io/streams.md,IO,Completed,Medium,Medium,None,Stream utilities
+categories/io/formatting.md,IO,Completed,Low,Low,None,Format helpers
+categories/io/debug.md,IO,Completed,Low,Low,None,Debug output
+categories/io/files.md,IO,Completed,Medium,Medium,None,File operations
+categories/io/scanning.md,IO,Completed,Low,Medium,None,Scanning/parsing
+examples/README.md,Examples,Completed,Medium,Low,None,Examples overview
+examples/basic/README.md,Examples,Completed,Medium,Low,None,Basic examples overview
+examples/basic/getting_started.md,Examples,Completed,High,Low,None,Getting started guide
+examples/basic/simple_utilities.md,Examples,Completed,Medium,Low,None,Simple utility usage
+examples/basic/common_patterns.md,Examples,Completed,Medium,Medium,None,Common usage patterns
+examples/advanced/README.md,Examples,Completed,Medium,Low,None,Advanced examples overview
+examples/advanced/templates.md,Examples,Completed,High,High,None,Template metaprogramming
+examples/advanced/compile_time.md,Examples,Completed,High,High,None,Compile-time examples
+examples/advanced/custom_traits.md,Examples,Completed,Medium,High,None,Custom trait examples
+examples/integration/README.md,Examples,Completed,Medium,Low,None,Integration overview
+examples/integration/cmake.md,Examples,Completed,High,Medium,None,CMake integration
+examples/integration/application.md,Examples,Completed,High,High,None,Real application
+examples/integration/benchmarks.md,Examples,Completed,Low,Medium,None,Performance benchmarks
+projects/README.md,Projects,Completed,Low,Low,None,Projects overview
+advanced/README.md,Advanced,Completed,Medium,Low,None,Advanced patterns overview
+advanced/complex_patterns.md,Advanced,Completed,High,High,None,Complex usage patterns
+advanced/performance.md,Advanced,Completed,High,Medium,None,Performance optimization
+advanced/compile_runtime.md,Advanced,Completed,High,High,None,Compile vs runtime
+advanced/error_handling.md,Advanced,Completed,Medium,Medium,None,Error strategies
+advanced/stl_integration.md,Advanced,Completed,Medium,Medium,None,STL integration
+advanced/cross_platform.md,Advanced,Completed,High,Medium,None,Cross-platform overview
+advanced/platform_branching.md,Advanced,Completed,Medium,Medium,None,Platform branching
+advanced/compiler_workarounds.md,Advanced,Completed,Medium,High,None,Compiler workarounds
+advanced/abi.md,Advanced,Completed,Low,High,None,ABI considerations
+advanced/build_config.md,Advanced,Completed,Medium,Medium,None,Build configurations
+reference/README.md,Reference,Completed,High,Low,None,API reference overview
+reference/api/pp.md,Reference,Completed,High,High,None,Preprocessor API
+reference/api/trait.md,Reference,Completed,High,High,None,Type traits API
+reference/api/math.md,Reference,Completed,High,High,None,Mathematics API
+reference/api/data.md,Reference,Completed,High,High,None,Data structures API
+reference/api/fn.md,Reference,Completed,High,High,None,Functional API
+reference/api/meta.md,Reference,Completed,High,High,None,Metaprogramming API
+reference/api/sys.md,Reference,Completed,High,High,None,System API
+reference/api/io.md,Reference,Completed,High,High,None,I/O API
+appendix/README.md,Appendix,Completed,Low,Low,None,Appendices overview
+appendix/index.md,Appendix,Completed,Low,Low,None,Appendix index
+appendix/errors.md,Appendix,Completed,Medium,Medium,None,Error reference
+appendix/compilers.md,Appendix,Completed,Medium,Medium,None,Compiler support
+appendix/migration.md,Appendix,Completed,Low,Medium,None,Migration guide
+appendix/glossary.md,Appendix,Completed,Low,Low,None,Glossary
+appendix/performance.md,Appendix,Completed,Low,Medium,None,Performance guide

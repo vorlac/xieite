@@ -1,0 +1,617 @@
+File Path,Category,Header Name,Documentation Status,Primary Purpose,Dependencies,Complexity Level,Verification Status,Notes
+include/xieite/data/after.hpp,data,after.hpp,Documented,Returns iterator after first occurrence of value,Standard library iterator concepts,Medium,Complete,Documented in iterator_utilities.md
+include/xieite/data/after_last.hpp,data,after_last.hpp,Documented,Returns iterator after last occurrence of value,Standard library iterator concepts,Medium,Complete,Documented in iterator_utilities.md
+include/xieite/data/before.hpp,data,before.hpp,Documented,Returns iterator before first occurrence of value,Standard library iterator concepts,Medium,Complete,Documented in iterator_utilities.md
+include/xieite/data/before_last.hpp,data,before_last.hpp,Documented,Returns iterator before last occurrence of value,Standard library iterator concepts,Medium,Complete,Documented in iterator_utilities.md
+include/xieite/data/between.hpp,data,between.hpp,Documented,Returns range between two iterators or values,Standard library iterator concepts,Medium,Complete,Documented in iterator_utilities.md
+include/xieite/data/chars.hpp,data,chars.hpp,Documented,Character classification utilities and constants,None,Low,Complete,Supporting utility for string operations
+include/xieite/data/cmp_ignore_case.hpp,data,cmp_ignore_case.hpp,Documented,Case-insensitive string comparison,tolower/toupper utilities,Low,Complete,Documented in string_utilities.md
+include/xieite/data/find_most_consec.hpp,data,find_most_consec.hpp,Documented,Finds most consecutive occurrences of value,Standard library iterator concepts,Medium,Complete,Documented in iterator_utilities.md
+include/xieite/data/find_most_consec_if.hpp,data,find_most_consec_if.hpp,Documented,Finds most consecutive elements matching predicate,Standard library iterator concepts,Medium,Complete,Documented in iterator_utilities.md
+include/xieite/data/find_occur.hpp,data,find_occur.hpp,Documented,Finds nth occurrence of value in range,Standard library iterator concepts,Medium,Complete,Documented in iterator_utilities.md
+include/xieite/data/find_occur_if.hpp,data,find_occur_if.hpp,Documented,Finds nth occurrence matching predicate,Standard library iterator concepts,Medium,Complete,Documented in iterator_utilities.md
+include/xieite/data/fixed_array.hpp,data,fixed_array.hpp,Documented,Fixed-size array container with compile-time size,None,Medium,Complete,Documented in fixed_containers.md
+include/xieite/data/fixed_map.hpp,data,fixed_map.hpp,Documented,Fixed-size map container with compile-time capacity,None,High,Complete,Documented in fixed_containers.md
+include/xieite/data/fixed_md_container.hpp,data,fixed_md_container.hpp,Documented,Fixed-size multi-dimensional container,md_container.hpp,High,Complete,Documented in fixed_containers.md
+include/xieite/data/fixed_set.hpp,data,fixed_set.hpp,Documented,Fixed-size set container with compile-time capacity,None,High,Complete,Documented in fixed_containers.md
+include/xieite/data/fixed_str.hpp,data,fixed_str.hpp,Documented,Fixed-size string with compile-time capacity,None,Medium,Complete,Documented in fixed_containers.md
+include/xieite/data/isalnum.hpp,data,isalnum.hpp,Documented,Character classification: alphanumeric check,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/isalpha.hpp,data,isalpha.hpp,Documented,Character classification: alphabetic check,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/isblank.hpp,data,isblank.hpp,Documented,Character classification: blank character check,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/iscntrl.hpp,data,iscntrl.hpp,Documented,Character classification: control character check,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/isdigit.hpp,data,isdigit.hpp,Documented,Character classification: digit check,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/isgraph.hpp,data,isgraph.hpp,Documented,Character classification: graphical character check,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/islower.hpp,data,islower.hpp,Documented,Character classification: lowercase check,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/isprint.hpp,data,isprint.hpp,Documented,Character classification: printable character check,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/ispunct.hpp,data,ispunct.hpp,Documented,Character classification: punctuation check,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/isspace.hpp,data,isspace.hpp,Documented,Character classification: whitespace check,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/isupper.hpp,data,isupper.hpp,Documented,Character classification: uppercase check,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/isxdigit.hpp,data,isxdigit.hpp,Documented,Character classification: hexadecimal digit check,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/iters.hpp,data,iters.hpp,Documented,Iterator pair utility for range-based operations,Standard library iterator concepts,Medium,Complete,Documented in iterator_utilities.md
+include/xieite/data/make_array.hpp,data,make_array.hpp,Documented,Creates std::array from variadic arguments,None,Low,Complete,Documented in iterator_utilities.md
+include/xieite/data/make_ptr.hpp,data,make_ptr.hpp,Documented,Creates smart pointer from value,None,Low,Complete,Documented in iterator_utilities.md
+include/xieite/data/make_sparse_array.hpp,data,make_sparse_array.hpp,Documented,Creates sparse array from index-value pairs,None,Medium,Complete,Documented in iterator_utilities.md
+include/xieite/data/make_str_view.hpp,data,make_str_view.hpp,Documented,Creates std::string_view from various string types,None,Low,Complete,Documented in iterator_utilities.md
+include/xieite/data/md_container.hpp,data,md_container.hpp,Documented,Multi-dimensional container with dynamic sizing,None,High,Complete,Documented in fixed_containers.md
+include/xieite/data/number_str_config.hpp,data,number_str_config.hpp,Documented,Configuration for number-to-string conversion,None,Medium,Complete,Supporting utility for string operations
+include/xieite/data/pad.hpp,data,pad.hpp,Documented,Pads string to specified length on both sides,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/pad_back.hpp,data,pad_back.hpp,Documented,Pads string to specified length at the end,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/pad_front.hpp,data,pad_front.hpp,Documented,Pads string to specified length at the beginning,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/palindrome.hpp,data,palindrome.hpp,Documented,Checks if string or range is a palindrome,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/partial_reverse.hpp,data,partial_reverse.hpp,Documented,Reverses a portion of a range,Standard library iterator concepts,Medium,Complete,Documented in iterator_utilities.md
+include/xieite/data/ptr.hpp,data,ptr.hpp,Documented,Smart pointer wrapper with additional functionality,None,Medium,Complete,Documented in fixed_containers.md
+include/xieite/data/quote.hpp,data,quote.hpp,Documented,Adds quotes around string with escape handling,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/ref.hpp,data,ref.hpp,Documented,Reference wrapper with additional functionality,None,Medium,Complete,Documented in fixed_containers.md
+include/xieite/data/rotated.hpp,data,rotated.hpp,Documented,Creates rotated view of range,Standard library iterator concepts,Medium,Complete,Documented in iterator_utilities.md
+include/xieite/data/static_str.hpp,data,static_str.hpp,Documented,Compile-time string with template parameter,None,Medium,Complete,Documented in fixed_containers.md
+include/xieite/data/str_after.hpp,data,str_after.hpp,Documented,Returns substring after first occurrence of delimiter,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/str_after_last.hpp,data,str_after_last.hpp,Documented,Returns substring after last occurrence of delimiter,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/str_before.hpp,data,str_before.hpp,Documented,Returns substring before first occurrence of delimiter,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/str_before_last.hpp,data,str_before_last.hpp,Documented,Returns substring before last occurrence of delimiter,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/str_between.hpp,data,str_between.hpp,Documented,Returns substring between two delimiters,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/str_join.hpp,data,str_join.hpp,Documented,Joins range of strings with delimiter,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/str_repeat.hpp,data,str_repeat.hpp,Documented,Repeats string specified number of times,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/str_replace.hpp,data,str_replace.hpp,Documented,Replaces occurrences of substring with another,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/str_split.hpp,data,str_split.hpp,Documented,Splits string by delimiter into vector,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/str_truncate.hpp,data,str_truncate.hpp,Documented,Truncates string to specified length,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/strlen.hpp,data,strlen.hpp,Documented,Compile-time string length calculation,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/substr.hpp,data,substr.hpp,Documented,Creates substring with bounds checking,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/tolower.hpp,data,tolower.hpp,Documented,Converts character or string to lowercase,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/toupper.hpp,data,toupper.hpp,Documented,Converts character or string to uppercase,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/trim.hpp,data,trim.hpp,Documented,Removes whitespace from both ends of string,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/trim_back.hpp,data,trim_back.hpp,Documented,Removes whitespace from end of string,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/trim_front.hpp,data,trim_front.hpp,Documented,Removes whitespace from beginning of string,None,Low,Complete,Documented in string_utilities.md
+include/xieite/data/tuple_map.hpp,data,tuple_map.hpp,Documented,Map container using tuple for key-value storage,None,High,Complete,Documented in fixed_containers.md
+include/xieite/data/tuple_set.hpp,data,tuple_set.hpp,Documented,Set container using tuple for value storage,None,High,Complete,Documented in fixed_containers.md
+include/xieite/data/unquote.hpp,data,unquote.hpp,Documented,Removes quotes from string with escape handling,None,Low,Complete,Documented in string_utilities.md
+include/xieite/fn/all_true.hpp,fn,all_true.hpp,Documented,Checks if all values are true,None,Low,Complete,Documented in functional_core.md
+include/xieite/fn/also.hpp,fn,also.hpp,Documented,Returns value and executes side effect,None,Low,Complete,Documented in functional_core.md
+include/xieite/fn/analog.hpp,fn,analog.hpp,Documented,Analog value wrapper,None,Low,Complete,Documented in functional_core.md
+include/xieite/fn/any_true.hpp,fn,any_true.hpp,Documented,Checks if any value is true,None,Low,Complete,Documented in functional_core.md
+include/xieite/fn/apply_array.hpp,fn,apply_array.hpp,Documented,Apply function to array elements,None,Medium,Complete,Documented in functional_core.md
+include/xieite/fn/apply_as_tuple.hpp,fn,apply_as_tuple.hpp,Documented,Apply function with tuple arguments,None,Medium,Complete,Documented in functional_core.md
+include/xieite/fn/as.hpp,fn,as.hpp,Documented,Type conversion utility,None,Low,Complete,Documented in functional_core.md
+include/xieite/fn/cast.hpp,fn,cast.hpp,Documented,Safe casting utility,None,Low,Complete,Documented in functional_core.md
+include/xieite/fn/discardable.hpp,fn,discardable.hpp,Documented,Marks value as discardable,None,Low,Complete,Documented in guards_and_wrappers.md
+include/xieite/fn/distribute_args.hpp,fn,distribute_args.hpp,Documented,Distribute arguments to multiple functions,None,Medium,Complete,Documented in functional_core.md
+include/xieite/fn/exp_udl.hpp,fn,exp_udl.hpp,Documented,Scientific notation literal,None,Low,Complete,Documented in user_defined_literals.md
+include/xieite/fn/fn.hpp,fn,fn.hpp,Documented,Enhanced function wrapper with noexcept,None,High,Complete,Documented in functional_core.md
+include/xieite/fn/fstr_udl.hpp,fn,fstr_udl.hpp,Documented,Fixed string literal,None,Low,Complete,Documented in user_defined_literals.md
+include/xieite/fn/memoize.hpp,fn,memoize.hpp,Documented,Automatic function result caching,None,High,Complete,Documented in functional_core.md
+include/xieite/fn/min_args.hpp,fn,min_args.hpp,Documented,Minimum arguments constraint,None,Low,Complete,Documented in functional_core.md
+include/xieite/fn/mixfix.hpp,fn,mixfix.hpp,Documented,Mixfix operator support,None,Medium,Complete,Documented in functional_core.md
+include/xieite/fn/noex.hpp,fn,noex.hpp,Documented,Noexcept wrapper,None,Low,Complete,Documented in guards_and_wrappers.md
+include/xieite/fn/number_udl.hpp,fn,number_udl.hpp,Documented,Number parsing literal,None,Medium,Complete,Documented in user_defined_literals.md
+include/xieite/fn/process_guard.hpp,fn,process_guard.hpp,Documented,Process RAII management,None,Medium,Complete,Documented in guards_and_wrappers.md
+include/xieite/fn/radix_udl.hpp,fn,radix_udl.hpp,Documented,Radix literal for number bases,None,Low,Complete,Documented in user_defined_literals.md
+include/xieite/fn/range_cmp.hpp,fn,range_cmp.hpp,Documented,Range comparison utility,None,Medium,Complete,Documented in functional_core.md
+include/xieite/fn/range_udl.hpp,fn,range_udl.hpp,Documented,Range literal,None,Low,Complete,Documented in user_defined_literals.md
+include/xieite/fn/repeat.hpp,fn,repeat.hpp,Documented,Repeat function execution,None,Low,Complete,Documented in functional_core.md
+include/xieite/fn/reverse_args.hpp,fn,reverse_args.hpp,Documented,Reverse function argument order,None,Medium,Complete,Documented in functional_core.md
+include/xieite/fn/rotate_args.hpp,fn,rotate_args.hpp,Documented,Rotate function arguments,None,Medium,Complete,Documented in functional_core.md
+include/xieite/fn/rotate_swap.hpp,fn,rotate_swap.hpp,Documented,Rotate and swap values,None,Low,Complete,Documented in functional_core.md
+include/xieite/fn/scope_guard.hpp,fn,scope_guard.hpp,Documented,RAII scope-based cleanup,None,Medium,Complete,Documented in guards_and_wrappers.md
+include/xieite/fn/synth_three_way.hpp,fn,synth_three_way.hpp,Documented,Synthesized three-way comparison,None,Medium,Complete,Documented in functional_core.md
+include/xieite/fn/time.hpp,fn,time.hpp,Documented,Time measurement utility,None,Low,Complete,Documented in guards_and_wrappers.md
+include/xieite/fn/tmp.hpp,fn,tmp.hpp,Documented,Temporary file/path utility,None,Low,Complete,Documented in guards_and_wrappers.md
+include/xieite/fn/try_opt.hpp,fn,try_opt.hpp,Documented,Try operation with optional result,None,Medium,Complete,Documented in functional_core.md
+include/xieite/fn/unit_udl.hpp,fn,unit_udl.hpp,Documented,Type-safe unit literal,None,Medium,Complete,Documented in user_defined_literals.md
+include/xieite/fn/unroll.hpp,fn,unroll.hpp,Documented,Compile-time loop unrolling,None,Medium,Complete,Documented in functional_core.md
+include/xieite/fn/visitor.hpp,fn,visitor.hpp,Documented,Variant visitor pattern,None,Medium,Complete,Documented in guards_and_wrappers.md
+include/xieite/fn/y_combinator.hpp,fn,y_combinator.hpp,Documented,Lambda recursion enabler,None,High,Complete,Documented in functional_core.md
+include/xieite/io/dump.hpp,io,dump.hpp,Documented,Debug output utility,None,Low,Complete,Documented in io/index.md
+include/xieite/io/file.hpp,io,file.hpp,Documented,Cross-platform file wrapper,None,High,Complete,Documented in io/index.md
+include/xieite/io/file_pipe.hpp,io,file_pipe.hpp,Documented,Process pipe communication,None,Medium,Complete,Documented in io/index.md
+include/xieite/io/keys.hpp,io,keys.hpp,Documented,Keyboard input enumeration,None,High,Complete,Documented in io/index.md
+include/xieite/io/keys_char.hpp,io,keys_char.hpp,Documented,Key to character conversion,None,Low,Complete,Documented in io/index.md
+include/xieite/io/log.hpp,io,log.hpp,Documented,Structured logging with colors,None,High,Complete,Documented in io/index.md
+include/xieite/io/pos.hpp,io,pos.hpp,Documented,2D position coordinates,None,Low,Complete,Documented in io/index.md
+include/xieite/io/read.hpp,io,read.hpp,Documented,Stream reading utility,None,Medium,Complete,Documented in io/index.md
+include/xieite/io/term.hpp,io,term.hpp,Documented,Terminal control with ANSI,None,Very High,Complete,Documented in io/index.md
+include/xieite/math/abs.hpp,math,abs.hpp,Documented,Absolute value function,None,Low,Complete,Documented in arithmetic_operations.md
+include/xieite/math/add_overflow.hpp,math,add_overflow.hpp,Documented,Safe addition with overflow detection,None,Medium,Complete,Documented in arithmetic_operations.md
+include/xieite/math/almost_equal.hpp,math,almost_equal.hpp,Documented,Floating-point equality comparison with tolerance,None,Medium,Complete,Documented in arithmetic_operations.md
+include/xieite/math/almost_equal_slope.hpp,math,almost_equal_slope.hpp,Documented,Floating-point equality with slope-based tolerance,None,High,Complete,Documented in arithmetic_operations.md
+include/xieite/math/as_signed.hpp,math,as_signed.hpp,Documented,Convert to signed type,None,Low,Complete,Documented in arithmetic_operations.md
+include/xieite/math/as_unsigned.hpp,math,as_unsigned.hpp,Documented,Convert to unsigned type,None,Low,Complete,Documented in arithmetic_operations.md
+include/xieite/math/avg.hpp,math,avg.hpp,Documented,Average calculation function,None,Low,Complete,Documented in arithmetic_operations.md
+include/xieite/math/between.hpp,math,between.hpp,Documented,Range checking function,None,Low,Complete,Documented in arithmetic_operations.md
+include/xieite/math/between_magnitude.hpp,math,between_magnitude.hpp,Documented,Magnitude-based range checking,None,Medium,Complete,Documented in arithmetic_operations.md
+include/xieite/math/big_endify.hpp,math,big_endify.hpp,Documented,Convert to big-endian byte order,None,Medium,Complete,Documented in bit_operations.md
+include/xieite/math/big_int.hpp,math,big_int.hpp,Documented,Arbitrary precision integer type,None,High,Complete,Documented in advanced_types.md
+include/xieite/math/bit_field.hpp,math,bit_field.hpp,Documented,Bit field manipulation type,None,High,Complete,Documented in advanced_types.md
+include/xieite/math/bit_size.hpp,math,bit_size.hpp,Documented,Bit size calculation utility,None,Low,Verified,Additional utility header for bit operations
+include/xieite/math/byte_fill.hpp,math,byte_fill.hpp,Documented,Fill bytes with specific pattern,None,Low,Complete,Documented in bit_operations.md
+include/xieite/math/ceil.hpp,math,ceil.hpp,Documented,Ceiling division rounding function,None,Low,Verified,Part of division rounding utilities
+include/xieite/math/ceil_half.hpp,math,ceil_half.hpp,Documented,Half-increment ceiling rounding,None,Low,Verified,Part of division rounding utilities
+include/xieite/math/closest.hpp,math,closest.hpp,Documented,Find closest value function,None,Low,Complete,Documented in arithmetic_operations.md
+include/xieite/math/color3.hpp,math,color3.hpp,Documented,3-component color type (RGB),None,Low,Complete,Documented in geometric_types.md
+include/xieite/math/color4.hpp,math,color4.hpp,Documented,4-component color type (RGBA),None,Low,Complete,Documented in geometric_types.md
+include/xieite/math/cot.hpp,math,cot.hpp,Documented,Cotangent trigonometric function,None,Low,Complete,Documented in mathematical_functions.md
+include/xieite/math/csc.hpp,math,csc.hpp,Documented,Cosecant trigonometric function,None,Low,Complete,Documented in mathematical_functions.md
+include/xieite/math/diff.hpp,math,diff.hpp,Documented,Absolute difference calculation,None,Low,Verified,Part of division rounding utilities
+include/xieite/math/digits.hpp,math,digits.hpp,Documented,Digit manipulation and counting,None,Low,Complete,Documented in mathematical_functions.md
+include/xieite/math/div_ceil.hpp,math,div_ceil.hpp,Documented,Division with ceiling rounding,None,Low,Verified,Part of division rounding utilities
+include/xieite/math/div_ceil_half.hpp,math,div_ceil_half.hpp,Documented,Division with half-increment ceiling,None,Low,Verified,Part of division rounding utilities
+include/xieite/math/div_floor.hpp,math,div_floor.hpp,Documented,Division with floor rounding,None,Low,Verified,Part of division rounding utilities
+include/xieite/math/div_floor_half.hpp,math,div_floor_half.hpp,Documented,Division with half-increment floor,None,Low,Verified,Part of division rounding utilities
+include/xieite/math/div_magnify.hpp,math,div_magnify.hpp,Documented,Division with magnitude rounding,None,Low,Verified,Part of division rounding utilities
+include/xieite/math/div_magnify_half.hpp,math,div_magnify_half.hpp,Documented,Division with half-increment magnitude,None,Low,Verified,Part of division rounding utilities
+include/xieite/math/div_overflow.hpp,math,div_overflow.hpp,Documented,Safe division with overflow detection,None,Medium,Complete,Documented in arithmetic_operations.md
+include/xieite/math/div_truncate.hpp,math,div_truncate.hpp,Documented,Division with truncation rounding,None,Low,Verified,Part of division rounding utilities
+include/xieite/math/div_truncate_half.hpp,math,div_truncate_half.hpp,Documented,Division with half-increment truncation,None,Low,Verified,Part of division rounding utilities
+include/xieite/math/djb2.hpp,math,djb2.hpp,Documented,DJB2 hash algorithm implementation,None,Medium,Complete,Documented in bit_operations.md
+include/xieite/math/duration_cast.hpp,math,duration_cast.hpp,Documented,Duration type casting utility,None,Low,Verified,Part of search utilities collection
+include/xieite/math/exp.hpp,math,exp.hpp,Documented,Exponential function utility,None,Low,Verified,Part of search utilities collection
+include/xieite/math/exp_search.hpp,math,exp_search.hpp,Documented,Exponential search algorithm,None,Medium,Verified,Part of search utilities collection
+include/xieite/math/ext_bit_cast.hpp,math,ext_bit_cast.hpp,Documented,Extended bit casting utility,None,High,Complete,Documented in bit_operations.md
+include/xieite/math/factorial.hpp,math,factorial.hpp,Documented,Factorial calculation function,None,Medium,Complete,Documented in mathematical_functions.md
+include/xieite/math/farthest.hpp,math,farthest.hpp,Documented,Find farthest element utility,None,Low,Verified,Part of search utilities collection
+include/xieite/math/fib.hpp,math,fib.hpp,Documented,Fibonacci sequence calculation,None,Medium,Complete,Documented in mathematical_functions.md
+include/xieite/math/find_number.hpp,math,find_number.hpp,Documented,Number finding utility,None,Low,Verified,Part of search utilities collection
+include/xieite/math/floor.hpp,math,floor.hpp,Documented,Floor rounding function,None,Low,Verified,Part of division rounding utilities
+include/xieite/math/floor_half.hpp,math,floor_half.hpp,Documented,Half-increment floor rounding,None,Low,Verified,Part of division rounding utilities
+include/xieite/math/from_roman.hpp,math,from_roman.hpp,Documented,Convert Roman numerals to number,None,Medium,Complete,Documented in mathematical_functions.md
+include/xieite/math/hash_combine.hpp,math,hash_combine.hpp,Documented,Combine multiple hash values,None,Medium,Complete,Documented in bit_operations.md
+include/xieite/math/hash_distribute.hpp,math,hash_distribute.hpp,Documented,Distribute hash values uniformly,None,Medium,Complete,Documented in bit_operations.md
+include/xieite/math/int128_t.hpp,math,int128_t.hpp,Documented,128-bit integer type definition,None,Medium,Complete,Documented in advanced_types.md
+include/xieite/math/intersection2d.hpp,math,intersection2d.hpp,Documented,2D intersection calculation,None,Medium,Verified,Part of search utilities collection
+include/xieite/math/interval.hpp,math,interval.hpp,Documented,Mathematical interval type,None,Medium,Complete,Documented in advanced_types.md
+include/xieite/math/join_bits.hpp,math,join_bits.hpp,Documented,Join multiple values into bit pattern,None,Medium,Complete,Documented in bit_operations.md
+include/xieite/math/least_int.hpp,math,least_int.hpp,Documented,Smallest signed integer type utility,None,Low,Complete,Documented in advanced_types.md
+include/xieite/math/least_uint.hpp,math,least_uint.hpp,Documented,Smallest unsigned integer type utility,None,Low,Complete,Documented in advanced_types.md
+include/xieite/math/left_shift.hpp,math,left_shift.hpp,Documented,Safe left bit shift operation,None,Low,Complete,Documented in bit_operations.md
+include/xieite/math/line2d.hpp,math,line2d.hpp,Documented,2D line geometric type,xieite/math/point2d.hpp,Medium,Complete,Documented in geometric_types.md
+include/xieite/math/little_endify.hpp,math,little_endify.hpp,Documented,Convert to little-endian byte order,None,Medium,Complete,Documented in bit_operations.md
+include/xieite/math/log.hpp,math,log.hpp,Documented,Logarithm function utility,None,Low,Verified,Part of search utilities collection
+include/xieite/math/magnify.hpp,math,magnify.hpp,Documented,Magnitude rounding function,None,Low,Verified,Part of division rounding utilities
+include/xieite/math/magnify_half.hpp,math,magnify_half.hpp,Documented,Half-increment magnitude rounding,None,Low,Verified,Part of division rounding utilities
+include/xieite/math/mash_bits.hpp,math,mash_bits.hpp,Documented,Bit manipulation and mashing utility,None,High,Complete,Documented in bit_operations.md
+include/xieite/math/md5.hpp,math,md5.hpp,Documented,MD5 hash algorithm implementation,None,High,Complete,Documented in bit_operations.md
+include/xieite/math/mean.hpp,math,mean.hpp,Documented,Calculate arithmetic mean,None,Low,Complete,Documented in mathematical_functions.md
+include/xieite/math/median.hpp,math,median.hpp,Documented,Calculate median value,None,Medium,Complete,Documented in mathematical_functions.md
+include/xieite/math/merge_intervals.hpp,math,merge_intervals.hpp,Documented,Interval merging utility,None,Medium,Verified,Part of search utilities collection
+include/xieite/math/minmax.hpp,math,minmax.hpp,Documented,Min/max utility functions,None,Low,Verified,Part of search utilities collection
+include/xieite/math/minmax_magnitude.hpp,math,minmax_magnitude.hpp,Documented,Min/max by magnitude utility,None,Low,Verified,Part of search utilities collection
+include/xieite/math/mod.hpp,math,mod.hpp,Documented,Modulo operation utility,None,Low,Verified,Part of division rounding utilities
+include/xieite/math/mod_overflow.hpp,math,mod_overflow.hpp,Documented,Safe modulo operation with overflow detection,None,Medium,Complete,Documented in arithmetic_operations.md
+include/xieite/math/modes.hpp,math,modes.hpp,Documented,Calculate statistical modes,None,Medium,Complete,Documented in mathematical_functions.md
+include/xieite/math/mul_overflow.hpp,math,mul_overflow.hpp,Documented,Safe multiplication with overflow detection,None,Medium,Complete,Documented in arithmetic_operations.md
+include/xieite/math/neg.hpp,math,neg.hpp,Documented,Negation operation function,None,Low,Complete,Documented in arithmetic_operations.md
+include/xieite/math/number.hpp,math,number.hpp,Documented,Generic numeric type wrapper,None,High,Complete,Documented in advanced_types.md
+include/xieite/math/parse_number.hpp,math,parse_number.hpp,Documented,Parse number from string,None,Medium,Complete,Documented in mathematical_functions.md
+include/xieite/math/pi.hpp,math,pi.hpp,Documented,Pi mathematical constant,None,Low,Complete,Documented in mathematical_functions.md
+include/xieite/math/point2d.hpp,math,point2d.hpp,Documented,2D point geometric type,None,Medium,Complete,Documented in geometric_types.md
+include/xieite/math/polygon2d.hpp,math,polygon2d.hpp,Documented,2D polygon geometric type,xieite/math/point2d.hpp,High,Complete,Documented in geometric_types.md
+include/xieite/math/pow.hpp,math,pow.hpp,Documented,Power operation function,None,Medium,Complete,Documented in arithmetic_operations.md
+include/xieite/math/pow_overflow.hpp,math,pow_overflow.hpp,Documented,Safe power operation with overflow detection,None,High,Complete,Documented in arithmetic_operations.md
+include/xieite/math/prime.hpp,math,prime.hpp,Documented,Prime number utilities,None,Medium,Complete,Documented in mathematical_functions.md
+include/xieite/math/ray2d.hpp,math,ray2d.hpp,Documented,2D ray geometric type,xieite/math/point2d.hpp,Medium,Complete,Documented in geometric_types.md
+include/xieite/math/reflect2d.hpp,math,reflect2d.hpp,Documented,2D reflection transformation,None,Medium,Verified,Part of search utilities collection
+include/xieite/math/rem.hpp,math,rem.hpp,Documented,Remainder operation utility,None,Low,Verified,Part of division rounding utilities
+include/xieite/math/reverse_bits.hpp,math,reverse_bits.hpp,Documented,Reverse bit order in integer,None,Medium,Complete,Documented in bit_operations.md
+include/xieite/math/reverse_number.hpp,math,reverse_number.hpp,Documented,Number reversal utility,None,Low,Verified,Part of search utilities collection
+include/xieite/math/right_shift.hpp,math,right_shift.hpp,Documented,Safe right bit shift operation,None,Low,Complete,Documented in bit_operations.md
+include/xieite/math/rotate2d.hpp,math,rotate2d.hpp,Documented,2D rotation transformation,None,Medium,Verified,Part of search utilities collection
+include/xieite/math/scale2d.hpp,math,scale2d.hpp,Documented,2D scaling transformation,None,Medium,Verified,Part of search utilities collection
+include/xieite/math/sec.hpp,math,sec.hpp,Documented,Secant trigonometric function,None,Low,Complete,Documented in mathematical_functions.md
+include/xieite/math/segment2d.hpp,math,segment2d.hpp,Documented,2D line segment geometric type,xieite/math/point2d.hpp,Medium,Complete,Documented in geometric_types.md
+include/xieite/math/sign.hpp,math,sign.hpp,Documented,Sign determination function,None,Low,Complete,Documented in arithmetic_operations.md
+include/xieite/math/sign_cast.hpp,math,sign_cast.hpp,Documented,Safe sign casting utility,None,Medium,Complete,Documented in arithmetic_operations.md
+include/xieite/math/split_bool.hpp,math,split_bool.hpp,Documented,Boolean value splitting utility,None,Low,Complete,Documented in arithmetic_operations.md
+include/xieite/math/ssize_t.hpp,math,ssize_t.hpp,Documented,Signed size type utility,None,Low,Verified,Part of search utilities collection
+include/xieite/math/str_number.hpp,math,str_number.hpp,Documented,Convert number to string,None,Medium,Complete,Documented in mathematical_functions.md
+include/xieite/math/sub_overflow.hpp,math,sub_overflow.hpp,Documented,Safe subtraction with overflow detection,None,Medium,Complete,Documented in arithmetic_operations.md
+include/xieite/math/tau.hpp,math,tau.hpp,Documented,Tau mathematical constant (2*pi),None,Low,Complete,Documented in mathematical_functions.md
+include/xieite/math/to_roman.hpp,math,to_roman.hpp,Documented,Convert number to Roman numerals,None,Medium,Complete,Documented in mathematical_functions.md
+include/xieite/math/to_underlying.hpp,math,to_underlying.hpp,Documented,Enum to underlying type conversion,None,Low,Verified,Part of search utilities collection
+include/xieite/math/translate2d.hpp,math,translate2d.hpp,Documented,2D translation transformation,None,Medium,Verified,Part of search utilities collection
+include/xieite/math/truncate.hpp,math,truncate.hpp,Documented,Truncation rounding function,None,Low,Verified,Part of division rounding utilities
+include/xieite/math/truncate_half.hpp,math,truncate_half.hpp,Documented,Half-increment truncation rounding,None,Low,Verified,Part of division rounding utilities
+include/xieite/math/uniform_distribution.hpp,math,uniform_distribution.hpp,Documented,Uniform distribution utility,None,Medium,Verified,Part of search utilities collection
+include/xieite/math/uniform_interruptable_distribution.hpp,math,uniform_interruptable_distribution.hpp,Documented,Interruptable uniform distribution,None,High,Verified,Part of search utilities collection
+include/xieite/math/unit.hpp,math,unit.hpp,Documented,Unit type utility,None,Low,Verified,Part of search utilities collection
+include/xieite/math/unjoin_bits.hpp,math,unjoin_bits.hpp,Documented,Reverse of join_bits operation,None,Low,Verified,Additional utility header for bit operations
+include/xieite/math/unmash_bits.hpp,math,unmash_bits.hpp,Documented,Reverse of mash_bits operation,None,Low,Verified,Additional utility header for bit operations
+include/xieite/math/vec2.hpp,math,vec2.hpp,Documented,2D vector utility class,None,Medium,Verified,Part of search utilities collection
+include/xieite/math/ver.hpp,math,ver.hpp,Documented,Version utility functions,None,Low,Verified,Part of search utilities collection
+include/xieite/math/wide_uint.hpp,math,wide_uint.hpp,Documented,Wide unsigned integer type,None,High,Verified,Part of search utilities collection
+include/xieite/math/wrap.hpp,math,wrap.hpp,Documented,Value wrapping utility,None,Low,Verified,Part of search utilities collection
+include/xieite/math/xor_shift.hpp,math,xor_shift.hpp,Documented,XOR shift random generator,None,Medium,Verified,Part of search utilities collection
+include/xieite/meta/any.hpp,meta,any.hpp,Documented,Universal aggregate initializer,None,Medium,Complete,Documented in compile_time_utilities.md
+include/xieite/meta/arity.hpp,meta,arity.hpp,Documented,Aggregate member count detection,any.hpp,High,Complete,Documented in compile_time_utilities.md
+include/xieite/meta/collapse_fwd.hpp,meta,collapse_fwd.hpp,Documented,Collapse forwarding references,None,Low,Complete,Documented in type_manipulation.md
+include/xieite/meta/collapse_fwd_as_tuple.hpp,meta,collapse_fwd_as_tuple.hpp,Documented,Collapse to forwarding tuple,None,Low,Complete,Documented in type_manipulation.md
+include/xieite/meta/decay_as_tuple.hpp,meta,decay_as_tuple.hpp,Documented,Decay types to tuple,None,Low,Complete,Documented in type_manipulation.md
+include/xieite/meta/demangle.hpp,meta,demangle.hpp,Documented,Demangle C++ type names,cxxabi.h,Low,Complete,Documented in compile_time_utilities.md
+include/xieite/meta/end.hpp,meta,end.hpp,Documented,End marker type,None,Low,Complete,Documented in type_manipulation.md
+include/xieite/meta/enum_size.hpp,meta,enum_size.hpp,Documented,Get enum value count,None,Medium,Complete,Documented in compile_time_utilities.md
+include/xieite/meta/fold.hpp,meta,fold.hpp,Documented,Left fold over types,type_id.hpp,High,Complete,Documented in type_manipulation.md
+include/xieite/meta/fold_for.hpp,meta,fold_for.hpp,Documented,Fold N times,fold.hpp,Medium,Complete,Documented in type_manipulation.md
+include/xieite/meta/fwd_tuple.hpp,meta,fwd_tuple.hpp,Documented,Forward as tuple preserving refs,None,Low,Complete,Documented in type_manipulation.md
+include/xieite/meta/make_cxpr.hpp,meta,make_cxpr.hpp,Documented,Force compile-time evaluation,None,Low,Complete,Documented in compile_time_utilities.md
+include/xieite/meta/make_seq.hpp,meta,make_seq.hpp,Documented,Generate value sequences,seq.hpp,Medium,Complete,Documented in compile_time_utilities.md
+include/xieite/meta/make_tuple.hpp,meta,make_tuple.hpp,Documented,Enhanced tuple creation,None,Low,Complete,Documented in type_manipulation.md
+include/xieite/meta/paren.hpp,meta,paren.hpp,Documented,Handle types requiring parentheses,None,Low,Verified,Function/array type helper
+include/xieite/meta/reverse_tuple.hpp,meta,reverse_tuple.hpp,Documented,Reverse tuple elements,None,Medium,Complete,Documented in type_manipulation.md
+include/xieite/meta/seq.hpp,meta,seq.hpp,Documented,Value sequence container,None,Low,Complete,Documented in compile_time_utilities.md
+include/xieite/meta/seq_for.hpp,meta,seq_for.hpp,Documented,Generate index sequence,seq.hpp,Low,Complete,Documented in compile_time_utilities.md
+include/xieite/meta/splice_tuple.hpp,meta,splice_tuple.hpp,Documented,Splice multiple tuples,None,Medium,Complete,Documented in type_manipulation.md
+include/xieite/meta/state.hpp,meta,state.hpp,Documented,Compile-time mutable state,None,High,Complete,Documented in compile_time_utilities.md
+include/xieite/meta/subtuple.hpp,meta,subtuple.hpp,Documented,Extract tuple subset,None,Medium,Complete,Documented in type_manipulation.md
+include/xieite/meta/tuple_size.hpp,meta,tuple_size.hpp,Documented,Get tuple element count,None,Low,Complete,Documented in type_manipulation.md
+include/xieite/meta/type_counter.hpp,meta,type_counter.hpp,Documented,Generate unique type IDs,None,Medium,Complete,Documented in compile_time_utilities.md
+include/xieite/meta/type_id.hpp,meta,type_id.hpp,Documented,Type wrapper for manipulation,None,Low,Complete,Documented in type_manipulation.md
+include/xieite/meta/type_list.hpp,meta,type_list.hpp,Documented,Compile-time type container,Multiple,High,Complete,Documented in type_manipulation.md
+include/xieite/meta/type_name.hpp,meta,type_name.hpp,Documented,Get human-readable type name,None,Low,Complete,Documented in type_manipulation.md
+include/xieite/meta/value_id.hpp,meta,value_id.hpp,Documented,Value wrapper for manipulation,None,Low,Complete,Documented in type_manipulation.md
+include/xieite/meta/value_name.hpp,meta,value_name.hpp,Documented,Get human-readable value name,None,Low,Complete,Documented in type_manipulation.md
+include/xieite/pp/and.hpp,pp,and.hpp,Documented,Boolean logic AND operation,bool;if,Medium,Verified,Conditional expansion implementing logical AND with short-circuit evaluation
+include/xieite/pp/any.hpp,pp,any.hpp,Documented,Argument presence detection,None,Low,Verified,Detects if variadic arguments provided using __VA_OPT__ technique
+include/xieite/pp/arch.hpp,pp,arch.hpp,Completed,CPU architecture detection,None,Medium,Verified,"x86, ARM, MIPS, PowerPC, RISC-V, WASM"
+include/xieite/pp/arrow.hpp,pp,arrow.hpp,Completed,Core arrow macro definitions for concise functions,"each.hpp, eval.hpp, if.hpp, opt.hpp, paren.hpp, unwrap.hpp, wrapped.hpp",High,Verified,Comprehensive documentation with all 8 macros
+include/xieite/pp/as.hpp,pp,as.hpp,Documented,Operator-based type casting,arrow;fwd,Medium,Verified,Custom ->* operator for static_cast syntax with perfect forwarding
+include/xieite/pp/at.hpp,pp,at.hpp,Documented,Variadic argument indexing,cat,Very High,Verified,Access nth argument (0-256) using recursive descent pattern
+include/xieite/pp/attr.hpp,pp,attr.hpp,Documented,Attribute detection utility,None,Medium,Verified,Detect and handle compiler-specific attributes
+include/xieite/pp/bool.hpp,pp,bool.hpp,Documented,Boolean conversion macro,compl;not,Medium,Verified,Convert arbitrary values to preprocessor boolean using complement-NOT pattern
+include/xieite/pp/call.hpp,pp,call.hpp,Documented,Conditional function invocation,None,Medium,Verified,Auto-parentheses for function calls based on argument presence
+include/xieite/pp/cases.hpp,pp,cases.hpp,Documented,Case statement utility,None,Medium,Verified,Generate switch case statements from macro arguments
+include/xieite/pp/cat.hpp,pp,cat.hpp,Documented,Token concatenation system,None,High,Verified,Comprehensive token pasting with forward/reverse and deferred expansion support
+include/xieite/pp/check.hpp,pp,check.hpp,Documented,Probe detection utility,at,Medium,Verified,Extract second element from probe pattern for boolean detection
+include/xieite/pp/cm.hpp,pp,cm.hpp,Documented,Comma manipulation utility,None,Low,Verified,Advanced comma handling in macro expansions
+include/xieite/pp/comma.hpp,pp,comma.hpp,Documented,Comma token generator,None,Low,Verified,Simple utility to generate comma tokens in macro expansions
+include/xieite/pp/compiler.hpp,pp,compiler.hpp,Completed,Compiler detection and version extraction (100+ compilers),None,High,Verified,Detects compiler type and version
+include/xieite/pp/compl.hpp,pp,compl.hpp,Documented,Boolean complement macro,cat,Low,Verified,Bit flip operation using lookup table (0→1, 1→0)
+include/xieite/pp/count.hpp,pp,count.hpp,Documented,Variadic argument counter,None,High,Verified,Count up to 256 arguments using argument shifting with __VA_OPT__ support
+include/xieite/pp/debug.hpp,pp,debug.hpp,Documented,Debug mode detection,None,Low,Verified,Multi-framework debug detection (DEBUG, NDEBUG, _DEBUG, QT_DEBUG)
+include/xieite/pp/defer.hpp,pp,defer.hpp,Documented,Deferred expansion utility,None,Medium,Verified,Delay macro expansion for complex metaprogramming patterns
+include/xieite/pp/del.hpp,pp,del.hpp,Documented,Deletion/consume utility,None,Low,Verified,Consume and discard macro arguments
+include/xieite/pp/diagnostic.hpp,pp,diagnostic.hpp,Documented,Compiler diagnostic control,None,High,Verified,Cross-compiler diagnostic push/pop/disable system
+include/xieite/pp/each.hpp,pp,each.hpp,Documented,,,,,
+include/xieite/pp/eat.hpp,pp,eat.hpp,Documented,Argument consumption utility,None,Low,Verified,Consume variadic arguments without expansion
+include/xieite/pp/encoding.hpp,pp,encoding.hpp,Documented,Text encoding detection,None,Medium,Verified,Detect and handle character encoding at compile time
+include/xieite/pp/endian.hpp,pp,endian.hpp,Completed,Endianness detection,None,Low,Verified,"Little, Big, PDP endian detection"
+include/xieite/pp/eval.hpp,pp,eval.hpp,Documented,,,,,
+include/xieite/pp/feat.hpp,pp,feat.hpp,Documented,Feature detection system,compiler;diagnostic,Very High,Verified,Comprehensive compiler/platform feature detection (trigraphs, int types, floats)
+include/xieite/pp/fn.hpp,pp,fn.hpp,Documented,Function name utility,None,Low,Verified,Extract or manipulate function names in macros
+include/xieite/pp/for.hpp,pp,for.hpp,Documented,Advanced loop construct,diagnostic,Very High,Verified,Sophisticated macro-based loop with break detection and diagnostic control
+include/xieite/pp/from.hpp,pp,from.hpp,Documented,Source extraction utility,None,Medium,Verified,Extract elements from macro argument lists
+include/xieite/pp/fwd.hpp,pp,fwd.hpp,Documented,Perfect forwarding utilities,None,High,Verified,Universal reference forwarding with prvalue-aware variants
+include/xieite/pp/has_attr.hpp,pp,has_attr.hpp,Documented,Attribute availability check,None,Medium,Verified,Check if compiler supports specific attributes (__has_attribute)
+include/xieite/pp/has_declspec.hpp,pp,has_declspec.hpp,Documented,Declspec availability check,None,Medium,Verified,Check if compiler supports __declspec extensions
+include/xieite/pp/has_incl.hpp,pp,has_incl.hpp,Documented,Include availability check,lang,Medium,Verified,Cross-standard __has_include detection (C++17/C23 compatible)
+include/xieite/pp/if.hpp,pp,if.hpp,Documented,,,,,
+include/xieite/pp/is_cxpr.hpp,pp,is_cxpr.hpp,Documented,Constexpr detection utility,None,Medium,Verified,Detect if expression can be evaluated in constexpr context
+include/xieite/pp/keywords.hpp,pp,keywords.hpp,Documented,Extended operator keywords,arrow;fwd,Very High,Verified,Comprehensive logical/bitwise operator extensions (nand, nor, xnor, imply, etc)
+include/xieite/pp/lang.hpp,pp,lang.hpp,Documented,Language version detection,None,Very High,Verified,Multi-language version detection (C/C++/CUDA/GLSL/HLSL/Metal/Obj-C/PSSL)
+include/xieite/pp/lift.hpp,pp,lift.hpp,Documented,Function lifting utility,None,Medium,Verified,Lift functions into higher-order contexts
+include/xieite/pp/no_unix.hpp,pp,no_unix.hpp,Documented,Unix exclusion guard,None,Low,Verified,Exclude code compilation on Unix-like systems
+include/xieite/pp/no_windows.hpp,pp,no_windows.hpp,Documented,Windows exclusion guard,None,Low,Verified,Exclude code compilation on Windows systems
+include/xieite/pp/none.hpp,pp,none.hpp,Documented,Empty/none utility,None,Low,Verified,Represent empty or null values in macro contexts
+include/xieite/pp/not.hpp,pp,not.hpp,Documented,Boolean negation macro,check;cat;probe,Medium,Verified,Logical NOT using probe technique with DETAIL_XIEITE_NOT_0 specialization
+include/xieite/pp/obj.hpp,pp,obj.hpp,Documented,Object manipulation utility,None,Medium,Verified,Manipulate object-like macro definitions
+include/xieite/pp/obstruct.hpp,pp,obstruct.hpp,Documented,Expansion obstruction utility,None,Medium,Verified,Block or control macro expansion timing
+include/xieite/pp/opt.hpp,pp,opt.hpp,Documented,,,,,
+include/xieite/pp/or.hpp,pp,or.hpp,Documented,Boolean logic OR operation,bool;if,Medium,Verified,Conditional expansion implementing logical OR with short-circuit evaluation
+include/xieite/pp/out.hpp,pp,out.hpp,Documented,Output parameter utility,None,Medium,Verified,Handle output parameters in macro functions
+include/xieite/pp/paren.hpp,pp,paren.hpp,Documented,,,,,
+include/xieite/pp/platform.hpp,pp,platform.hpp,Completed,Comprehensive platform detection (200+ platforms),None,High,Verified,Detects platform type and version
+include/xieite/pp/pragma.hpp,pp,pragma.hpp,Documented,Pragma directive utility,None,Medium,Verified,Cross-compiler pragma directive generation
+include/xieite/pp/probe.hpp,pp,probe.hpp,Documented,Probe pattern utility,None,Low,Verified,Create probe pattern '_x, 1,' for detection-based boolean logic
+include/xieite/pp/repeat.hpp,pp,repeat.hpp,Documented,Repetition utility,None,High,Verified,Repeat macro expansions specified number of times
+include/xieite/pp/restrict.hpp,pp,restrict.hpp,Documented,Restrict keyword utility,None,Low,Verified,Cross-compiler restrict keyword support
+include/xieite/pp/ret_struct.hpp,pp,ret_struct.hpp,Documented,Return structure utility,None,Medium,Verified,Generate return structures for multiple values
+include/xieite/pp/reverse.hpp,pp,reverse.hpp,Documented,Argument reversal utility,None,High,Verified,Reverse order of variadic macro arguments
+include/xieite/pp/revive.hpp,pp,revive.hpp,Documented,Revival/restoration utility,None,Medium,Verified,Restore or revive macro definitions
+include/xieite/pp/scan.hpp,pp,scan.hpp,Documented,Scanning utility,None,Medium,Verified,Scan and process macro argument patterns
+include/xieite/pp/seq.hpp,pp,seq.hpp,Documented,Sequence generation utility,None,High,Verified,Generate numeric or token sequences in macros
+include/xieite/pp/signature.hpp,pp,signature.hpp,Documented,Function signature utility,None,Medium,Verified,Extract or generate function signatures
+include/xieite/pp/static_assert.hpp,pp,static_assert.hpp,Documented,Enhanced static assertion,None,Medium,Verified,Improved static_assert with better error messages
+include/xieite/pp/stdlib.hpp,pp,stdlib.hpp,Documented,Standard library detection,None,Medium,Verified,Detect and handle standard library features
+include/xieite/pp/str.hpp,pp,str.hpp,Documented,String conversion macro,None,Low,Verified,Stringify with proper macro expansion using # operator
+include/xieite/pp/typeof.hpp,pp,typeof.hpp,Documented,Type extraction utility,None,Medium,Verified,Cross-compiler typeof/decltype support
+include/xieite/pp/unix.hpp,pp,unix.hpp,Documented,Unix platform detection,None,Low,Verified,Detect Unix-like operating systems
+include/xieite/pp/unreach.hpp,pp,unreach.hpp,Documented,Unreachable code utility,None,Low,Verified,Mark unreachable code paths for optimization
+include/xieite/pp/until.hpp,pp,until.hpp,Documented,Until loop construct,None,Medium,Verified,Until-style loop macro (complement to while)
+include/xieite/pp/unwrap.hpp,pp,unwrap.hpp,Documented,,,,,
+include/xieite/pp/ver.hpp,pp,ver.hpp,Documented,Version comparison utility,None,Medium,Verified,Compare version numbers in preprocessor
+include/xieite/pp/word.hpp,pp,word.hpp,Documented,Word manipulation utility,None,Low,Verified,Manipulate word-like tokens in macros
+include/xieite/pp/wrap.hpp,pp,wrap.hpp,Documented,Wrapping utility,None,Medium,Verified,Wrap expressions with parentheses or other tokens
+include/xieite/pp/wrapped.hpp,pp,wrapped.hpp,Documented,,,,,
+include/xieite/sys/aligned_bzero.hpp,sys,aligned_bzero.hpp,Documented,Aligned memory zeroing,None,Low,Complete,Documented in system_utilities.md
+include/xieite/sys/aligned_memcpy.hpp,sys,aligned_memcpy.hpp,Documented,Aligned memory copy,None,Low,Complete,Documented in system_utilities.md
+include/xieite/sys/aligned_memmove.hpp,sys,aligned_memmove.hpp,Documented,Aligned memory move,None,Low,Complete,Documented in system_utilities.md
+include/xieite/sys/aligned_memset.hpp,sys,aligned_memset.hpp,Documented,Aligned memory set,None,Low,Complete,Documented in system_utilities.md
+include/xieite/sys/available_mem.hpp,sys,available_mem.hpp,Documented,Get available memory,Platform-specific,Medium,Complete,Documented in system_utilities.md
+include/xieite/sys/detect_cosmic_ray.hpp,sys,detect_cosmic_ray.hpp,Documented,Detect memory bit flips,None,Medium,Complete,Documented in system_utilities.md
+include/xieite/sys/exec.hpp,sys,exec.hpp,Documented,Execute system command,file_pipe.hpp,Medium,Complete,Documented in system_utilities.md
+include/xieite/sys/exit.hpp,sys,exit.hpp,Documented,Program termination,None,Low,Complete,Documented in system_utilities.md
+include/xieite/sys/nproc.hpp,sys,nproc.hpp,Documented,Get processor count,Platform-specific,Low,Complete,Documented in system_utilities.md
+include/xieite/sys/page_mem.hpp,sys,page_mem.hpp,Documented,Get page size,Platform-specific,Low,Complete,Documented in system_utilities.md
+include/xieite/sys/process_result.hpp,sys,process_result.hpp,Documented,Process execution result,process_status.hpp,Low,Complete,Documented in system_utilities.md
+include/xieite/sys/process_status.hpp,sys,process_status.hpp,Documented,Process exit status,None,Low,Complete,Documented in system_utilities.md
+include/xieite/sys/segfault.hpp,sys,segfault.hpp,Documented,Trigger segmentation fault,None,Low,Complete,Documented in system_utilities.md
+include/xieite/sys/shredder.hpp,sys,shredder.hpp,Documented,Secure memory erasure,None,Medium,Complete,Documented in system_utilities.md
+include/xieite/sys/stopwatch.hpp,sys,stopwatch.hpp,Documented,High-precision timing,chrono,Medium,Complete,Documented in system_utilities.md
+include/xieite/sys/thread_id.hpp,sys,thread_id.hpp,Documented,Thread identification,thread,Low,Complete,Documented in threading_utilities.md
+include/xieite/sys/thread_interval.hpp,sys,thread_interval.hpp,Documented,Periodic thread execution,thread,Medium,Complete,Documented in threading_utilities.md
+include/xieite/sys/thread_loop.hpp,sys,thread_loop.hpp,Documented,Continuous thread execution,thread,Medium,Complete,Documented in threading_utilities.md
+include/xieite/sys/thread_pool.hpp,sys,thread_pool.hpp,Documented,Thread pool with work queue,thread/future,High,Complete,Documented in threading_utilities.md
+include/xieite/sys/thread_timeout.hpp,sys,thread_timeout.hpp,Documented,Thread execution with timeout,thread/chrono,Medium,Complete,Documented in threading_utilities.md
+include/xieite/sys/total_mem.hpp,sys,total_mem.hpp,Documented,Get total system memory,Platform-specific,Low,Complete,Documented in system_utilities.md
+include/xieite/trait/add_c.hpp,trait,add_c.hpp,Documented,Add const qualifier to type,None,Low,Verified,Type alias for const T
+include/xieite/trait/add_c_referent.hpp,trait,add_c_referent.hpp,Documented,Add const to what reference refers to,None,Medium,Verified,Unique to XIEITE - modifies referent not reference
+include/xieite/trait/add_clref.hpp,trait,add_clref.hpp,Documented,Add const + lvalue reference to type,"add_c.hpp, add_lref.hpp",Low,Verified,Composite type modifier
+include/xieite/trait/add_cref.hpp,trait,add_cref.hpp,Documented,Add const + generic reference to type,"add_c.hpp, add_ref.hpp",Medium,Verified,Generic reference with const
+include/xieite/trait/add_crref.hpp,trait,add_crref.hpp,Documented,Add const + rvalue reference to type,"add_c.hpp, add_rref.hpp",Low,Verified,Composite type modifier
+include/xieite/trait/add_cv.hpp,trait,add_cv.hpp,Completed,Add const volatile qualifiers to type,"add_c.hpp, add_v.hpp",Low,Verified,Composition of add_c and add_v
+include/xieite/trait/add_cvlref.hpp,trait,add_cvlref.hpp,Documented,Add const volatile + lvalue reference to type,"add_cv.hpp, add_lref.hpp",Low,Verified,Composite type modifier
+include/xieite/trait/add_cvref.hpp,trait,add_cvref.hpp,Documented,Add const volatile + generic reference to type,"add_cv.hpp, add_ref.hpp",Medium,Verified,Generic reference with CV
+include/xieite/trait/add_cvrref.hpp,trait,add_cvrref.hpp,Documented,Add const volatile + rvalue reference to type,"add_cv.hpp, add_rref.hpp",Low,Verified,Composite type modifier
+include/xieite/trait/add_lref.hpp,trait,add_lref.hpp,Documented,Add lvalue reference to type,<type_traits>,Low,Verified,Uses std::add_lvalue_reference_t
+include/xieite/trait/add_lref_referent.hpp,trait,add_lref_referent.hpp,Documented,Convert referent to lvalue reference,None,Medium,Verified,Changes what reference points to
+include/xieite/trait/add_noex_referent.hpp,trait,add_noex_referent.hpp,Documented,Add noexcept to function referent,None,High,Verified,For function reference types
+include/xieite/trait/add_ptr.hpp,trait,add_ptr.hpp,Documented,Add pointer level to type,<type_traits>,Low,Verified,Uses std::add_pointer_t
+include/xieite/trait/add_ref.hpp,trait,add_ref.hpp,Documented,Add reference based on second type's reference category,"cp_lref.hpp, cp_rref.hpp",Medium,Verified,Generic reference addition utility
+include/xieite/trait/add_ref_referent.hpp,trait,add_ref_referent.hpp,Documented,Add reference to referent based on source type category,"add_lref_referent.hpp, add_rref_referent.hpp, is_lref_referent.hpp, is_rref_referent.hpp",High,Verified,Complex conditional referent modification
+include/xieite/trait/add_rref.hpp,trait,add_rref.hpp,Documented,Add rvalue reference to type,<type_traits>,Low,Verified,Uses std::add_rvalue_reference_t
+include/xieite/trait/add_rref_referent.hpp,trait,add_rref_referent.hpp,Documented,Convert referent to rvalue reference,None,Medium,Verified,Changes what reference points to
+include/xieite/trait/add_v.hpp,trait,add_v.hpp,Documented,Add volatile qualifier to type,None,Low,Verified,Type alias for volatile T
+include/xieite/trait/add_v_referent.hpp,trait,add_v_referent.hpp,Documented,Add volatile to what reference refers to,None,Medium,Verified,Unique to XIEITE - modifies referent not reference
+include/xieite/trait/add_variadic_referent.hpp,trait,add_variadic_referent.hpp,Documented,Add variadic args to function referent,"meta/type_id.hpp, cp_cvref.hpp, rm_cvref.hpp",High,Verified,Comprehensive function type variadic addition
+include/xieite/trait/add_vlref.hpp,trait,add_vlref.hpp,Documented,Add volatile + lvalue reference to type,"add_v.hpp, add_lref.hpp",Low,Verified,Composite type modifier
+include/xieite/trait/add_vref.hpp,trait,add_vref.hpp,Documented,Add volatile + generic reference to type,"add_v.hpp, add_ref.hpp",Medium,Verified,Generic reference with volatile
+include/xieite/trait/add_vrref.hpp,trait,add_vrref.hpp,Documented,Add volatile + rvalue reference to type,"add_v.hpp, add_rref.hpp",Low,Verified,Composite type modifier
+include/xieite/trait/as_c.hpp,trait,as_c.hpp,Documented,Cast to const using const_cast,add_c.hpp,Low,Verified,Functional const casting utility
+include/xieite/trait/as_cv.hpp,trait,as_cv.hpp,Documented,Cast to const volatile using const_cast,add_cv.hpp,Low,Verified,Functional const volatile casting utility
+include/xieite/trait/as_not_c.hpp,trait,as_not_c.hpp,Documented,Remove const using const_cast,rm_c.hpp,Low,Verified,Functional const removal utility
+include/xieite/trait/as_not_cv.hpp,trait,as_not_cv.hpp,Documented,Remove const volatile using const_cast,rm_cv.hpp,Low,Verified,Functional const volatile removal utility
+include/xieite/trait/as_not_v.hpp,trait,as_not_v.hpp,Documented,Remove volatile using const_cast,rm_v.hpp,Low,Verified,Functional volatile removal utility
+include/xieite/trait/as_v.hpp,trait,as_v.hpp,Documented,Cast to volatile using const_cast,add_v.hpp,Low,Verified,Functional volatile casting utility
+include/xieite/trait/collapse_ref.hpp,trait,collapse_ref.hpp,Documented,Reference collapsing utility for perfect forwarding,"cp_cvlref.hpp, add_rref.hpp",Medium,Verified,Perfect forwarding reference collapse
+include/xieite/trait/cp_c.hpp,trait,cp_c.hpp,Documented,Copy const qualifier from source type to target,"set_c.hpp, is_c.hpp",Low,Verified,Conditional const qualification
+include/xieite/trait/cp_c_referent.hpp,trait,cp_c_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_clref.hpp,trait,cp_clref.hpp,Documented,Copy const + lvalue reference from source to target,"cp_c.hpp, cp_lref.hpp",Low,Verified,Composite copy operation
+include/xieite/trait/cp_cp_assign.hpp,trait,cp_cp_assign.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_cp_ctor.hpp,trait,cp_cp_ctor.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_cref.hpp,trait,cp_cref.hpp,Documented,Copy const + generic reference from source to target,"cp_c.hpp, cp_ref.hpp",Medium,Verified,Generic reference copy with const
+include/xieite/trait/cp_crref.hpp,trait,cp_crref.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_cv.hpp,trait,cp_cv.hpp,Documented,Copy const and volatile qualifiers from source to target,"cp_c.hpp, cp_v.hpp",Low,Verified,Composite CV qualifier copying
+include/xieite/trait/cp_cvlref.hpp,trait,cp_cvlref.hpp,Documented,Copy const volatile + lvalue reference from source to target,"cp_cv.hpp, cp_lref.hpp",Low,Verified,Composite copy operation
+include/xieite/trait/cp_cvref.hpp,trait,cp_cvref.hpp,Documented,Copy const volatile + generic reference from source to target,"cp_cv.hpp, cp_ref.hpp",Medium,Verified,Generic reference copy with CV
+include/xieite/trait/cp_cvrref.hpp,trait,cp_cvrref.hpp,Documented,Copy const volatile + rvalue reference from source to target,"cp_cv.hpp, cp_rref.hpp",Low,Verified,Composite copy operation
+include/xieite/trait/cp_default_ctor.hpp,trait,cp_default_ctor.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_lref.hpp,trait,cp_lref.hpp,Documented,Copy lvalue reference qualifier from source to target,"is_lref.hpp, set_lref.hpp",Low,Verified,Conditional lvalue reference qualification
+include/xieite/trait/cp_lref_referent.hpp,trait,cp_lref_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_mv_assign.hpp,trait,cp_mv_assign.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_mv_ctor.hpp,trait,cp_mv_ctor.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_noex_referent.hpp,trait,cp_noex_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_ptr.hpp,trait,cp_ptr.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_ref.hpp,trait,cp_ref.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_ref_referent.hpp,trait,cp_ref_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_rref.hpp,trait,cp_rref.hpp,Documented,Copy rvalue reference qualifier from source to target,"is_rref.hpp, set_rref.hpp",Low,Verified,Conditional rvalue reference qualification
+include/xieite/trait/cp_rref_referent.hpp,trait,cp_rref_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_v.hpp,trait,cp_v.hpp,Documented,Copy volatile qualifier from source to target,"add_v.hpp, is_v.hpp, rm_v.hpp",Low,Verified,Conditional volatile qualification using std::conditional_t
+include/xieite/trait/cp_v_referent.hpp,trait,cp_v_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_variadic_referent.hpp,trait,cp_variadic_referent.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_vlref.hpp,trait,cp_vlref.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_vref.hpp,trait,cp_vref.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/cp_vrref.hpp,trait,cp_vrref.hpp,Completed,Copy type properties from source to target type,Uses is_*, set_*, std::conditional_t patterns,Medium,Verified,Documented in modification.md - Advanced Copy Operations section
+include/xieite/trait/get_fn_args.hpp,trait,get_fn_args.hpp,Completed,Type introspection and property extraction utility,"type_id.hpp, rm_cvref.hpp, template specialization patterns",High,Verified,Documented in concepts.md - Type Introspection Utilities section
+include/xieite/trait/get_fn_ret.hpp,trait,get_fn_ret.hpp,Completed,Type introspection and property extraction utility,"type_id.hpp, rm_cvref.hpp, template specialization patterns",High,Verified,Documented in concepts.md - Type Introspection Utilities section
+include/xieite/trait/get_member_ptr_class.hpp,trait,get_member_ptr_class.hpp,Completed,Type introspection and property extraction utility,"type_id.hpp, rm_cvref.hpp, template specialization patterns",High,Verified,Documented in concepts.md - Type Introspection Utilities section
+include/xieite/trait/get_ptr.hpp,trait,get_ptr.hpp,Completed,Type introspection and property extraction utility,"type_id.hpp, rm_cvref.hpp, template specialization patterns",High,Verified,Documented in concepts.md - Type Introspection Utilities section
+include/xieite/trait/has_brace_ctor.hpp,trait,has_brace_ctor.hpp,Documented,Concept for brace constructor capability,None,Medium,Verified,Requires expression for aggregate initialization
+include/xieite/trait/has_cp_assign.hpp,trait,has_cp_assign.hpp,Documented,Concept for copy assignment capability,<type_traits>,Low,Verified,Wrapper for std::is_copy_assignable_v
+include/xieite/trait/has_cp_ctor.hpp,trait,has_cp_ctor.hpp,Documented,Concept for copy constructor capability,<type_traits>,Low,Verified,Wrapper for std::is_copy_constructible_v
+include/xieite/trait/has_ctor.hpp,trait,has_ctor.hpp,Completed,Concept wrapper for type capability detection,<type_traits> standard library traits,Low,Verified,Documented in concepts.md - Standard Layout and Triviality section
+include/xieite/trait/has_default_ctor.hpp,trait,has_default_ctor.hpp,Documented,Concept for default constructor capability,<type_traits>,Low,Verified,Wrapper for std::is_default_constructible_v
+include/xieite/trait/has_dtor.hpp,trait,has_dtor.hpp,Documented,Concept for destructor capability,<type_traits>,Low,Verified,Wrapper for std::is_destructible_v
+include/xieite/trait/has_mv_assign.hpp,trait,has_mv_assign.hpp,Documented,Concept for move assignment capability,<type_traits>,Low,Verified,Wrapper for std::is_move_assignable_v
+include/xieite/trait/has_mv_ctor.hpp,trait,has_mv_ctor.hpp,Documented,Concept for move constructor capability,<type_traits>,Low,Verified,Wrapper for std::is_move_constructible_v
+include/xieite/trait/has_noex_assign.hpp,trait,has_noex_assign.hpp,Completed,Nothrow assignable concept,is_nothrow_assignable_v,Low,Verified,Wrapper around std library trait
+include/xieite/trait/has_noex_brace_ctor.hpp,trait,has_noex_brace_ctor.hpp,Completed,Nothrow brace constructible concept,requires noexcept,Medium,Verified,Custom requires with noexcept check for aggregate init
+include/xieite/trait/has_noex_cp_assign.hpp,trait,has_noex_cp_assign.hpp,Completed,Nothrow copy assignable concept,is_nothrow_copy_assignable_v,Low,Verified,Wrapper around std library trait
+include/xieite/trait/has_noex_cp_ctor.hpp,trait,has_noex_cp_ctor.hpp,Completed,Nothrow copy constructible concept,is_nothrow_copy_constructible_v,Low,Verified,Wrapper around std library trait
+include/xieite/trait/has_noex_ctor.hpp,trait,has_noex_ctor.hpp,Completed,Nothrow constructible concept,is_nothrow_constructible_v,Low,Verified,Wrapper around std library trait
+include/xieite/trait/has_noex_default_ctor.hpp,trait,has_noex_default_ctor.hpp,Completed,Nothrow default constructible concept,is_nothrow_default_constructible_v,Low,Verified,Wrapper around std library trait
+include/xieite/trait/has_noex_dtor.hpp,trait,has_noex_dtor.hpp,Completed,Nothrow destructible concept,is_nothrow_destructible_v,Low,Verified,Wrapper around std library trait
+include/xieite/trait/has_noex_mv_assign.hpp,trait,has_noex_mv_assign.hpp,Completed,Nothrow move assignable concept,is_nothrow_move_assignable_v,Low,Verified,Wrapper around std library trait
+include/xieite/trait/has_noex_mv_ctor.hpp,trait,has_noex_mv_ctor.hpp,Completed,Nothrow move constructible concept,is_nothrow_move_constructible_v,Low,Verified,Wrapper around std library trait
+include/xieite/trait/has_trivial_assign.hpp,trait,has_trivial_assign.hpp,Completed,Concept wrapper for type capability detection,<type_traits> standard library traits,Low,Verified,Documented in concepts.md - Standard Layout and Triviality section
+include/xieite/trait/has_trivial_cp.hpp,trait,has_trivial_cp.hpp,Completed,Concept wrapper for type capability detection,<type_traits> standard library traits,Low,Verified,Documented in concepts.md - Standard Layout and Triviality section
+include/xieite/trait/has_trivial_cp_assign.hpp,trait,has_trivial_cp_assign.hpp,Completed,Concept wrapper for type capability detection,<type_traits> standard library traits,Low,Verified,Documented in concepts.md - Standard Layout and Triviality section
+include/xieite/trait/has_trivial_cp_ctor.hpp,trait,has_trivial_cp_ctor.hpp,Completed,Concept wrapper for type capability detection,<type_traits> standard library traits,Low,Verified,Documented in concepts.md - Standard Layout and Triviality section
+include/xieite/trait/has_trivial_ctor.hpp,trait,has_trivial_ctor.hpp,Completed,Concept wrapper for type capability detection,<type_traits> standard library traits,Low,Verified,Documented in concepts.md - Standard Layout and Triviality section
+include/xieite/trait/has_trivial_default_ctor.hpp,trait,has_trivial_default_ctor.hpp,Completed,Concept wrapper for type capability detection,<type_traits> standard library traits,Low,Verified,Documented in concepts.md - Standard Layout and Triviality section
+include/xieite/trait/has_trivial_dtor.hpp,trait,has_trivial_dtor.hpp,Completed,Concept wrapper for type capability detection,<type_traits> standard library traits,Low,Verified,Documented in concepts.md - Standard Layout and Triviality section
+include/xieite/trait/has_trivial_mv_assign.hpp,trait,has_trivial_mv_assign.hpp,Completed,Concept wrapper for type capability detection,<type_traits> standard library traits,Low,Verified,Documented in concepts.md - Standard Layout and Triviality section
+include/xieite/trait/has_trivial_mv_ctor.hpp,trait,has_trivial_mv_ctor.hpp,Completed,Concept wrapper for type capability detection,<type_traits> standard library traits,Low,Verified,Documented in concepts.md - Standard Layout and Triviality section
+include/xieite/trait/has_unique_obj_repr.hpp,trait,has_unique_obj_repr.hpp,Completed,Concept wrapper for type capability detection,<type_traits> standard library traits,Low,Verified,Documented in concepts.md - Standard Layout and Triviality section
+include/xieite/trait/has_virtual_dtor.hpp,trait,has_virtual_dtor.hpp,Completed,Virtual destructor detection concept,has_virtual_destructor_v,Low,Verified,Concept wrapper around std library trait
+include/xieite/trait/is_abstract.hpp,trait,is_abstract.hpp,Completed,Abstract class detection concept,is_abstract_v,Low,Verified,Concept wrapper around std library trait
+include/xieite/trait/is_aggregate.hpp,trait,is_aggregate.hpp,Completed,Aggregate type detection concept,is_aggregate_v,Low,Verified,Concept wrapper around std library trait
+include/xieite/trait/is_arith.hpp,trait,is_arith.hpp,Completed,Arithmetic type concept (integral or floating),integral floating_point,Low,Verified,Composition of std integral and floating_point concepts
+include/xieite/trait/is_array.hpp,trait,is_array.hpp,Completed,Array type detection concept,is_array_v,Low,Verified,Concept wrapper around std library trait
+include/xieite/trait/is_assign_to.hpp,trait,is_assign_to.hpp,Completed,Assignment capability concept,assignable_from,Low,Verified,Reverse of std::assignable_from
+include/xieite/trait/is_base.hpp,trait,is_base.hpp,Completed,Base class relationship (reverse of derived_from),derived_from,Low,Verified,Reverse parameter order of std::derived_from
+include/xieite/trait/is_base_any.hpp,trait,is_base_any.hpp,Completed,Base class relationship with any type,is_base,Low,Verified,Variadic fold expression using is_base
+include/xieite/trait/is_bidirect_range.hpp,trait,is_bidirect_range.hpp,Completed,Bidirectional range with value type constraint,ranges is_satisfied,Medium,Verified,Extends std::bidirectional_range with lambda predicate
+include/xieite/trait/is_bitset_ref.hpp,trait,is_bitset_ref.hpp,Completed,Bitset reference proxy detection,requires expressions,Medium,Verified,Complex requires clause for std::bitset<>::reference
+include/xieite/trait/is_bool_testable.hpp,trait,is_bool_testable.hpp,Documented,Concept for boolean testable types (C++20 requirement),"pp/fwd.hpp",Medium,Verified,Advanced requires expression for boolean conversion and negation
+include/xieite/trait/is_borrowed_range.hpp,trait,is_borrowed_range.hpp,Completed,Borrowed range with value type constraint,borrowed_range is_satisfied,Medium,Verified,Extends std::borrowed_range with lambda predicate
+include/xieite/trait/is_bounded_array.hpp,trait,is_bounded_array.hpp,Completed,Bounded array with optional length constraint,is_bounded_array_v type_id lambda,High,Verified,Complex ternary with length-specific array matching
+include/xieite/trait/is_c.hpp,trait,is_c.hpp,Completed,Const qualification detection (reference-aware),is_const_v rm_ref,Medium,Verified,Strips references before checking const qualification
+include/xieite/trait/is_c_referent.hpp,trait,is_c_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp, template specialization patterns,High,Verified,Documented in concepts.md - Referent Detection Concepts section
+include/xieite/trait/is_char.hpp,trait,is_char.hpp,Documented,Concept for any character type,<type_traits>,Low,Verified,"All char types including char8_t, char16_t, char32_t"
+include/xieite/trait/is_class.hpp,trait,is_class.hpp,Completed,Class type detection concept,is_class_v,Low,Verified,Concept wrapper around std library trait
+include/xieite/trait/is_clock.hpp,trait,is_clock.hpp,Completed,C++20 clock concept wrapper,chrono::is_clock_v,Low,Verified,Concept wrapper for std::chrono::is_clock_v
+include/xieite/trait/is_clref.hpp,trait,is_clref.hpp,Completed,Const lvalue reference detection,is_c is_lref,Low,Verified,Composition of const and lvalue reference concepts
+include/xieite/trait/is_common_range.hpp,trait,is_common_range.hpp,Completed,Common range with value type constraint,common_range is_satisfied,Medium,Verified,Extends std::common_range with lambda predicate
+include/xieite/trait/is_complete.hpp,trait,is_complete.hpp,Completed,Complete type detection using sizeof,requires lambda sizeof,High,Verified,Complex lambda pattern for complete type checking
+include/xieite/trait/is_contig_range.hpp,trait,is_contig_range.hpp,Completed,Contiguous range with value type constraint,contiguous_range is_satisfied,Medium,Verified,Extends std::contiguous_range with lambda predicate
+include/xieite/trait/is_conv_from.hpp,trait,is_conv_from.hpp,Completed,Convertible from multiple types concept,convertible_to fold,Medium,Verified,Variadic fold expression using std::convertible_to
+include/xieite/trait/is_conv_from_any.hpp,trait,is_conv_from_any.hpp,Documented,Concept for types convertible from any of multiple source types,<concepts>,Medium,Verified,Variadic OR fold expression with std::convertible_to
+include/xieite/trait/is_conv_to.hpp,trait,is_conv_to.hpp,Documented,Concept for types convertible to multiple target types,<concepts>,Medium,Verified,Variadic fold expression with std::convertible_to
+include/xieite/trait/is_conv_to_any.hpp,trait,is_conv_to_any.hpp,Documented,Concept for types convertible to any of multiple target types,<concepts>,Medium,Verified,Variadic OR fold expression with std::convertible_to
+include/xieite/trait/is_cref.hpp,trait,is_cref.hpp,Completed,Const reference (any reference) detection,is_c is_ref,Low,Verified,Composition of const and any reference concepts
+include/xieite/trait/is_crref.hpp,trait,is_crref.hpp,Completed,Const rvalue reference detection,is_c is_rref,Low,Verified,Composition of const and rvalue reference concepts
+include/xieite/trait/is_cv.hpp,trait,is_cv.hpp,Completed,Both const and volatile qualification detection,is_c is_v,Medium,Verified,Composition of const and volatile concepts
+include/xieite/trait/is_cvlref.hpp,trait,is_cvlref.hpp,Completed,Const volatile lvalue reference detection,is_cv is_lref,Medium,Verified,Combined CV and lvalue reference concept
+include/xieite/trait/is_cvref.hpp,trait,is_cvref.hpp,Completed,Any const volatile reference detection,is_cvlref is_cvrref,Medium,Verified,Disjunction of CV lvalue and rvalue reference concepts
+include/xieite/trait/is_cvrref.hpp,trait,is_cvrref.hpp,Completed,Const volatile rvalue reference detection,is_cv is_rref,Medium,Verified,Combined CV and rvalue reference concept
+include/xieite/trait/is_decayed.hpp,trait,is_decayed.hpp,Completed,Decayed type detection concept,same_as decay_t,Medium,Verified,Checks if type equals its decayed form
+include/xieite/trait/is_derivable.hpp,trait,is_derivable.hpp,Completed,Type can be used as base class (not final),is_final_v is_class_v,Medium,Verified,Negation of final with class type requirement
+include/xieite/trait/is_derived_from.hpp,trait,is_derived_from.hpp,Completed,Derived from multiple base classes concept,derived_from fold,Medium,Verified,Variadic fold expression using std::derived_from
+include/xieite/trait/is_derived_from_any.hpp,trait,is_derived_from_any.hpp,Completed,Derived from any of given base classes,derived_from fold,Medium,Verified,Disjunctive fold using std::derived_from
+include/xieite/trait/is_dissatisfied.hpp,trait,is_dissatisfied.hpp,Completed,Negated satisfaction concept for constraint testing,is_satisfied.hpp,Low,Verified,Documented in concepts.md - Satisfaction Concepts section
+include/xieite/trait/is_dissatisfied_all.hpp,trait,is_dissatisfied_all.hpp,Completed,Negated satisfaction concept for constraint testing,is_satisfied_all.hpp,Low,Verified,Documented in concepts.md - Satisfaction Concepts section
+include/xieite/trait/is_dissatisfied_any.hpp,trait,is_dissatisfied_any.hpp,Completed,Negated satisfaction concept for constraint testing,is_satisfied_any.hpp,Low,Verified,Documented in concepts.md - Satisfaction Concepts section
+include/xieite/trait/is_dissatisfies.hpp,trait,is_dissatisfies.hpp,Completed,Dissatisfies any of given predicates,is_satisfies_any negation,Medium,Verified,Negation of is_satisfies_any concept
+include/xieite/trait/is_dissatisfies_any.hpp,trait,is_dissatisfies_any.hpp,Completed,Dissatisfies all of given predicates,is_satisfies negation,Medium,Verified,Negation of is_satisfies concept
+include/xieite/trait/is_duration.hpp,trait,is_duration.hpp,Completed,std::chrono::duration detection with validation,type_id lambda is_arith is_ratio rm_cv,High,Verified,Complex template specialization matching using type_id pattern
+include/xieite/trait/is_empty.hpp,trait,is_empty.hpp,Completed,Empty class detection concept,is_empty_v,Low,Verified,Concept wrapper around std library trait
+include/xieite/trait/is_enum.hpp,trait,is_enum.hpp,Completed,Basic enum detection concept,is_enum_v,Low,Verified,Concept wrapper around std library trait
+include/xieite/trait/is_enum_value.hpp,trait,is_enum_value.hpp,Completed,Enum value detection for non-type parameters,is_enum decltype,Medium,Verified,Checks if non-type template parameter is enum value
+include/xieite/trait/is_final.hpp,trait,is_final.hpp,Completed,Final class detection concept,is_final_v,Low,Verified,Concept wrapper around std library trait
+include/xieite/trait/is_fn.hpp,trait,is_fn.hpp,Completed,Function type detection concept,is_function_v,Low,Verified,Concept wrapper around std library trait
+include/xieite/trait/is_fundamental.hpp,trait,is_fundamental.hpp,Documented,Type classification concept,None,Low,Verified,Basic concept wrapper around std::is_fundamental_v
+include/xieite/trait/is_fwd_range.hpp,trait,is_fwd_range.hpp,Completed,Forward range with value type constraint,forward_range is_satisfied,Medium,Verified,Extends std::forward_range with lambda predicate
+include/xieite/trait/is_fwd_sized_range.hpp,trait,is_fwd_sized_range.hpp,Documented,Enhanced range concept,std::ranges;is_satisfied,Medium,Verified,Forward range with size and custom value type constraints
+include/xieite/trait/is_hashable.hpp,trait,is_hashable.hpp,Documented,Hash detection concept,is_invoc,Medium,Verified,Detects types compatible with hash functions
+include/xieite/trait/is_hasher.hpp,trait,is_hasher.hpp,Documented,Hash function concept,is_invoc,Medium,Verified,Detects valid hash function objects
+include/xieite/trait/is_input_range.hpp,trait,is_input_range.hpp,Documented,Concept for input iterator range,<ranges>,Low,Verified,Wrapper for std::ranges::input_range
+include/xieite/trait/is_input_sized_range.hpp,trait,is_input_sized_range.hpp,Documented,Enhanced range concept,std::ranges;is_satisfied,Medium,Verified,Input range with size and custom value type constraints
+include/xieite/trait/is_int.hpp,trait,is_int.hpp,Completed,Integer type concept (integral excluding bool),integral same_as remove_cv_t,Medium,Verified,Integral concept with bool exclusion
+include/xieite/trait/is_invoc.hpp,trait,is_invoc.hpp,Completed,Invocable with specific signature,is_invocable_r_v type_id lambda,High,Verified,Complex lambda with signature parsing using type_id
+include/xieite/trait/is_istream.hpp,trait,is_istream.hpp,Documented,Stream type concept,None,Low,Verified,Detects input stream types and derived classes
+include/xieite/trait/is_linear2d.hpp,trait,is_linear2d.hpp,Documented,Geometric type concept,is_arith;is_same_any,Medium,Verified,Detects 2D linear geometric types (line/ray/segment)
+include/xieite/trait/is_lref.hpp,trait,is_lref.hpp,Completed,Lvalue reference detection concept,is_lvalue_reference_v,Low,Verified,Concept wrapper around std library trait
+include/xieite/trait/is_lref_referent.hpp,trait,is_lref_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp, template specialization patterns,High,Verified,Documented in concepts.md - Referent Detection Concepts section
+include/xieite/trait/is_member_fn_ptr.hpp,trait,is_member_fn_ptr.hpp,Completed,Member function pointer detection,is_member_function_pointer_v,Low,Verified,Concept wrapper around std library trait
+include/xieite/trait/is_member_obj_ptr.hpp,trait,is_member_obj_ptr.hpp,Completed,Member object pointer detection,is_member_object_pointer_v,Low,Verified,Concept wrapper around std library trait
+include/xieite/trait/is_narrow_char.hpp,trait,is_narrow_char.hpp,Documented,Character type concept,is_ordinary_char;rm_cv,Low,Verified,Enhanced narrow character detection including char8_t
+include/xieite/trait/is_noex_bool_testable.hpp,trait,is_noex_bool_testable.hpp,Documented,Noexcept concept,None,Medium,Verified,Detects noexcept boolean testable types with complex requirements
+include/xieite/trait/is_noex_conv.hpp,trait,is_noex_conv.hpp,Documented,Noexcept concept,std::type_traits,Medium,Verified,Detects noexcept convertible types with variadic targets
+include/xieite/trait/is_noex_conv_any.hpp,trait,is_noex_conv_any.hpp,Documented,Noexcept concept,is_noex_conv,Low,Verified,Detects noexcept conversion to any of the specified types
+include/xieite/trait/is_noex_conv_from.hpp,trait,is_noex_conv_from.hpp,Documented,Noexcept concept,is_noex_conv,Low,Verified,Detects noexcept conversion from multiple source types
+include/xieite/trait/is_noex_conv_from_any.hpp,trait,is_noex_conv_from_any.hpp,Documented,Noexcept concept,is_noex_conv_from,Low,Verified,Detects noexcept conversion from any of multiple types
+include/xieite/trait/is_noex_invoc.hpp,trait,is_noex_invoc.hpp,Completed,Nothrow invocable with specific signature,is_nothrow_invocable_r_v type_id lambda,High,Verified,Complex lambda with signature parsing using type_id
+include/xieite/trait/is_noex_iter.hpp,trait,is_noex_iter.hpp,Documented,Advanced noexcept concept,Multiple dependencies,Very High,Verified,Comprehensive noexcept iterator with exhaustive operation verification
+include/xieite/trait/is_noex_range.hpp,trait,is_noex_range.hpp,Documented,Noexcept range concept,std::ranges,Medium,Verified,Detects ranges with noexcept iteration guarantees
+include/xieite/trait/is_noex_referent.hpp,trait,is_noex_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp, template specialization patterns,High,Verified,Documented in concepts.md - Referent Detection Concepts section
+include/xieite/trait/is_noex_sentinel.hpp,trait,is_noex_sentinel.hpp,Documented,Noexcept sentinel concept,std::ranges,Medium,Verified,Detects sentinels with noexcept comparison operations
+include/xieite/trait/is_noex_swap.hpp,trait,is_noex_swap.hpp,Documented,Noexcept concept,std::type_traits,Low,Verified,Simple wrapper around std::is_nothrow_swappable_v
+include/xieite/trait/is_noex_swap_with.hpp,trait,is_noex_swap_with.hpp,Documented,Noexcept concept,std::type_traits,Low,Verified,Detects noexcept swappable with specific type
+include/xieite/trait/is_nullptr.hpp,trait,is_nullptr.hpp,Completed,Null pointer type detection concept,is_null_pointer_v,Low,Verified,Concept wrapper around std library trait
+include/xieite/trait/is_numeric.hpp,trait,is_numeric.hpp,Completed,Numeric type concept (arithmetic excluding bool),is_arith same_as remove_cv_t,Medium,Verified,Arithmetic concept with bool exclusion
+include/xieite/trait/is_obj.hpp,trait,is_obj.hpp,Documented,Type classification concept,std::type_traits,Low,Verified,Simple wrapper around std::is_object_v
+include/xieite/trait/is_order.hpp,trait,is_order.hpp,Documented,C++20 ordering concept,is_same_any,Low,Verified,Detects C++20 comparison ordering types
+include/xieite/trait/is_ordinary_char.hpp,trait,is_ordinary_char.hpp,Documented,Character type concept,is_same_any;rm_cv,Low,Verified,Detects the three ordinary character types excluding extended chars
+include/xieite/trait/is_ostream.hpp,trait,is_ostream.hpp,Documented,Stream type concept,None,Low,Verified,Detects output stream types and derived classes
+include/xieite/trait/is_pair_like.hpp,trait,is_pair_like.hpp,Documented,Structure concept,is_tuple_like;arity,Medium,Verified,Detects pair-like types with exactly 2 elements for structured binding
+include/xieite/trait/is_polymorphic.hpp,trait,is_polymorphic.hpp,Completed,Polymorphic class detection concept,is_polymorphic_v,Low,Verified,Concept wrapper around std library trait
+include/xieite/trait/is_ptr.hpp,trait,is_ptr.hpp,Completed,Pointer detection with optional depth parameter,is_pointer_v rm_ptr depth,High,Verified,Advanced pointer detection with configurable indirection levels
+include/xieite/trait/is_ptr_interconv_base.hpp,trait,is_ptr_interconv_base.hpp,Documented,C++20 pointer concept,std::type_traits,Low,Verified,Detects pointer interconvertible base relationship
+include/xieite/trait/is_ptr_interconv_derived.hpp,trait,is_ptr_interconv_derived.hpp,Documented,C++20 pointer concept,std::type_traits,Low,Verified,Detects pointer interconvertible derived relationship
+include/xieite/trait/is_random_access_range.hpp,trait,is_random_access_range.hpp,Documented,,,,,
+include/xieite/trait/is_range.hpp,trait,is_range.hpp,Completed,Range with value type constraint,ranges is_satisfied,Medium,Verified,Extends std::ranges::range with lambda predicate
+include/xieite/trait/is_ratio.hpp,trait,is_ratio.hpp,Documented,Standard library concept,type_id;rm_cv,Medium,Verified,Detects std::ratio types using sophisticated template matching
+include/xieite/trait/is_read_only_range.hpp,trait,is_read_only_range.hpp,Documented,Range concept,std::ranges,Medium,Verified,Detects ranges with read-only elements
+include/xieite/trait/is_ref.hpp,trait,is_ref.hpp,Completed,Any reference type detection,is_lref is_rref,Low,Verified,Disjunction of lvalue and rvalue reference concepts
+include/xieite/trait/is_ref_conv_from_tmp.hpp,trait,is_ref_conv_from_tmp.hpp,Documented,C++23 reference concept,std::type_traits,Medium,Verified,Detects reference conversion from temporaries
+include/xieite/trait/is_ref_ctor_from_tmp.hpp,trait,is_ref_ctor_from_tmp.hpp,Documented,C++23 reference concept,std::type_traits,Medium,Verified,Detects reference construction from temporaries
+include/xieite/trait/is_ref_referent.hpp,trait,is_ref_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp, template specialization patterns,High,Verified,Documented in concepts.md - Referent Detection Concepts section
+include/xieite/trait/is_ref_to.hpp,trait,is_ref_to.hpp,Documented,Reference concept,rm_ref,Low,Verified,Detects reference to specific type
+include/xieite/trait/is_rref.hpp,trait,is_rref.hpp,Completed,Rvalue reference detection concept,is_rvalue_reference_v,Low,Verified,Concept wrapper around std library trait
+include/xieite/trait/is_rref_referent.hpp,trait,is_rref_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp, template specialization patterns,High,Verified,Documented in concepts.md - Referent Detection Concepts section
+include/xieite/trait/is_same.hpp,trait,is_same.hpp,Documented,Type comparison concept,None,Low,Verified,C++20 concept wrapper around std::same_as
+include/xieite/trait/is_same_any.hpp,trait,is_same_any.hpp,Documented,Variadic comparison concept,std::concepts,Medium,Verified,Detects same type as any of multiple candidates
+include/xieite/trait/is_satisfied.hpp,trait,is_satisfied.hpp,Completed,Universal lambda predicate satisfaction checker,requires,Medium,Verified,Core utility for range value type constraints
+include/xieite/trait/is_satisfied_all.hpp,trait,is_satisfied_all.hpp,Documented,Satisfaction concept,is_satisfied,Low,Verified,Universal quantification over satisfaction predicate
+include/xieite/trait/is_satisfied_any.hpp,trait,is_satisfied_any.hpp,Documented,Satisfaction concept,is_satisfied,Low,Verified,Existential quantification over satisfaction predicate
+include/xieite/trait/is_satisfies.hpp,trait,is_satisfies.hpp,Documented,Satisfaction concept,None,Low,Verified,Basic satisfaction predicate evaluation
+include/xieite/trait/is_satisfies_any.hpp,trait,is_satisfies_any.hpp,Completed,Satisfies any of given predicates,is_satisfied fold,Medium,Verified,Disjunctive fold using is_satisfied concept
+include/xieite/trait/is_scalar.hpp,trait,is_scalar.hpp,Documented,Type classification concept,std::type_traits,Low,Verified,C++20 concept wrapper around std::is_scalar_v
+include/xieite/trait/is_scoped_enum.hpp,trait,is_scoped_enum.hpp,Completed,Scoped enum (enum class) detection,is_enum is_convertible_v underlying_type_t,Medium,Verified,Enum that is not convertible to underlying type
+include/xieite/trait/is_sized_range.hpp,trait,is_sized_range.hpp,Completed,Sized range with value type constraint,ranges is_satisfied,Medium,Verified,Extends std::sized_range with lambda predicate
+include/xieite/trait/is_special.hpp,trait,is_special.hpp,Completed,Template specialization detection,type_id rm_cv requires,High,Verified,Complex requires with lambda and type_id - implements std::specialization_of
+include/xieite/trait/is_special_any.hpp,trait,is_special_any.hpp,Documented,Advanced detection concept,Multiple,Medium,Verified,Detects special types from multiple categories
+include/xieite/trait/is_std_layout.hpp,trait,is_std_layout.hpp,Documented,Layout concept,std::type_traits,Low,Verified,C++20 concept wrapper around std::is_standard_layout_v
+include/xieite/trait/is_stream.hpp,trait,is_stream.hpp,Completed,Stream type detection,is_istream is_ostream,Low,Verified,Disjunction of input and output stream concepts
+include/xieite/trait/is_streamable_in.hpp,trait,is_streamable_in.hpp,Completed,Input stream compatibility,requires istream,Medium,Verified,Checks if type supports operator>> with istream
+include/xieite/trait/is_streamable_out.hpp,trait,is_streamable_out.hpp,Completed,Output stream compatibility,requires ostream,Medium,Verified,Checks if type supports operator<< with ostream
+include/xieite/trait/is_swappable.hpp,trait,is_swappable.hpp,Documented,Swappable concept,std::type_traits,Low,Verified,C++20 concept wrapper around std::is_swappable_v
+include/xieite/trait/is_swappable_with.hpp,trait,is_swappable_with.hpp,Documented,Swappable concept,std::type_traits,Low,Verified,C++20 concept wrapper around std::is_swappable_with_v
+include/xieite/trait/is_template.hpp,trait,is_template.hpp,Completed,Template specialization for all types,is_special fold,Medium,Verified,Fold expression using is_special
+include/xieite/trait/is_template_any.hpp,trait,is_template_any.hpp,Completed,Template specialization for any type,is_template fold,Medium,Verified,Disjunctive fold using is_template
+include/xieite/trait/is_tuple_like.hpp,trait,is_tuple_like.hpp,Documented,Structure concept,Multiple,Medium,Verified,Detects tuple-like types supporting structured binding
+include/xieite/trait/is_unbounded_array.hpp,trait,is_unbounded_array.hpp,Documented,Concept for unbounded array types,<type_traits>,Low,Verified,Wrapper for std::is_unbounded_array_v
+include/xieite/trait/is_union.hpp,trait,is_union.hpp,Documented,Type classification concept,std::type_traits,Low,Verified,C++20 concept wrapper around std::is_union_v
+include/xieite/trait/is_unscoped_enum.hpp,trait,is_unscoped_enum.hpp,Completed,Unscoped enum detection,is_enum is_scoped_enum negation,Medium,Verified,Enum that is not scoped (traditional enum)
+include/xieite/trait/is_unsigned.hpp,trait,is_unsigned.hpp,Completed,Unsigned integer concept (excluding bool),unsigned_integral same_as rm_cv,Medium,Verified,Unsigned integral concept with bool exclusion
+include/xieite/trait/is_v.hpp,trait,is_v.hpp,Completed,Volatile qualification detection (reference-aware),is_volatile_v rm_ref,Medium,Verified,Strips references before checking volatile qualification
+include/xieite/trait/is_v_referent.hpp,trait,is_v_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp, template specialization patterns,High,Verified,Documented in concepts.md - Referent Detection Concepts section
+include/xieite/trait/is_variadic_referent.hpp,trait,is_variadic_referent.hpp,Completed,Referent property detection concept for function types,rm_cvref.hpp, template specialization patterns,High,Verified,Documented in concepts.md - Referent Detection Concepts section
+include/xieite/trait/is_view.hpp,trait,is_view.hpp,Documented,,,,,
+include/xieite/trait/is_viewable_range.hpp,trait,is_viewable_range.hpp,Completed,Viewable range with value type constraint,ranges is_satisfied,Medium,Verified,Extends std::viewable_range with lambda predicate
+include/xieite/trait/is_vlref.hpp,trait,is_vlref.hpp,Completed,Volatile lvalue reference detection,is_v is_lref,Low,Verified,Composition of volatile and lvalue reference concepts
+include/xieite/trait/is_void.hpp,trait,is_void.hpp,Documented,Type classification concept,std::type_traits,Low,Verified,C++20 concept wrapper around std::is_void_v
+include/xieite/trait/is_vref.hpp,trait,is_vref.hpp,Completed,Volatile reference (any reference) detection,is_v is_ref,Low,Verified,Composition of volatile and any reference concepts
+include/xieite/trait/is_vrref.hpp,trait,is_vrref.hpp,Completed,Volatile rvalue reference detection,is_v is_rref,Low,Verified,Composition of volatile and rvalue reference concepts
+include/xieite/trait/is_wide_char.hpp,trait,is_wide_char.hpp,Documented,Character type concept,Multiple,Low,Verified,Detects wide character types (char16_t, char32_t, wchar_t)
+include/xieite/trait/maybe_base.hpp,trait,maybe_base.hpp,Completed,Conditional base class inheritance,conditional_t dummy,Medium,Verified,Used for optional feature inheritance patterns
+include/xieite/trait/maybe_ref.hpp,trait,maybe_ref.hpp,Completed,Optimal parameter passing strategy,conditional_t sizeof trivially_copyable_v,Medium,Verified,Automatically selects value vs const reference based on size and triviality
+include/xieite/trait/rm_c.hpp,trait,rm_c.hpp,Completed,Remove const qualifier type modification utility,<type_traits>,Low,Verified,Reference-aware const removal wrapping std::remove_const_t
+include/xieite/trait/rm_c_referent.hpp,trait,rm_c_referent.hpp,Completed,Remove const from reference referent type modification utility,None,Medium,Verified,Reference-aware const removal from what reference points to
+include/xieite/trait/rm_clref.hpp,trait,rm_clref.hpp,Completed,Remove const lvalue reference type modification utility,"rm_c.hpp, rm_lref.hpp",Low,Verified,Composite const and lvalue reference removal
+include/xieite/trait/rm_cp_assign.hpp,trait,rm_cp_assign.hpp,Completed,Remove copy assignment operator type modification utility,None,Medium,Verified,Special member function removal utility
+include/xieite/trait/rm_cp_ctor.hpp,trait,rm_cp_ctor.hpp,Completed,Remove copy constructor type modification utility,None,Medium,Verified,Special member function removal utility
+include/xieite/trait/rm_cref.hpp,trait,rm_cref.hpp,Completed,Remove const reference type modification utility,"rm_c.hpp, rm_ref.hpp",Medium,Verified,Composite const and generic reference removal
+include/xieite/trait/rm_crref.hpp,trait,rm_crref.hpp,Completed,Remove const rvalue reference type modification utility,"rm_c.hpp, rm_rref.hpp",Low,Verified,Composite const and rvalue reference removal
+include/xieite/trait/rm_cv.hpp,trait,rm_cv.hpp,Completed,Remove const volatile qualifiers type modification utility,<type_traits>,Low,Verified,Reference-aware CV qualifier removal wrapping std::remove_cv_t
+include/xieite/trait/rm_cvlref.hpp,trait,rm_cvlref.hpp,Completed,Remove const volatile lvalue reference type modification utility,"rm_cv.hpp, rm_lref.hpp",Low,Verified,Composite CV qualifier and lvalue reference removal
+include/xieite/trait/rm_cvref.hpp,trait,rm_cvref.hpp,Completed,Remove const volatile reference type modification utility,<type_traits>,Low,Verified,Reference-aware CV qualifier and reference removal wrapping std::remove_cvref_t
+include/xieite/trait/rm_cvrref.hpp,trait,rm_cvrref.hpp,Completed,Remove const volatile rvalue reference type modification utility,"rm_cv.hpp, rm_rref.hpp",Low,Verified,Composite CV qualifier and rvalue reference removal
+include/xieite/trait/rm_default_ctor.hpp,trait,rm_default_ctor.hpp,Completed,Remove default constructor type modification utility,None,Medium,Verified,Special member function removal utility
+include/xieite/trait/rm_lref.hpp,trait,rm_lref.hpp,Completed,Remove lvalue reference type modification utility,<type_traits>,Low,Verified,Reference removal wrapping std::remove_reference_t for lvalue refs
+include/xieite/trait/rm_lref_referent.hpp,trait,rm_lref_referent.hpp,Completed,Remove lvalue reference from referent type modification utility,None,Medium,Verified,Reference-aware lvalue reference removal from what reference points to
+include/xieite/trait/rm_mv_assign.hpp,trait,rm_mv_assign.hpp,Completed,Remove move assignment operator type modification utility,None,Medium,Verified,Special member function removal utility
+include/xieite/trait/rm_mv_ctor.hpp,trait,rm_mv_ctor.hpp,Completed,Remove move constructor type modification utility,None,Medium,Verified,Special member function removal utility
+include/xieite/trait/rm_noex_referent.hpp,trait,rm_noex_referent.hpp,Completed,Remove noexcept from function referent type modification utility,None,Medium,Verified,Reference-aware noexcept removal from function types
+include/xieite/trait/rm_ptr.hpp,trait,rm_ptr.hpp,Completed,Remove pointer level type modification utility,<type_traits>,Low,Verified,Pointer indirection removal wrapping std::remove_pointer_t
+include/xieite/trait/rm_ref.hpp,trait,rm_ref.hpp,Completed,Remove reference type modification utility,<type_traits>,Low,Verified,Generic reference removal wrapping std::remove_reference_t
+include/xieite/trait/rm_ref_referent.hpp,trait,rm_ref_referent.hpp,Completed,Remove reference from referent type modification utility,None,Medium,Verified,Reference-aware reference removal from what reference points to
+include/xieite/trait/rm_rref.hpp,trait,rm_rref.hpp,Completed,Remove rvalue reference type modification utility,<type_traits>,Low,Verified,Reference removal wrapping std::remove_reference_t for rvalue refs
+include/xieite/trait/rm_rref_referent.hpp,trait,rm_rref_referent.hpp,Completed,Remove rvalue reference from referent type modification utility,None,Medium,Verified,Reference-aware rvalue reference removal from what reference points to
+include/xieite/trait/rm_v.hpp,trait,rm_v.hpp,Completed,Remove volatile qualifier type modification utility,<type_traits>,Low,Verified,Reference-aware volatile removal wrapping std::remove_volatile_t
+include/xieite/trait/rm_v_referent.hpp,trait,rm_v_referent.hpp,Completed,Remove volatile from reference referent type modification utility,None,Medium,Verified,Reference-aware volatile removal from what reference points to
+include/xieite/trait/rm_variadic_referent.hpp,trait,rm_variadic_referent.hpp,Completed,Remove variadic parameters from function referent type modification utility,"meta/type_id.hpp, rm_cvref.hpp",Medium,Verified,Reference-aware variadic parameter removal from function types
+include/xieite/trait/rm_vlref.hpp,trait,rm_vlref.hpp,Completed,Remove volatile lvalue reference type modification utility,"rm_v.hpp, rm_lref.hpp",Low,Verified,Composite volatile and lvalue reference removal
+include/xieite/trait/rm_vref.hpp,trait,rm_vref.hpp,Completed,Remove volatile reference type modification utility,"rm_v.hpp, rm_ref.hpp",Medium,Verified,Composite volatile and generic reference removal
+include/xieite/trait/rm_vrref.hpp,trait,rm_vrref.hpp,Completed,Remove volatile rvalue reference type modification utility,"rm_v.hpp, rm_rref.hpp",Low,Verified,Composite volatile and rvalue reference removal
+include/xieite/trait/set_c.hpp,trait,set_c.hpp,Completed,Conditionally set const type modification utility,"add_c.hpp, rm_c.hpp",Low,Verified,Conditional const qualification behavior
+include/xieite/trait/set_c_referent.hpp,trait,set_c_referent.hpp,Completed,Conditionally set const referent type modification utility,"add_c_referent.hpp, rm_c_referent.hpp",Medium,Verified,Conditional const qualification of referent behavior
+include/xieite/trait/set_clref.hpp,trait,set_clref.hpp,Completed,Conditionally set const lvalue reference type modification utility,"add_clref.hpp, rm_clref.hpp",Low,Verified,Conditional const lvalue reference qualification behavior
+include/xieite/trait/set_cp_assign.hpp,trait,set_cp_assign.hpp,Completed,Conditionally set copy assignment operator type modification utility,"add_cp_assign.hpp, rm_cp_assign.hpp",Medium,Verified,Conditional copy assignment operator behavior
+include/xieite/trait/set_cp_ctor.hpp,trait,set_cp_ctor.hpp,Completed,Conditionally set copy constructor type modification utility,"add_cp_ctor.hpp, rm_cp_ctor.hpp",Medium,Verified,Conditional copy constructor behavior
+include/xieite/trait/set_crref.hpp,trait,set_crref.hpp,Completed,Conditionally set const rvalue reference type modification utility,"add_crref.hpp, rm_crref.hpp",Low,Verified,Conditional const rvalue reference qualification behavior
+include/xieite/trait/set_cv.hpp,trait,set_cv.hpp,Completed,Conditionally set const volatile type modification utility,"add_cv.hpp, rm_cv.hpp",Low,Verified,Conditional const volatile qualification behavior
+include/xieite/trait/set_cvlref.hpp,trait,set_cvlref.hpp,Completed,Conditionally set const volatile lvalue reference type modification utility,"add_cvlref.hpp, rm_cvlref.hpp",Low,Verified,Conditional const volatile lvalue reference qualification behavior
+include/xieite/trait/set_cvrref.hpp,trait,set_cvrref.hpp,Completed,Conditionally set const volatile rvalue reference type modification utility,"add_cvrref.hpp, rm_cvrref.hpp",Low,Verified,Conditional const volatile rvalue reference qualification behavior
+include/xieite/trait/set_default_ctor.hpp,trait,set_default_ctor.hpp,Completed,Conditionally set default constructor type modification utility,"add_default_ctor.hpp, rm_default_ctor.hpp",Medium,Verified,Conditional default constructor behavior
+include/xieite/trait/set_lref.hpp,trait,set_lref.hpp,Completed,Conditionally set lvalue reference type modification utility,"add_lref.hpp, rm_lref.hpp",Low,Verified,Conditional lvalue reference qualification behavior
+include/xieite/trait/set_lref_referent.hpp,trait,set_lref_referent.hpp,Completed,Conditionally set lvalue reference referent type modification utility,"add_lref_referent.hpp, rm_lref_referent.hpp",Medium,Verified,Conditional lvalue reference qualification of referent behavior
+include/xieite/trait/set_mv_assign.hpp,trait,set_mv_assign.hpp,Completed,Conditionally set move assignment operator type modification utility,"add_mv_assign.hpp, rm_mv_assign.hpp",Medium,Verified,Conditional move assignment operator behavior
+include/xieite/trait/set_mv_ctor.hpp,trait,set_mv_ctor.hpp,Completed,Conditionally set move constructor type modification utility,"add_mv_ctor.hpp, rm_mv_ctor.hpp",Medium,Verified,Conditional move constructor behavior
+include/xieite/trait/set_noex_referent.hpp,trait,set_noex_referent.hpp,Completed,Conditionally set noexcept referent type modification utility,"add_noex_referent.hpp, rm_noex_referent.hpp",Medium,Verified,Conditional noexcept qualification of referent behavior
+include/xieite/trait/set_ptr.hpp,trait,set_ptr.hpp,Completed,Conditionally set pointer type modification utility,"add_ptr.hpp, rm_ptr.hpp",Low,Verified,Conditional pointer qualification behavior
+include/xieite/trait/set_rref.hpp,trait,set_rref.hpp,Completed,Conditionally set rvalue reference type modification utility,"add_rref.hpp, rm_rref.hpp",Low,Verified,Conditional rvalue reference qualification behavior
+include/xieite/trait/set_rref_referent.hpp,trait,set_rref_referent.hpp,Completed,Conditionally set rvalue reference referent type modification utility,"add_rref_referent.hpp, rm_rref_referent.hpp",Medium,Verified,Conditional rvalue reference qualification of referent behavior
+include/xieite/trait/set_v.hpp,trait,set_v.hpp,Completed,Conditionally set volatile type modification utility,"add_v.hpp, rm_v.hpp",Low,Verified,Conditional volatile qualification behavior
+include/xieite/trait/set_v_referent.hpp,trait,set_v_referent.hpp,Completed,Conditionally set volatile referent type modification utility,"add_v_referent.hpp, rm_v_referent.hpp",Medium,Verified,Conditional volatile qualification of referent behavior
+include/xieite/trait/set_variadic_referent.hpp,trait,set_variadic_referent.hpp,Completed,Conditionally set variadic referent type modification utility,"add_variadic_referent.hpp, rm_variadic_referent.hpp",Medium,Verified,Conditional variadic parameter qualification of referent behavior
+include/xieite/trait/set_vlref.hpp,trait,set_vlref.hpp,Completed,Conditionally set volatile lvalue reference type modification utility,"add_vlref.hpp, rm_vlref.hpp",Low,Verified,Conditional volatile lvalue reference qualification behavior
+include/xieite/trait/set_vrref.hpp,trait,set_vrref.hpp,Completed,Conditionally set volatile rvalue reference type modification utility,"add_vrref.hpp, rm_vrref.hpp",Low,Verified,Conditional volatile rvalue reference qualification behavior
+include/xieite/trait/try_signed.hpp,trait,try_signed.hpp,Documented,Type modification trait,std::type_traits,Low,Verified,Safe signed type conversion with fallback
+include/xieite/trait/try_unsigned.hpp,trait,try_unsigned.hpp,Documented,Type modification trait,std::type_traits,Low,Verified,Safe unsigned type conversion with fallback
