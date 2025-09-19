@@ -1,0 +1,105 @@
+name: Deploy mdBook to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - '.github/workflows/deploy-mdbook.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+
+      - name: Cache Cargo dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+
+      - name: Setup mdBook
+        uses: peaceiris/actions-mdbook@v2
+        with:
+          mdbook-version: '0.4.37'  # Use specific version for stability
+
+      - name: Install mdbook-mermaid
+        run: |
+          if ! command -v mdbook-mermaid &> /dev/null; then
+            echo "Installing mdbook-mermaid..."
+            cargo install mdbook-mermaid --version 0.15.0
+          else
+            echo "mdbook-mermaid already cached"
+          fi
+
+      - name: Setup mdbook-mermaid in docs
+        run: |
+          cd docs
+          mdbook-mermaid install
+
+      - name: Verify Mermaid files
+        run: |
+          cd docs
+          if [ -f "mermaid.min.js" ] && [ -f "mermaid-init.js" ]; then
+            echo "✓ Mermaid files are present"
+          else
+            echo "✗ Mermaid files missing, reinstalling..."
+            mdbook-mermaid install --force
+          fi
+
+      - name: Build mdBook
+        run: |
+          cd docs
+          mdbook build
+
+      - name: Verify build output
+        run: |
+          if [ -d "docs/book" ]; then
+            echo "✓ Build successful"
+            ls -la docs/book/
+          else
+            echo "✗ Build failed"
+            exit 1
+          fi
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'docs/book'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
