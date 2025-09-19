@@ -2,7 +2,7 @@ name: Deploy mdBook to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, opus-generated-docs]  # Add your branch here
     paths:
       - 'docs/**'
       - '.github/workflows/deploy-mdbook.yml'
@@ -22,6 +22,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Debug - List repository contents
+        run: |
+          echo "Current directory: $(pwd)"
+          echo "Repository contents:"
+          ls -la
+          echo "Checking for docs directory:"
+          if [ -d "docs" ]; then
+            echo "✓ docs directory exists"
+            ls -la docs/
+          else
+            echo "✗ docs directory NOT found"
+            echo "Creating a placeholder error - docs directory is missing"
+            exit 1
+          fi
 
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
